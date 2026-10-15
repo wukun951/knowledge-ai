@@ -1,6 +1,6 @@
 "use strict";
 
-const DATA_VERSION = "20261017-1";
+const DATA_VERSION = "20261017-2";
 const PAGE_SIZE = 24;
 const COMPACT_PAGE_SIZE = 12;
 const ARENA_SNAPSHOT_DATE = "2026-08-30";
