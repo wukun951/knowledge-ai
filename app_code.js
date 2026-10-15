@@ -1,6 +1,6 @@
 "use strict";
 
-const DATA_VERSION = "20261008-3";
+const DATA_VERSION = "20261016-2";
 const PAGE_SIZE = 24;
 const COMPACT_PAGE_SIZE = 12;
 const ARENA_SNAPSHOT_DATE = "2026-08-30";
@@ -4599,12 +4599,13 @@ async function copyPanelContent() {
   }
 }
 
-function showLoadError() {
+function showLoadError(detail = "") {
   dom.loadingOverlay.classList.add("is-error");
   dom.loadingOverlay.setAttribute("role", "alert");
   dom.loadingOverlay.setAttribute("aria-busy", "false");
   dom.loadingTitle.textContent = translate("loadError");
-  dom.loadingOverlay.querySelectorAll("button").forEach((button) => button.remove());
+  dom.loadingOverlay.querySelectorAll("button, .loading-detail").forEach((element) => element.remove());
+  if (detail) dom.loadingOverlay.append(createElement("small", "loading-detail", String(detail).slice(0, 160)));
   const retry = createElement("button", "secondary-button", translate("retry"));
   retry.type = "button";
   retry.addEventListener("click", () => {
@@ -4612,29 +4613,46 @@ function showLoadError() {
     dom.loadingOverlay.setAttribute("role", "status");
     dom.loadingOverlay.setAttribute("aria-busy", "true");
     dom.loadingTitle.textContent = translate("indexLoading");
+    dom.loadingOverlay.querySelectorAll(".loading-detail").forEach((element) => element.remove());
     loadData();
   }, { once: true });
   dom.loadingOverlay.append(retry);
+}
+
+window.__kcPending = window.__kcPending || new Set();
+function fetchWithTimeout(url, options = {}, timeoutMs = 20000) {
+  const name = String(url).replace(/^\.\//, "").split("?")[0];
+  const controller = typeof AbortController === "function" ? new AbortController() : null;
+  const timer = controller ? setTimeout(() => controller.abort(), timeoutMs) : null;
+  window.__kcPending.add(name);
+  return fetch(url, controller ? { ...options, signal: controller.signal } : options)
+    .catch((error) => {
+      throw new Error(`${name}: ${error?.name === "AbortError" ? "timeout" : (error?.message || "network error")}`);
+    })
+    .finally(() => {
+      if (timer) clearTimeout(timer);
+      window.__kcPending.delete(name);
+    });
 }
 
 async function loadData() {
   if (state.loadPromise) return state.loadPromise;
   state.loadPromise = (async () => {
     try {
-      const itemsResponse = await fetch(`./data.json?v=${DATA_VERSION}`, { cache: "default" });
+      const itemsResponse = await fetchWithTimeout(`./data.json?v=${DATA_VERSION}`, { cache: "default" }, 45000);
       if (!itemsResponse.ok) throw new Error("Failed to load index data");
       const rawItems = await itemsResponse.json();
       let modelItems = rawItems.filter((item) => item?.view === "models" && !/\bterra\b/i.test(`${localizedText(item.title)} ${item.id || ""} ${item.modelId || ""}`));
       const optionalResources = await Promise.allSettled([
-        fetch(`./model-catalog.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
-        fetch(`./artificial-analysis-snapshot.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
-        fetch(`./media-model-leaderboards-snapshot.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
-        fetch(`./skill-leaderboard-snapshot.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
-        fetch(`./research-content.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
-        fetch(`./lab-experiments.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
-        fetch(`./workflows.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
-        fetch(`./workflow-research-queue.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
-        fetch(`./content-index.generated.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
+        fetchWithTimeout(`./model-catalog.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
+        fetchWithTimeout(`./artificial-analysis-snapshot.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
+        fetchWithTimeout(`./media-model-leaderboards-snapshot.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
+        fetchWithTimeout(`./skill-leaderboard-snapshot.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
+        fetchWithTimeout(`./research-content.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
+        fetchWithTimeout(`./lab-experiments.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
+        fetchWithTimeout(`./workflows.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
+        fetchWithTimeout(`./workflow-research-queue.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
+        fetchWithTimeout(`./content-index.generated.json?v=${DATA_VERSION}`, { cache: "default" }, 45000).then((response) => response.ok ? response.json() : null),
       ]);
       const [modelCatalog, artificialAnalysis, mediaModelLeaderboards, skillLeaderboard, researchContent, labExperiments, workflowBundle, workflowQueue, generatedContent] = optionalResources.map((result) => (
         result.status === "fulfilled" ? result.value : null
@@ -4699,7 +4717,7 @@ async function loadData() {
       document.body.classList.remove("is-loading");
     } catch (error) {
       console.error("Knowledge index load failed", error);
-      showLoadError();
+      showLoadError(error?.message);
     } finally {
       state.loadPromise = null;
     }
@@ -4715,13 +4733,13 @@ function loadContentMap() {
   state.contentStatus = "loading";
   const researchPromise = state.researchContent
     ? Promise.resolve(state.researchContent)
-    : fetch(`./research-content.json?v=${DATA_VERSION}`, { cache: "default" })
+    : fetchWithTimeout(`./research-content.json?v=${DATA_VERSION}`, { cache: "default" })
       .then((response) => response.ok ? response.json() : {})
       .catch(() => ({}));
   state.contentPromise = Promise.allSettled([
-    fetch(`./skillContentMap.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : {}),
-    fetch(`./knowledge-content.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : {}),
-    fetch(`./content-details.generated.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => {
+    fetchWithTimeout(`./skillContentMap.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : {}),
+    fetchWithTimeout(`./knowledge-content.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : {}),
+    fetchWithTimeout(`./content-details.generated.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => {
       if (!response.ok) throw new Error("Structured detail request failed");
       return response.json();
     }),

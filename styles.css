@@ -5634,3 +5634,13 @@ body[data-view]:not([data-view="home"]) .knowledge-field {
     display: none;
   }
 }
+
+.loading-overlay .loading-detail {
+  margin-top: 10px;
+  max-width: min(520px, 86vw);
+  color: var(--ink-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  word-break: break-all;
+}
