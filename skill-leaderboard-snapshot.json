@@ -1,0 +1,1823 @@
+{
+  "source": "skills.sh",
+  "source_url": "https://skills.sh/",
+  "captured_at": "2026-10-07T18:54:37.915Z",
+  "method": "Public skills.sh initial payload and client-disclosed all-time pagination; no login, private endpoint, or inferred usage data.",
+  "pagination_pages_read": 1,
+  "total_skills_available": 9892,
+  "ranking_note": "Install totals and the latest published weekly install count come from skills.sh. This is a curated task-category selection, not the source's global ranking or a quality score.",
+  "discovery_sources": [
+    {
+      "name": "skills.sh",
+      "role": "Public install metrics",
+      "url": "https://skills.sh/"
+    },
+    {
+      "name": "Anthropic Skills",
+      "role": "Official Skill collection",
+      "url": "https://github.com/anthropics/skills"
+    },
+    {
+      "name": "Vercel Agent Skills",
+      "role": "Official Skill collection",
+      "url": "https://github.com/vercel-labs/agent-skills"
+    },
+    {
+      "name": "Google Stitch Skills",
+      "role": "Official design Skill collection",
+      "url": "https://github.com/google-labs-code/stitch-skills"
+    },
+    {
+      "name": "Remotion Skills",
+      "role": "Official video Skill collection",
+      "url": "https://github.com/remotion-dev/skills"
+    },
+    {
+      "name": "Lark CLI",
+      "role": "Official work and presentation Skills",
+      "url": "https://github.com/larksuite/cli"
+    },
+    {
+      "name": "Google Workspace CLI",
+      "role": "Official document and presentation Skills",
+      "url": "https://github.com/googleworkspace/cli"
+    },
+    {
+      "name": "Prisma Skills",
+      "role": "Official data Skill collection",
+      "url": "https://github.com/prisma/skills"
+    },
+    {
+      "name": "Supabase Agent Skills",
+      "role": "Official database Skill collection",
+      "url": "https://github.com/supabase/agent-skills"
+    }
+  ],
+  "total_skills_observed": 800,
+  "skills": [
+    {
+      "id": "anthropics--skills--frontend-design",
+      "selection_order": 1,
+      "name": "frontend-design",
+      "title": {
+        "zh": "Frontend Design",
+        "en": "Frontend Design"
+      },
+      "source": "anthropics/skills",
+      "skill_id": "frontend-design",
+      "skill_url": "https://skills.sh/anthropics/skills/frontend-design",
+      "installs": 960403,
+      "weekly_installs": [
+        24597,
+        26324,
+        26207,
+        24029,
+        22329,
+        22390,
+        23150,
+        24769
+      ],
+      "latest_week_installs": 24769,
+      "eight_week_average": 24224,
+      "is_official": true,
+      "category": "design",
+      "description": "把网页界面做出更清晰的层级、布局和视觉质感。"
+    },
+    {
+      "id": "vercel-labs--agent-skills--web-design-guidelines",
+      "selection_order": 2,
+      "name": "web-design-guidelines",
+      "title": {
+        "zh": "Web Design Guidelines",
+        "en": "Web Design Guidelines"
+      },
+      "source": "vercel-labs/agent-skills",
+      "skill_id": "web-design-guidelines",
+      "skill_url": "https://skills.sh/vercel-labs/agent-skills/web-design-guidelines",
+      "installs": 708079,
+      "weekly_installs": [
+        17957,
+        21200,
+        23928,
+        19714,
+        18182,
+        20722,
+        21304,
+        26380
+      ],
+      "latest_week_installs": 26380,
+      "eight_week_average": 21173,
+      "is_official": true,
+      "category": "design",
+      "description": "按 Vercel 的 Web 设计规范检查页面结构、交互和可读性。"
+    },
+    {
+      "id": "leonxlnx--taste-skill--design-taste-frontend",
+      "selection_order": 3,
+      "name": "design-taste-frontend",
+      "title": {
+        "zh": "Design Taste Frontend",
+        "en": "Design Taste Frontend"
+      },
+      "source": "leonxlnx/taste-skill",
+      "skill_id": "design-taste-frontend",
+      "skill_url": "https://skills.sh/leonxlnx/taste-skill/design-taste-frontend",
+      "installs": 574695,
+      "weekly_installs": [
+        24370,
+        26611,
+        30536,
+        26670,
+        24448,
+        24767,
+        28341,
+        33886
+      ],
+      "latest_week_installs": 33886,
+      "eight_week_average": 27454,
+      "is_official": false,
+      "category": "design",
+      "description": "提升前端页面的审美判断、构图和整体完成度。"
+    },
+    {
+      "id": "leonxlnx--taste-skill--high-end-visual-design",
+      "selection_order": 4,
+      "name": "high-end-visual-design",
+      "title": {
+        "zh": "High-End Visual Design",
+        "en": "High-End Visual Design"
+      },
+      "source": "leonxlnx/taste-skill",
+      "skill_id": "high-end-visual-design",
+      "skill_url": "https://skills.sh/leonxlnx/taste-skill/high-end-visual-design",
+      "installs": 417777,
+      "weekly_installs": [
+        16010,
+        17995,
+        21031,
+        18522,
+        16884,
+        16838,
+        19325,
+        22911
+      ],
+      "latest_week_installs": 22911,
+      "eight_week_average": 18690,
+      "is_official": false,
+      "category": "design",
+      "description": "为网页建立更高级的视觉语言、材质和信息层级。"
+    },
+    {
+      "id": "leonxlnx--taste-skill--redesign-existing-projects",
+      "selection_order": 5,
+      "name": "redesign-existing-projects",
+      "title": {
+        "zh": "Redesign Existing Projects",
+        "en": "Redesign Existing Projects"
+      },
+      "source": "leonxlnx/taste-skill",
+      "skill_id": "redesign-existing-projects",
+      "skill_url": "https://skills.sh/leonxlnx/taste-skill/redesign-existing-projects",
+      "installs": 415657,
+      "weekly_installs": [
+        16010,
+        18019,
+        21079,
+        18511,
+        17011,
+        17088,
+        19513,
+        23614
+      ],
+      "latest_week_installs": 23614,
+      "eight_week_average": 18856,
+      "is_official": false,
+      "category": "design",
+      "description": "针对已有项目做界面重设计和体验升级。"
+    },
+    {
+      "id": "leonxlnx--taste-skill--minimalist-ui",
+      "selection_order": 6,
+      "name": "minimalist-ui",
+      "title": {
+        "zh": "Minimalist UI",
+        "en": "Minimalist UI"
+      },
+      "source": "leonxlnx/taste-skill",
+      "skill_id": "minimalist-ui",
+      "skill_url": "https://skills.sh/leonxlnx/taste-skill/minimalist-ui",
+      "installs": 385509,
+      "weekly_installs": [
+        14581,
+        16805,
+        19809,
+        17361,
+        15933,
+        15913,
+        18195,
+        21473
+      ],
+      "latest_week_installs": 21473,
+      "eight_week_average": 17509,
+      "is_official": false,
+      "category": "design",
+      "description": "用克制的排版、留白和组件减少界面噪音。"
+    },
+    {
+      "id": "leonxlnx--taste-skill--industrial-brutalist-ui",
+      "selection_order": 7,
+      "name": "industrial-brutalist-ui",
+      "title": {
+        "zh": "Industrial Brutalist UI",
+        "en": "Industrial Brutalist UI"
+      },
+      "source": "leonxlnx/taste-skill",
+      "skill_id": "industrial-brutalist-ui",
+      "skill_url": "https://skills.sh/leonxlnx/taste-skill/industrial-brutalist-ui",
+      "installs": 360798,
+      "weekly_installs": [
+        13544,
+        15966,
+        19004,
+        16532,
+        15147,
+        15149,
+        17243,
+        20259
+      ],
+      "latest_week_installs": 20259,
+      "eight_week_average": 16606,
+      "is_official": false,
+      "category": "design",
+      "description": "用工业感、结构化和强对比建立独特界面风格。"
+    },
+    {
+      "id": "leonxlnx--taste-skill--brandkit",
+      "selection_order": 8,
+      "name": "brandkit",
+      "title": {
+        "zh": "Brandkit",
+        "en": "Brandkit"
+      },
+      "source": "leonxlnx/taste-skill",
+      "skill_id": "brandkit",
+      "skill_url": "https://skills.sh/leonxlnx/taste-skill/brandkit",
+      "installs": 352206,
+      "weekly_installs": [
+        14425,
+        16555,
+        19561,
+        17104,
+        15576,
+        15566,
+        17795,
+        20995
+      ],
+      "latest_week_installs": 20995,
+      "eight_week_average": 17197,
+      "is_official": false,
+      "category": "design",
+      "description": "把品牌色、字体、图形和组件整理成可复用的视觉系统。"
+    },
+    {
+      "id": "leonxlnx--taste-skill--imagegen-frontend-web",
+      "selection_order": 9,
+      "name": "imagegen-frontend-web",
+      "title": {
+        "zh": "Imagegen Frontend Web",
+        "en": "Imagegen Frontend Web"
+      },
+      "source": "leonxlnx/taste-skill",
+      "skill_id": "imagegen-frontend-web",
+      "skill_url": "https://skills.sh/leonxlnx/taste-skill/imagegen-frontend-web",
+      "installs": 343873,
+      "weekly_installs": [
+        13923,
+        16226,
+        19270,
+        16806,
+        15322,
+        15297,
+        17383,
+        20415
+      ],
+      "latest_week_installs": 20415,
+      "eight_week_average": 16830,
+      "is_official": false,
+      "category": "design",
+      "description": "规划 AI 生成图片在网页中的使用方式和展示效果。"
+    },
+    {
+      "id": "leonxlnx--taste-skill--image-to-code",
+      "selection_order": 10,
+      "name": "image-to-code",
+      "title": {
+        "zh": "Image to Code",
+        "en": "Image to Code"
+      },
+      "source": "leonxlnx/taste-skill",
+      "skill_id": "image-to-code",
+      "skill_url": "https://skills.sh/leonxlnx/taste-skill/image-to-code",
+      "installs": 348169,
+      "weekly_installs": [
+        13825,
+        16429,
+        20314,
+        17365,
+        15672,
+        15721,
+        17962,
+        21385
+      ],
+      "latest_week_installs": 21385,
+      "eight_week_average": 17334,
+      "is_official": false,
+      "category": "design",
+      "description": "根据界面图片拆解布局并转成前端实现方案。"
+    },
+    {
+      "id": "leonxlnx--taste-skill--imagegen-frontend-mobile",
+      "selection_order": 11,
+      "name": "imagegen-frontend-mobile",
+      "title": {
+        "zh": "Imagegen Frontend Mobile",
+        "en": "Imagegen Frontend Mobile"
+      },
+      "source": "leonxlnx/taste-skill",
+      "skill_id": "imagegen-frontend-mobile",
+      "skill_url": "https://skills.sh/leonxlnx/taste-skill/imagegen-frontend-mobile",
+      "installs": 337843,
+      "weekly_installs": [
+        13656,
+        16058,
+        19077,
+        16631,
+        15223,
+        15121,
+        17209,
+        20204
+      ],
+      "latest_week_installs": 20204,
+      "eight_week_average": 16647,
+      "is_official": false,
+      "category": "design",
+      "description": "为移动端网页规划生成式视觉和界面表达。"
+    },
+    {
+      "id": "leonxlnx--taste-skill--stitch-design-taste",
+      "selection_order": 12,
+      "name": "stitch-design-taste",
+      "title": {
+        "zh": "Stitch Design Taste",
+        "en": "Stitch Design Taste"
+      },
+      "source": "leonxlnx/taste-skill",
+      "skill_id": "stitch-design-taste",
+      "skill_url": "https://skills.sh/leonxlnx/taste-skill/stitch-design-taste",
+      "installs": 358971,
+      "weekly_installs": [
+        13503,
+        15935,
+        18979,
+        16469,
+        15111,
+        15075,
+        17157,
+        20191
+      ],
+      "latest_week_installs": 20191,
+      "eight_week_average": 16553,
+      "is_official": false,
+      "category": "design",
+      "description": "把 Google Stitch 生成的界面继续打磨成更完整的设计。"
+    },
+    {
+      "id": "google-labs-code--stitch-skills--design-md",
+      "selection_order": 13,
+      "name": "design-md",
+      "title": {
+        "zh": "Design MD",
+        "en": "Design MD"
+      },
+      "source": "google-labs-code/stitch-skills",
+      "skill_id": "design-md",
+      "skill_url": "https://skills.sh/google-labs-code/stitch-skills/design-md",
+      "installs": 63084,
+      "weekly_installs": [
+        804,
+        685,
+        623,
+        534,
+        594,
+        571,
+        660,
+        750
+      ],
+      "latest_week_installs": 750,
+      "eight_week_average": 653,
+      "is_official": true,
+      "category": "design",
+      "description": "从界面需求整理设计令牌、组件规则和页面规范。"
+    },
+    {
+      "id": "google-labs-code--stitch-skills--shadcn-ui",
+      "selection_order": 14,
+      "name": "shadcn-ui",
+      "title": {
+        "zh": "shadcn/ui",
+        "en": "shadcn/ui"
+      },
+      "source": "google-labs-code/stitch-skills",
+      "skill_id": "shadcn-ui",
+      "skill_url": "https://skills.sh/google-labs-code/stitch-skills/shadcn-ui",
+      "installs": 52192,
+      "weekly_installs": [
+        720,
+        629,
+        550,
+        461,
+        519,
+        494,
+        486,
+        481
+      ],
+      "latest_week_installs": 481,
+      "eight_week_average": 543,
+      "is_official": true,
+      "category": "design",
+      "description": "用 shadcn/ui 的组合方式搭建一致的界面组件。"
+    },
+    {
+      "id": "anthropics--skills--canvas-design",
+      "selection_order": 15,
+      "name": "canvas-design",
+      "title": {
+        "zh": "Canvas Design",
+        "en": "Canvas Design"
+      },
+      "source": "anthropics/skills",
+      "skill_id": "canvas-design",
+      "skill_url": "https://skills.sh/anthropics/skills/canvas-design",
+      "installs": 114403,
+      "weekly_installs": [
+        2368,
+        2265,
+        2349,
+        2292,
+        1920,
+        2085,
+        2062,
+        2553
+      ],
+      "latest_week_installs": 2553,
+      "eight_week_average": 2237,
+      "is_official": true,
+      "category": "design",
+      "description": "用 Canvas 和程序化图形完成海报、图案与视觉创作。"
+    },
+    {
+      "id": "anthropics--skills--brand-guidelines",
+      "selection_order": 16,
+      "name": "brand-guidelines",
+      "title": {
+        "zh": "Brand Guidelines",
+        "en": "Brand Guidelines"
+      },
+      "source": "anthropics/skills",
+      "skill_id": "brand-guidelines",
+      "skill_url": "https://skills.sh/anthropics/skills/brand-guidelines",
+      "installs": 100470,
+      "weekly_installs": [
+        2040,
+        3999,
+        4557,
+        3181,
+        3016,
+        2945,
+        3085,
+        2930
+      ],
+      "latest_week_installs": 2930,
+      "eight_week_average": 3219,
+      "is_official": true,
+      "category": "design",
+      "description": "把品牌规范转成可执行的内容和设计约束。"
+    },
+    {
+      "id": "anthropics--skills--theme-factory",
+      "selection_order": 17,
+      "name": "theme-factory",
+      "title": {
+        "zh": "Theme Factory",
+        "en": "Theme Factory"
+      },
+      "source": "anthropics/skills",
+      "skill_id": "theme-factory",
+      "skill_url": "https://skills.sh/anthropics/skills/theme-factory",
+      "installs": 89609,
+      "weekly_installs": [
+        1879,
+        1780,
+        1881,
+        1855,
+        1564,
+        1691,
+        1577,
+        1770
+      ],
+      "latest_week_installs": 1770,
+      "eight_week_average": 1750,
+      "is_official": true,
+      "category": "design",
+      "description": "为文档、演示和网页快速生成成套主题风格。"
+    },
+    {
+      "id": "anthropics--skills--web-artifacts-builder",
+      "selection_order": 18,
+      "name": "web-artifacts-builder",
+      "title": {
+        "zh": "Web Artifacts Builder",
+        "en": "Web Artifacts Builder"
+      },
+      "source": "anthropics/skills",
+      "skill_id": "web-artifacts-builder",
+      "skill_url": "https://skills.sh/anthropics/skills/web-artifacts-builder",
+      "installs": 106519,
+      "weekly_installs": [
+        2215,
+        2053,
+        2106,
+        1974,
+        1691,
+        2187,
+        1772,
+        1995
+      ],
+      "latest_week_installs": 1995,
+      "eight_week_average": 1999,
+      "is_official": true,
+      "category": "design",
+      "description": "构建可交互的网页原型、组件和可视化产物。"
+    },
+    {
+      "id": "emilkowalski--skills--emil-design-eng",
+      "selection_order": 19,
+      "name": "emil-design-eng",
+      "title": {
+        "zh": "Emil Design Engineering",
+        "en": "Emil Design Engineering"
+      },
+      "source": "emilkowalski/skills",
+      "skill_id": "emil-design-eng",
+      "skill_url": "https://skills.sh/emilkowalski/skills/emil-design-eng",
+      "installs": 330829,
+      "weekly_installs": [
+        14333,
+        13538,
+        14872,
+        14315,
+        13348,
+        17740,
+        18074,
+        19408
+      ],
+      "latest_week_installs": 19408,
+      "eight_week_average": 15704,
+      "is_official": false,
+      "category": "design",
+      "description": "在设计与工程之间建立细腻、可实现的界面方案。"
+    },
+    {
+      "id": "emilkowalski--skills--apple-design",
+      "selection_order": 20,
+      "name": "apple-design",
+      "title": {
+        "zh": "Apple Design",
+        "en": "Apple Design"
+      },
+      "source": "emilkowalski/skills",
+      "skill_id": "apple-design",
+      "skill_url": "https://skills.sh/emilkowalski/skills/apple-design",
+      "installs": 192007,
+      "weekly_installs": [
+        13934,
+        12938,
+        14308,
+        13938,
+        13069,
+        14691,
+        15936,
+        16618
+      ],
+      "latest_week_installs": 16618,
+      "eight_week_average": 14429,
+      "is_official": false,
+      "category": "design",
+      "description": "参考 Apple 式信息层级、动效和精致交互设计界面。"
+    },
+    {
+      "id": "vercel-labs--agent-skills--vercel-react-best-practices",
+      "selection_order": 21,
+      "name": "vercel-react-best-practices",
+      "title": {
+        "zh": "Vercel React Best Practices",
+        "en": "Vercel React Best Practices"
+      },
+      "source": "vercel-labs/agent-skills",
+      "skill_id": "vercel-react-best-practices",
+      "skill_url": "https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices",
+      "installs": 777205,
+      "weekly_installs": [
+        17339,
+        19720,
+        19977,
+        16627,
+        16436,
+        19251,
+        18945,
+        21814
+      ],
+      "latest_week_installs": 21814,
+      "eight_week_average": 18764,
+      "is_official": true,
+      "category": "build",
+      "description": "按 Vercel 经验优化 React 组件、渲染和性能。"
+    },
+    {
+      "id": "vercel-labs--agent-browser--agent-browser",
+      "selection_order": 22,
+      "name": "agent-browser",
+      "title": {
+        "zh": "Agent Browser",
+        "en": "Agent Browser"
+      },
+      "source": "vercel-labs/agent-browser",
+      "skill_id": "agent-browser",
+      "skill_url": "https://skills.sh/vercel-labs/agent-browser/agent-browser",
+      "installs": 1053836,
+      "weekly_installs": [
+        36468,
+        32739,
+        38747,
+        42484,
+        45195,
+        49332,
+        64115,
+        70638
+      ],
+      "latest_week_installs": 70638,
+      "eight_week_average": 47465,
+      "is_official": true,
+      "category": "build",
+      "description": "让 Agent 通过浏览器完成访问、点击、输入和检查。"
+    },
+    {
+      "id": "mattpocock--skills--code-review",
+      "selection_order": 23,
+      "name": "code-review",
+      "title": {
+        "zh": "Code Review",
+        "en": "Code Review"
+      },
+      "source": "mattpocock/skills",
+      "skill_id": "code-review",
+      "skill_url": "https://skills.sh/mattpocock/skills/code-review",
+      "installs": 685413,
+      "weekly_installs": [
+        50384,
+        52619,
+        50122,
+        49617,
+        45428,
+        42525,
+        38032,
+        39868
+      ],
+      "latest_week_installs": 39868,
+      "eight_week_average": 46074,
+      "is_official": false,
+      "category": "build",
+      "description": "从风险、回归和测试缺口角度进行代码审查。"
+    },
+    {
+      "id": "vercel-labs--agent-skills--vercel-composition-patterns",
+      "selection_order": 24,
+      "name": "vercel-composition-patterns",
+      "title": {
+        "zh": "Vercel Composition Patterns",
+        "en": "Vercel Composition Patterns"
+      },
+      "source": "vercel-labs/agent-skills",
+      "skill_id": "vercel-composition-patterns",
+      "skill_url": "https://skills.sh/vercel-labs/agent-skills/vercel-composition-patterns",
+      "installs": 378493,
+      "weekly_installs": [
+        8779,
+        9990,
+        11662,
+        10311,
+        10276,
+        12709,
+        12319,
+        14369
+      ],
+      "latest_week_installs": 14369,
+      "eight_week_average": 11302,
+      "is_official": true,
+      "category": "build",
+      "description": "用可组合模式组织 React 组件，减少重复和耦合。"
+    },
+    {
+      "id": "vercel-labs--agent-skills--vercel-react-view-transitions",
+      "selection_order": 25,
+      "name": "vercel-react-view-transitions",
+      "title": {
+        "zh": "Vercel React View Transitions",
+        "en": "Vercel React View Transitions"
+      },
+      "source": "vercel-labs/agent-skills",
+      "skill_id": "vercel-react-view-transitions",
+      "skill_url": "https://skills.sh/vercel-labs/agent-skills/vercel-react-view-transitions",
+      "installs": 145537,
+      "weekly_installs": [
+        4109,
+        4538,
+        5767,
+        5143,
+        4574,
+        7320,
+        7366,
+        8514
+      ],
+      "latest_week_installs": 8514,
+      "eight_week_average": 5916,
+      "is_official": true,
+      "category": "build",
+      "description": "为 React 页面设计平滑的视图切换和过渡效果。"
+    },
+    {
+      "id": "vercel-labs--agent-skills--vercel-optimize",
+      "selection_order": 26,
+      "name": "vercel-optimize",
+      "title": {
+        "zh": "Vercel Optimize",
+        "en": "Vercel Optimize"
+      },
+      "source": "vercel-labs/agent-skills",
+      "skill_id": "vercel-optimize",
+      "skill_url": "https://skills.sh/vercel-labs/agent-skills/vercel-optimize",
+      "installs": 92014,
+      "weekly_installs": [
+        3557,
+        4422,
+        5578,
+        4320,
+        4189,
+        6042,
+        6068,
+        7062
+      ],
+      "latest_week_installs": 7062,
+      "eight_week_average": 5155,
+      "is_official": true,
+      "category": "build",
+      "description": "定位 Web 性能瓶颈并给出可执行的优化方向。"
+    },
+    {
+      "id": "mattpocock--skills--improve-codebase-architecture",
+      "selection_order": 27,
+      "name": "improve-codebase-architecture",
+      "title": {
+        "zh": "Improve Codebase Architecture",
+        "en": "Improve Codebase Architecture"
+      },
+      "source": "mattpocock/skills",
+      "skill_id": "improve-codebase-architecture",
+      "skill_url": "https://skills.sh/mattpocock/skills/improve-codebase-architecture",
+      "installs": 1064049,
+      "weekly_installs": [
+        53586,
+        58969,
+        52010,
+        49681,
+        43664,
+        40761,
+        37241,
+        42271
+      ],
+      "latest_week_installs": 42271,
+      "eight_week_average": 47273,
+      "is_official": false,
+      "category": "build",
+      "description": "梳理代码库边界、依赖关系和长期可维护性。"
+    },
+    {
+      "id": "mattpocock--skills--codebase-design",
+      "selection_order": 28,
+      "name": "codebase-design",
+      "title": {
+        "zh": "Codebase Design",
+        "en": "Codebase Design"
+      },
+      "source": "mattpocock/skills",
+      "skill_id": "codebase-design",
+      "skill_url": "https://skills.sh/mattpocock/skills/codebase-design",
+      "installs": 751076,
+      "weekly_installs": [
+        50222,
+        54812,
+        49880,
+        48130,
+        43787,
+        41415,
+        37076,
+        43359
+      ],
+      "latest_week_installs": 43359,
+      "eight_week_average": 46085,
+      "is_official": false,
+      "category": "build",
+      "description": "从架构和模块职责出发设计更稳健的代码库。"
+    },
+    {
+      "id": "cloudflare--skills--agents-sdk",
+      "selection_order": 29,
+      "name": "agents-sdk",
+      "title": {
+        "zh": "Cloudflare Agents SDK",
+        "en": "Cloudflare Agents SDK"
+      },
+      "source": "cloudflare/skills",
+      "skill_id": "agents-sdk",
+      "skill_url": "https://skills.sh/cloudflare/skills/agents-sdk",
+      "installs": 89872,
+      "weekly_installs": [
+        5919,
+        6061,
+        6435,
+        6718,
+        6813,
+        6163,
+        5934,
+        6384
+      ],
+      "latest_week_installs": 6384,
+      "eight_week_average": 6303,
+      "is_official": true,
+      "category": "build",
+      "description": "使用 Cloudflare Agents SDK 构建有状态 Agent。"
+    },
+    {
+      "id": "browser-use--browser-use--browser-use",
+      "selection_order": 30,
+      "name": "browser-use",
+      "title": {
+        "zh": "Browser Use",
+        "en": "Browser Use"
+      },
+      "source": "browser-use/browser-use",
+      "skill_id": "browser-use",
+      "skill_url": "https://skills.sh/browser-use/browser-use/browser-use",
+      "installs": 96363,
+      "weekly_installs": [
+        1019,
+        797,
+        836,
+        828,
+        692,
+        668,
+        638,
+        791
+      ],
+      "latest_week_installs": 791,
+      "eight_week_average": 784,
+      "is_official": true,
+      "category": "build",
+      "description": "让 Agent 通过自然语言驱动浏览器完成任务。"
+    },
+    {
+      "id": "anthropics--skills--skill-creator",
+      "selection_order": 31,
+      "name": "skill-creator",
+      "title": {
+        "zh": "Skill Creator",
+        "en": "Skill Creator"
+      },
+      "source": "anthropics/skills",
+      "skill_id": "skill-creator",
+      "skill_url": "https://skills.sh/anthropics/skills/skill-creator",
+      "installs": 399510,
+      "weekly_installs": [
+        7385,
+        6803,
+        6794,
+        6821,
+        5922,
+        6261,
+        5820,
+        6399
+      ],
+      "latest_week_installs": 6399,
+      "eight_week_average": 6526,
+      "is_official": true,
+      "category": "workflow",
+      "description": "设计、编写和校验可复用的 Agent Skill。"
+    },
+    {
+      "id": "vercel-labs--skills--find-skills",
+      "selection_order": 32,
+      "name": "find-skills",
+      "title": {
+        "zh": "Find Skills",
+        "en": "Find Skills"
+      },
+      "source": "vercel-labs/skills",
+      "skill_id": "find-skills",
+      "skill_url": "https://skills.sh/vercel-labs/skills/find-skills",
+      "installs": 3736450,
+      "weekly_installs": [
+        92685,
+        99722,
+        102581,
+        101561,
+        101317,
+        105144,
+        103601,
+        107199
+      ],
+      "latest_week_installs": 107199,
+      "eight_week_average": 101726,
+      "is_official": true,
+      "category": "workflow",
+      "description": "根据任务需求发现并选择合适的 Skill。"
+    },
+    {
+      "id": "mattpocock--skills--handoff",
+      "selection_order": 33,
+      "name": "handoff",
+      "title": {
+        "zh": "Handoff",
+        "en": "Handoff"
+      },
+      "source": "mattpocock/skills",
+      "skill_id": "handoff",
+      "skill_url": "https://skills.sh/mattpocock/skills/handoff",
+      "installs": 935911,
+      "weekly_installs": [
+        48240,
+        52990,
+        48966,
+        47996,
+        43887,
+        41765,
+        37953,
+        38422
+      ],
+      "latest_week_installs": 38422,
+      "eight_week_average": 45027,
+      "is_official": false,
+      "category": "workflow",
+      "description": "把当前任务、上下文和下一步整理成可交接记录。"
+    },
+    {
+      "id": "anthropics--skills--mcp-builder",
+      "selection_order": 34,
+      "name": "mcp-builder",
+      "title": {
+        "zh": "MCP Builder",
+        "en": "MCP Builder"
+      },
+      "source": "anthropics/skills",
+      "skill_id": "mcp-builder",
+      "skill_url": "https://skills.sh/anthropics/skills/mcp-builder",
+      "installs": 123365,
+      "weekly_installs": [
+        2917,
+        3350,
+        3024,
+        2845,
+        2337,
+        2627,
+        2485,
+        3298
+      ],
+      "latest_week_installs": 3298,
+      "eight_week_average": 2860,
+      "is_official": true,
+      "category": "workflow",
+      "description": "设计和实现连接外部工具的 MCP Server。"
+    },
+    {
+      "id": "anthropics--skills--template-skill",
+      "selection_order": 35,
+      "name": "template-skill",
+      "title": {
+        "zh": "Template Skill",
+        "en": "Template Skill"
+      },
+      "source": "anthropics/skills",
+      "skill_id": "template-skill",
+      "skill_url": "https://skills.sh/anthropics/skills/template-skill",
+      "installs": 67982,
+      "weekly_installs": [
+        1232,
+        1226,
+        1347,
+        1323,
+        1023,
+        1126,
+        1040,
+        1082
+      ],
+      "latest_week_installs": 1082,
+      "eight_week_average": 1175,
+      "is_official": true,
+      "category": "workflow",
+      "description": "用标准模板快速创建结构完整的 Skill。"
+    },
+    {
+      "id": "obra--superpowers--subagent-driven-development",
+      "selection_order": 36,
+      "name": "subagent-driven-development",
+      "title": {
+        "zh": "Subagent Driven Development",
+        "en": "Subagent Driven Development"
+      },
+      "source": "obra/superpowers",
+      "skill_id": "subagent-driven-development",
+      "skill_url": "https://skills.sh/obra/superpowers/subagent-driven-development",
+      "installs": 220125,
+      "weekly_installs": [
+        6204,
+        7462,
+        5857,
+        6084,
+        6035,
+        6189,
+        5887,
+        5565
+      ],
+      "latest_week_installs": 5565,
+      "eight_week_average": 6160,
+      "is_official": false,
+      "category": "workflow",
+      "description": "把复杂开发任务拆分给多个子 Agent 协同完成。"
+    },
+    {
+      "id": "obra--superpowers--dispatching-parallel-agents",
+      "selection_order": 37,
+      "name": "dispatching-parallel-agents",
+      "title": {
+        "zh": "Dispatching Parallel Agents",
+        "en": "Dispatching Parallel Agents"
+      },
+      "source": "obra/superpowers",
+      "skill_id": "dispatching-parallel-agents",
+      "skill_url": "https://skills.sh/obra/superpowers/dispatching-parallel-agents",
+      "installs": 204760,
+      "weekly_installs": [
+        5655,
+        6880,
+        5563,
+        5767,
+        5679,
+        5711,
+        5292,
+        5179
+      ],
+      "latest_week_installs": 5179,
+      "eight_week_average": 5716,
+      "is_official": false,
+      "category": "workflow",
+      "description": "判断任务边界并安全调度并行 Agent。"
+    },
+    {
+      "id": "google--agents-cli--google-agents-cli-workflow",
+      "selection_order": 38,
+      "name": "google-agents-cli-workflow",
+      "title": {
+        "zh": "Google Agents CLI Workflow",
+        "en": "Google Agents CLI Workflow"
+      },
+      "source": "google/agents-cli",
+      "skill_id": "google-agents-cli-workflow",
+      "skill_url": "https://skills.sh/google/agents-cli/google-agents-cli-workflow",
+      "installs": 479485,
+      "weekly_installs": [
+        8779,
+        10661,
+        13004,
+        42949,
+        57877,
+        73301,
+        132551,
+        53035
+      ],
+      "latest_week_installs": 53035,
+      "eight_week_average": 49020,
+      "is_official": false,
+      "category": "workflow",
+      "description": "用 Google Agents CLI 编排 Agent 开发流程。"
+    },
+    {
+      "id": "google--agents-cli--google-agents-cli-eval",
+      "selection_order": 39,
+      "name": "google-agents-cli-eval",
+      "title": {
+        "zh": "Google Agents CLI Eval",
+        "en": "Google Agents CLI Eval"
+      },
+      "source": "google/agents-cli",
+      "skill_id": "google-agents-cli-eval",
+      "skill_url": "https://skills.sh/google/agents-cli/google-agents-cli-eval",
+      "installs": 479469,
+      "weekly_installs": [
+        8779,
+        10658,
+        13005,
+        42960,
+        57863,
+        73310,
+        132549,
+        53045
+      ],
+      "latest_week_installs": 53045,
+      "eight_week_average": 49021,
+      "is_official": false,
+      "category": "workflow",
+      "description": "为 Agent 工作流设计评测和回归验证。"
+    },
+    {
+      "id": "larksuite--cli--lark-workflow-meeting-summary",
+      "selection_order": 40,
+      "name": "lark-workflow-meeting-summary",
+      "title": {
+        "zh": "Lark Meeting Summary",
+        "en": "Lark Meeting Summary"
+      },
+      "source": "larksuite/cli",
+      "skill_id": "lark-workflow-meeting-summary",
+      "skill_url": "https://skills.sh/larksuite/cli/lark-workflow-meeting-summary",
+      "installs": 451456,
+      "weekly_installs": [
+        7200,
+        6755,
+        7460,
+        7525,
+        6676,
+        6585,
+        6409,
+        3333
+      ],
+      "latest_week_installs": 3333,
+      "eight_week_average": 6493,
+      "is_official": false,
+      "category": "workflow",
+      "description": "把会议内容整理成结构化纪要和行动项。"
+    },
+    {
+      "id": "remotion-dev--skills--remotion-best-practices",
+      "selection_order": 41,
+      "name": "remotion-best-practices",
+      "title": {
+        "zh": "Remotion Best Practices",
+        "en": "Remotion Best Practices"
+      },
+      "source": "remotion-dev/skills",
+      "skill_id": "remotion-best-practices",
+      "skill_url": "https://skills.sh/remotion-dev/skills/remotion-best-practices",
+      "installs": 583152,
+      "weekly_installs": [
+        9844,
+        10218,
+        10394,
+        10378,
+        10200,
+        10401,
+        14791,
+        24380
+      ],
+      "latest_week_installs": 24380,
+      "eight_week_average": 12576,
+      "is_official": true,
+      "category": "content",
+      "description": "按 Remotion 最佳实践构建可维护的视频项目。"
+    },
+    {
+      "id": "anthropics--skills--pptx",
+      "selection_order": 42,
+      "name": "pptx",
+      "title": {
+        "zh": "PPTX",
+        "en": "PPTX"
+      },
+      "source": "anthropics/skills",
+      "skill_id": "pptx",
+      "skill_url": "https://skills.sh/anthropics/skills/pptx",
+      "installs": 231618,
+      "weekly_installs": [
+        4831,
+        4360,
+        4298,
+        4371,
+        4015,
+        4273,
+        3330,
+        3580
+      ],
+      "latest_week_installs": 3580,
+      "eight_week_average": 4132,
+      "is_official": true,
+      "category": "content",
+      "description": "创建、编辑和检查 PowerPoint 演示文稿。"
+    },
+    {
+      "id": "anthropics--skills--pdf",
+      "selection_order": 43,
+      "name": "pdf",
+      "title": {
+        "zh": "PDF",
+        "en": "PDF"
+      },
+      "source": "anthropics/skills",
+      "skill_id": "pdf",
+      "skill_url": "https://skills.sh/anthropics/skills/pdf",
+      "installs": 206756,
+      "weekly_installs": [
+        4140,
+        3716,
+        3913,
+        3988,
+        3670,
+        3525,
+        3101,
+        4034
+      ],
+      "latest_week_installs": 4034,
+      "eight_week_average": 3761,
+      "is_official": true,
+      "category": "content",
+      "description": "读取、生成和检查 PDF 内容与版式。"
+    },
+    {
+      "id": "anthropics--skills--docx",
+      "selection_order": 44,
+      "name": "docx",
+      "title": {
+        "zh": "DOCX",
+        "en": "DOCX"
+      },
+      "source": "anthropics/skills",
+      "skill_id": "docx",
+      "skill_url": "https://skills.sh/anthropics/skills/docx",
+      "installs": 197564,
+      "weekly_installs": [
+        3980,
+        3639,
+        3763,
+        3735,
+        3423,
+        3626,
+        3030,
+        3275
+      ],
+      "latest_week_installs": 3275,
+      "eight_week_average": 3559,
+      "is_official": true,
+      "category": "content",
+      "description": "创建、编辑和审阅 Word 文档。"
+    },
+    {
+      "id": "remotion-dev--skills--remotion-render",
+      "selection_order": 45,
+      "name": "remotion-render",
+      "title": {
+        "zh": "Remotion Render",
+        "en": "Remotion Render"
+      },
+      "source": "remotion-dev/skills",
+      "skill_id": "remotion-render",
+      "skill_url": "https://skills.sh/remotion-dev/skills/remotion-render",
+      "installs": 135030,
+      "weekly_installs": [
+        7869,
+        8507,
+        8557,
+        8540,
+        8361,
+        8924,
+        12893,
+        21591
+      ],
+      "latest_week_installs": 21591,
+      "eight_week_average": 10655,
+      "is_official": true,
+      "category": "content",
+      "description": "将 Remotion 项目渲染成最终视频文件。"
+    },
+    {
+      "id": "remotion-dev--skills--remotion-create",
+      "selection_order": 46,
+      "name": "remotion-create",
+      "title": {
+        "zh": "Remotion Create",
+        "en": "Remotion Create"
+      },
+      "source": "remotion-dev/skills",
+      "skill_id": "remotion-create",
+      "skill_url": "https://skills.sh/remotion-dev/skills/remotion-create",
+      "installs": 134402,
+      "weekly_installs": [
+        7873,
+        8474,
+        8494,
+        8437,
+        8258,
+        8861,
+        12774,
+        21423
+      ],
+      "latest_week_installs": 21423,
+      "eight_week_average": 10574,
+      "is_official": true,
+      "category": "content",
+      "description": "从脚本和素材搭建 Remotion 视频场景。"
+    },
+    {
+      "id": "remotion-dev--skills--remotion-captions",
+      "selection_order": 47,
+      "name": "remotion-captions",
+      "title": {
+        "zh": "Remotion Captions",
+        "en": "Remotion Captions"
+      },
+      "source": "remotion-dev/skills",
+      "skill_id": "remotion-captions",
+      "skill_url": "https://skills.sh/remotion-dev/skills/remotion-captions",
+      "installs": 132042,
+      "weekly_installs": [
+        7629,
+        8235,
+        8337,
+        8293,
+        8153,
+        8784,
+        12711,
+        21316
+      ],
+      "latest_week_installs": 21316,
+      "eight_week_average": 10432,
+      "is_official": true,
+      "category": "content",
+      "description": "为视频生成、排版和同步字幕。"
+    },
+    {
+      "id": "googleworkspace--cli--gws-slides",
+      "selection_order": 48,
+      "name": "gws-slides",
+      "title": {
+        "zh": "Google Workspace Slides",
+        "en": "Google Workspace Slides"
+      },
+      "source": "googleworkspace/cli",
+      "skill_id": "gws-slides",
+      "skill_url": "https://skills.sh/googleworkspace/cli/gws-slides",
+      "installs": 40137,
+      "weekly_installs": [
+        664,
+        754,
+        716,
+        626,
+        673,
+        603,
+        672,
+        683
+      ],
+      "latest_week_installs": 683,
+      "eight_week_average": 674,
+      "is_official": true,
+      "category": "content",
+      "description": "通过 Google Workspace CLI 处理 Slides 演示文稿。"
+    },
+    {
+      "id": "googleworkspace--cli--gws-docs-write",
+      "selection_order": 49,
+      "name": "gws-docs-write",
+      "title": {
+        "zh": "Google Workspace Docs",
+        "en": "Google Workspace Docs"
+      },
+      "source": "googleworkspace/cli",
+      "skill_id": "gws-docs-write",
+      "skill_url": "https://skills.sh/googleworkspace/cli/gws-docs-write",
+      "installs": 47961,
+      "weekly_installs": [
+        794,
+        896,
+        851,
+        780,
+        815,
+        756,
+        1007,
+        989
+      ],
+      "latest_week_installs": 989,
+      "eight_week_average": 861,
+      "is_official": true,
+      "category": "content",
+      "description": "通过 Google Workspace CLI 向已有 Docs 文档末尾追加纯文本。"
+    },
+    {
+      "id": "larksuite--cli--lark-slides",
+      "selection_order": 50,
+      "name": "lark-slides",
+      "title": {
+        "zh": "Lark Slides",
+        "en": "Lark Slides"
+      },
+      "source": "larksuite/cli",
+      "skill_id": "lark-slides",
+      "skill_url": "https://skills.sh/larksuite/cli/lark-slides",
+      "installs": 406430,
+      "weekly_installs": [
+        7335,
+        6776,
+        7518,
+        7545,
+        6743,
+        6664,
+        6444,
+        3344
+      ],
+      "latest_week_installs": 3344,
+      "eight_week_average": 6546,
+      "is_official": false,
+      "category": "content",
+      "description": "在 Lark 中生成和整理演示文稿内容。"
+    },
+    {
+      "id": "coreyhaines31--marketingskills--content-strategy",
+      "selection_order": 51,
+      "name": "content-strategy",
+      "title": {
+        "zh": "Content Strategy",
+        "en": "Content Strategy"
+      },
+      "source": "coreyhaines31/marketingskills",
+      "skill_id": "content-strategy",
+      "skill_url": "https://skills.sh/coreyhaines31/marketingskills/content-strategy",
+      "installs": 152244,
+      "weekly_installs": [
+        3418,
+        3655,
+        3918,
+        3851,
+        3687,
+        3323,
+        3469,
+        4241
+      ],
+      "latest_week_installs": 4241,
+      "eight_week_average": 3695,
+      "is_official": false,
+      "category": "content",
+      "description": "规划内容主题、渠道和持续发布策略。"
+    },
+    {
+      "id": "coreyhaines31--marketingskills--social",
+      "selection_order": 52,
+      "name": "social",
+      "title": {
+        "zh": "Social Content",
+        "en": "Social Content"
+      },
+      "source": "coreyhaines31/marketingskills",
+      "skill_id": "social",
+      "skill_url": "https://skills.sh/coreyhaines31/marketingskills/social",
+      "installs": 73370,
+      "weekly_installs": [
+        3037,
+        3068,
+        2936,
+        2826,
+        2921,
+        2694,
+        2904,
+        3492
+      ],
+      "latest_week_installs": 3492,
+      "eight_week_average": 2985,
+      "is_official": false,
+      "category": "content",
+      "description": "为社交媒体生成适合平台语境的内容方案。"
+    },
+    {
+      "id": "coreyhaines31--marketingskills--copywriting",
+      "selection_order": 53,
+      "name": "copywriting",
+      "title": {
+        "zh": "Copywriting",
+        "en": "Copywriting"
+      },
+      "source": "coreyhaines31/marketingskills",
+      "skill_id": "copywriting",
+      "skill_url": "https://skills.sh/coreyhaines31/marketingskills/copywriting",
+      "installs": 217928,
+      "weekly_installs": [
+        5063,
+        4914,
+        5634,
+        5412,
+        5119,
+        4691,
+        5081,
+        6170
+      ],
+      "latest_week_installs": 6170,
+      "eight_week_average": 5261,
+      "is_official": false,
+      "category": "content",
+      "description": "撰写更清晰、有说服力的营销和产品文案。"
+    },
+    {
+      "id": "heygen-com--hyperframes--motion-graphics",
+      "selection_order": 54,
+      "name": "motion-graphics",
+      "title": {
+        "zh": "Motion Graphics",
+        "en": "Motion Graphics"
+      },
+      "source": "heygen-com/hyperframes",
+      "skill_id": "motion-graphics",
+      "skill_url": "https://skills.sh/heygen-com/hyperframes/motion-graphics",
+      "installs": 371727,
+      "weekly_installs": [
+        11444,
+        14930,
+        13833,
+        12175,
+        18133,
+        46834,
+        30566,
+        38281
+      ],
+      "latest_week_installs": 38281,
+      "eight_week_average": 23275,
+      "is_official": false,
+      "category": "content",
+      "description": "为宣传和社媒视频设计动态图形和节奏。"
+    },
+    {
+      "id": "heygen-com--hyperframes--product-launch-video",
+      "selection_order": 55,
+      "name": "product-launch-video",
+      "title": {
+        "zh": "Product Launch Video",
+        "en": "Product Launch Video"
+      },
+      "source": "heygen-com/hyperframes",
+      "skill_id": "product-launch-video",
+      "skill_url": "https://skills.sh/heygen-com/hyperframes/product-launch-video",
+      "installs": 383492,
+      "weekly_installs": [
+        10628,
+        16161,
+        15213,
+        12453,
+        21145,
+        47868,
+        30516,
+        40835
+      ],
+      "latest_week_installs": 40835,
+      "eight_week_average": 24352,
+      "is_official": false,
+      "category": "content",
+      "description": "把产品信息组织成可发布的产品宣传视频。"
+    },
+    {
+      "id": "supabase--agent-skills--supabase-postgres-best-practices",
+      "selection_order": 56,
+      "name": "supabase-postgres-best-practices",
+      "title": {
+        "zh": "Supabase Postgres Best Practices",
+        "en": "Supabase Postgres Best Practices"
+      },
+      "source": "supabase/agent-skills",
+      "skill_id": "supabase-postgres-best-practices",
+      "skill_url": "https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices",
+      "installs": 434573,
+      "weekly_installs": [
+        13371,
+        14038,
+        13199,
+        10577,
+        10251,
+        10215,
+        10470,
+        10506
+      ],
+      "latest_week_installs": 10506,
+      "eight_week_average": 11578,
+      "is_official": true,
+      "category": "data",
+      "description": "按 Supabase 最佳实践设计 Postgres 数据库。"
+    },
+    {
+      "id": "prisma--skills--prisma-database-setup",
+      "selection_order": 57,
+      "name": "prisma-database-setup",
+      "title": {
+        "zh": "Prisma Database Setup",
+        "en": "Prisma Database Setup"
+      },
+      "source": "prisma/skills",
+      "skill_id": "prisma-database-setup",
+      "skill_url": "https://skills.sh/prisma/skills/prisma-database-setup",
+      "installs": 343258,
+      "weekly_installs": [
+        41531,
+        39822,
+        20946,
+        16705,
+        17607,
+        17346,
+        17659,
+        16967
+      ],
+      "latest_week_installs": 16967,
+      "eight_week_average": 23573,
+      "is_official": true,
+      "category": "data",
+      "description": "完成 Prisma 数据库连接、迁移和基础配置。"
+    },
+    {
+      "id": "prisma--skills--prisma-client-api",
+      "selection_order": 58,
+      "name": "prisma-client-api",
+      "title": {
+        "zh": "Prisma Client API",
+        "en": "Prisma Client API"
+      },
+      "source": "prisma/skills",
+      "skill_id": "prisma-client-api",
+      "skill_url": "https://skills.sh/prisma/skills/prisma-client-api",
+      "installs": 343302,
+      "weekly_installs": [
+        41578,
+        39908,
+        20992,
+        16778,
+        17649,
+        17382,
+        17721,
+        17191
+      ],
+      "latest_week_installs": 17191,
+      "eight_week_average": 23650,
+      "is_official": true,
+      "category": "data",
+      "description": "使用 Prisma Client 设计类型安全的数据访问。"
+    },
+    {
+      "id": "prisma--skills--prisma-cli",
+      "selection_order": 59,
+      "name": "prisma-cli",
+      "title": {
+        "zh": "Prisma CLI",
+        "en": "Prisma CLI"
+      },
+      "source": "prisma/skills",
+      "skill_id": "prisma-cli",
+      "skill_url": "https://skills.sh/prisma/skills/prisma-cli",
+      "installs": 340795,
+      "weekly_installs": [
+        41482,
+        39809,
+        20898,
+        16711,
+        17611,
+        17318,
+        17646,
+        17144
+      ],
+      "latest_week_installs": 17144,
+      "eight_week_average": 23577,
+      "is_official": true,
+      "category": "data",
+      "description": "通过 Prisma CLI 管理 schema、迁移和生成流程。"
+    },
+    {
+      "id": "prisma--skills--prisma-postgres",
+      "selection_order": 60,
+      "name": "prisma-postgres",
+      "title": {
+        "zh": "Prisma Postgres",
+        "en": "Prisma Postgres"
+      },
+      "source": "prisma/skills",
+      "skill_id": "prisma-postgres",
+      "skill_url": "https://skills.sh/prisma/skills/prisma-postgres",
+      "installs": 335732,
+      "weekly_installs": [
+        41340,
+        39659,
+        20789,
+        16592,
+        17433,
+        17139,
+        17448,
+        16797
+      ],
+      "latest_week_installs": 16797,
+      "eight_week_average": 23400,
+      "is_official": true,
+      "category": "data",
+      "description": "围绕 Prisma Postgres 设计应用数据层。"
+    },
+    {
+      "id": "neondatabase--agent-skills--neon-postgres",
+      "selection_order": 61,
+      "name": "neon-postgres",
+      "title": {
+        "zh": "Neon Postgres",
+        "en": "Neon Postgres"
+      },
+      "source": "neondatabase/agent-skills",
+      "skill_id": "neon-postgres",
+      "skill_url": "https://skills.sh/neondatabase/agent-skills/neon-postgres",
+      "installs": 223679,
+      "weekly_installs": [
+        13001,
+        15234,
+        17321,
+        17131,
+        17462,
+        17035,
+        18096,
+        20257
+      ],
+      "latest_week_installs": 20257,
+      "eight_week_average": 16942,
+      "is_official": true,
+      "category": "data",
+      "description": "使用 Neon Postgres 构建云端数据库工作流。"
+    },
+    {
+      "id": "get-convex--agent-skills--convex-quickstart",
+      "selection_order": 62,
+      "name": "convex-quickstart",
+      "title": {
+        "zh": "Convex Quickstart",
+        "en": "Convex Quickstart"
+      },
+      "source": "get-convex/agent-skills",
+      "skill_id": "convex-quickstart",
+      "skill_url": "https://skills.sh/get-convex/agent-skills/convex-quickstart",
+      "installs": 124559,
+      "weekly_installs": [
+        3340,
+        3146,
+        3621,
+        3482,
+        3230,
+        2614,
+        2521,
+        2568
+      ],
+      "latest_week_installs": 2568,
+      "eight_week_average": 3065,
+      "is_official": false,
+      "category": "data",
+      "description": "快速搭建 Convex 的数据和后端函数。"
+    },
+    {
+      "id": "firecrawl--skills--firecrawl-build-scrape",
+      "selection_order": 63,
+      "name": "firecrawl-build-scrape",
+      "title": {
+        "zh": "Firecrawl Build Scrape",
+        "en": "Firecrawl Build Scrape"
+      },
+      "source": "firecrawl/skills",
+      "skill_id": "firecrawl-build-scrape",
+      "skill_url": "https://skills.sh/firecrawl/skills/firecrawl-build-scrape",
+      "installs": 60467,
+      "weekly_installs": [
+        678,
+        539,
+        365,
+        265,
+        316,
+        281,
+        300,
+        356
+      ],
+      "latest_week_installs": 356,
+      "eight_week_average": 388,
+      "is_official": true,
+      "category": "data",
+      "description": "用 Firecrawl 构建可追踪的网页抓取流程。"
+    }
+  ]
+}

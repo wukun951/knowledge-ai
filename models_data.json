@@ -1,0 +1,805 @@
+[
+  {
+    "id": "anthropic-claude",
+    "view": "models",
+    "icon": "🧠",
+    "gradient": "linear-gradient(135deg, #8B5CF6 0%, #6366f1 100%)",
+    "category": "模型图谱",
+    "title": {
+      "zh": "Claude",
+      "en": "Claude"
+    },
+    "provider": {
+      "zh": "Anthropic",
+      "en": "Anthropic"
+    },
+    "domain": {
+      "zh": "模型",
+      "en": "Models"
+    },
+    "summary": {
+      "zh": "Anthropic 开发的大语言模型，以安全性和长上下文著称",
+      "en": "Anthropic's LLM known for safety and extended context windows"
+    },
+    "tags": {
+      "zh": [
+        "大语言模型",
+        "安全 AI",
+        "长上下文"
+      ],
+      "en": [
+        "LLM",
+        "Safe AI",
+        "Long Context"
+      ]
+    },
+    "modelType": "LLM",
+    "models": [
+      "Claude 4 Sonnet",
+      "Claude 4 Opus",
+      "Claude 4 Haiku"
+    ],
+    "modelLogo": "https://docs.anthropic.com/favicon.ico",
+    "pricing": {
+      "zh": "$3-15/M tok",
+      "en": "$3-15/M tok"
+    },
+    "context": {
+      "zh": "200K tokens",
+      "en": "200K tokens"
+    },
+    "resolution": {
+      "zh": "",
+      "en": ""
+    },
+    "sources": {
+      "zh": [
+        "官方来源 - Anthropic Claude models: https://platform.claude.com/docs/en/about-claude/models/overview"
+      ],
+      "en": [
+        "Official source - Anthropic Claude models: https://platform.claude.com/docs/en/about-claude/models/overview"
+      ]
+    },
+    "next": {
+      "zh": [
+        "访问官网"
+      ],
+      "en": [
+        "Visit official site"
+      ]
+    },
+    "related": {
+      "zh": [],
+      "en": []
+    },
+    "updated": "2026-08-04"
+  },
+  {
+    "id": "openai-gpt",
+    "view": "models",
+    "icon": "🧠",
+    "gradient": "linear-gradient(135deg, #10A37F 0%, #1a7a5e 100%)",
+    "category": "模型图谱",
+    "title": {
+      "zh": "GPT-4o",
+      "en": "GPT-4o"
+    },
+    "provider": {
+      "zh": "OpenAI",
+      "en": "OpenAI"
+    },
+    "domain": {
+      "zh": "模型",
+      "en": "Models"
+    },
+    "summary": {
+      "zh": "OpenAI 的多模态旗舰模型，支持文本、图像、音频的统一输入输出",
+      "en": "OpenAI's multimodal flagship model for unified text/image/audio I/O"
+    },
+    "tags": {
+      "zh": [
+        "大语言模型",
+        "多模态",
+        "代码生成"
+      ],
+      "en": [
+        "LLM",
+        "Multimodal",
+        "Code Generation"
+      ]
+    },
+    "modelType": "LLM",
+    "models": [
+      "GPT-4o",
+      "GPT-4o mini",
+      "o1-preview",
+      "o1-mini"
+    ],
+    "modelLogo": "https://openai.com/favicon.ico",
+    "pricing": {
+      "zh": "$2.5-15/M tok",
+      "en": "$2.5-15/M tok"
+    },
+    "context": {
+      "zh": "128K tokens",
+      "en": "128K tokens"
+    },
+    "resolution": {
+      "zh": "",
+      "en": ""
+    },
+    "sources": {
+      "zh": [
+        "官方来源 - OpenAI models: https://developers.openai.com/api/docs/models"
+      ],
+      "en": [
+        "Official source - OpenAI models: https://developers.openai.com/api/docs/models"
+      ]
+    },
+    "next": {
+      "zh": [
+        "访问官网"
+      ],
+      "en": [
+        "Visit official site"
+      ]
+    },
+    "related": {
+      "zh": [],
+      "en": []
+    },
+    "updated": "2026-08-04"
+  },
+  {
+    "id": "google-gemini",
+    "view": "models",
+    "icon": "🧠",
+    "gradient": "linear-gradient(135deg, #4285F4 0%, #34A853 100%)",
+    "category": "模型图谱",
+    "title": {
+      "zh": "Gemini 2.0",
+      "en": "Gemini 2.0"
+    },
+    "provider": {
+      "zh": "Google DeepMind",
+      "en": "Google DeepMind"
+    },
+    "domain": {
+      "zh": "模型",
+      "en": "Models"
+    },
+    "summary": {
+      "zh": "Google 原生多模态模型，支持超长上下文和原生工具调用",
+      "en": "Google's natively multimodal model with ultra-long context and native tool calling"
+    },
+    "tags": {
+      "zh": [
+        "大语言模型",
+        "原生工具调用",
+        "超长上下文"
+      ],
+      "en": [
+        "LLM",
+        "Native Tool Use",
+        "Ultra-Long Context"
+      ]
+    },
+    "modelType": "LLM",
+    "models": [
+      "Gemini 2.0 Flash",
+      "Gemini 2.0 Pro",
+      "Gemini 2.0 Flash-Lite"
+    ],
+    "modelLogo": "https://www.google.com/favicon.ico",
+    "pricing": {
+      "zh": "免费额度充足",
+      "en": "Generous free tier"
+    },
+    "context": {
+      "zh": "2M tokens (2.0 Pro)",
+      "en": "2M tokens (2.0 Pro)"
+    },
+    "resolution": {
+      "zh": "",
+      "en": ""
+    },
+    "sources": {
+      "zh": [
+        "官方来源 - Google Gemini models: https://ai.google.dev/gemini-api/docs/models"
+      ],
+      "en": [
+        "Official source - Google Gemini models: https://ai.google.dev/gemini-api/docs/models"
+      ]
+    },
+    "next": {
+      "zh": [
+        "访问官网"
+      ],
+      "en": [
+        "Visit official site"
+      ]
+    },
+    "related": {
+      "zh": [],
+      "en": []
+    },
+    "updated": "2026-08-04"
+  },
+  {
+    "id": "deepseek-chat",
+    "view": "models",
+    "icon": "🧠",
+    "gradient": "linear-gradient(135deg, #FF6B6B 0%, #ee5a5a 100%)",
+    "category": "模型图谱",
+    "title": {
+      "zh": "DeepSeek V4",
+      "en": "DeepSeek V4"
+    },
+    "provider": {
+      "zh": "DeepSeek",
+      "en": "DeepSeek"
+    },
+    "domain": {
+      "zh": "模型",
+      "en": "Models"
+    },
+    "summary": {
+      "zh": "DeepSeek 官方 API 当前列出 V4 Flash 与 V4 Pro，并兼容 OpenAI 与 Anthropic 格式。",
+      "en": "DeepSeek currently lists V4 Flash and V4 Pro in its official API docs, with OpenAI and Anthropic compatible formats."
+    },
+    "tags": {
+      "zh": [
+        "大语言模型",
+        "API",
+        "V4"
+      ],
+      "en": [
+        "LLM",
+        "API",
+        "V4"
+      ]
+    },
+    "modelType": "LLM",
+    "models": [
+      "DeepSeek-V4-Flash",
+      "DeepSeek-V4-Pro"
+    ],
+    "modelLogo": "https://cdn.deepseek.com/platform/favicon.png",
+    "pricing": {
+      "zh": "输入 $0.0028-$0.435 / 1M tokens；输出 $0.28-$0.87 / 1M tokens",
+      "en": "Input $0.0028-$0.435 / 1M tokens; output $0.28-$0.87 / 1M tokens"
+    },
+    "context": {
+      "zh": "1M tokens",
+      "en": "1M tokens"
+    },
+    "resolution": {
+      "zh": "",
+      "en": ""
+    },
+    "sources": {
+      "zh": [
+        "DeepSeek 官方模型与定价: https://api-docs.deepseek.com/quick_start/pricing"
+      ],
+      "en": [
+        "DeepSeek official models and pricing: https://api-docs.deepseek.com/quick_start/pricing"
+      ]
+    },
+    "next": {
+      "zh": [
+        "查看官方模型与定价"
+      ],
+      "en": [
+        "View official models and pricing"
+      ]
+    },
+    "related": {
+      "zh": [],
+      "en": []
+    },
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "xai-grok",
+    "view": "models",
+    "icon": "🧠",
+    "gradient": "linear-gradient(135deg, #1a1a1a 0%, #333333 100%)",
+    "category": "模型图谱",
+    "title": {
+      "zh": "Grok 3",
+      "en": "Grok 3"
+    },
+    "provider": {
+      "zh": "xAI",
+      "en": "xAI"
+    },
+    "domain": {
+      "zh": "模型",
+      "en": "Models"
+    },
+    "summary": {
+      "zh": "xAI 的旗舰模型，实时知识接入，设计风格鲜明",
+      "en": "xAI's flagship model with real-time knowledge access and distinctive personality"
+    },
+    "tags": {
+      "zh": [
+        "大语言模型",
+        "实时知识",
+        "幽默风格"
+      ],
+      "en": [
+        "LLM",
+        "Real-time Knowledge",
+        "Witty Style"
+      ]
+    },
+    "modelType": "LLM",
+    "models": [
+      "Grok 3",
+      "Grok 2",
+      "Grok 2 Mini"
+    ],
+    "modelLogo": "https://x.com/favicon.ico",
+    "pricing": {
+      "zh": "$30/月 (SuperGrok)",
+      "en": "$30/month (SuperGrok)"
+    },
+    "context": {
+      "zh": "131K tokens",
+      "en": "131K tokens"
+    },
+    "resolution": {
+      "zh": "",
+      "en": ""
+    },
+    "sources": {
+      "zh": [
+        "官方来源 - xAI models: https://docs.x.ai/developers/models"
+      ],
+      "en": [
+        "Official source - xAI models: https://docs.x.ai/developers/models"
+      ]
+    },
+    "next": {
+      "zh": [
+        "访问官网"
+      ],
+      "en": [
+        "Visit official site"
+      ]
+    },
+    "related": {
+      "zh": [],
+      "en": []
+    },
+    "updated": "2026-08-04"
+  },
+  {
+    "id": "openrouter-or",
+    "view": "models",
+    "icon": "🧠",
+    "gradient": "linear-gradient(135deg, #FF9500 0%, #cc7700 100%)",
+    "category": "模型图谱",
+    "title": {
+      "zh": "OpenRouter 聚合",
+      "en": "OpenRouter Aggregator"
+    },
+    "provider": {
+      "zh": "OpenRouter",
+      "en": "OpenRouter"
+    },
+    "domain": {
+      "zh": "模型",
+      "en": "Models"
+    },
+    "summary": {
+      "zh": "统一 API 接入 100+ 模型，支持自动路由与成本优化",
+      "en": "Unified API for 100+ models with auto-routing and cost optimization"
+    },
+    "tags": {
+      "zh": [
+        "大语言模型",
+        "统一 API",
+        "模型聚合"
+      ],
+      "en": [
+        "LLM",
+        "Unified API",
+        "Model Aggregation"
+      ]
+    },
+    "modelType": "LLM",
+    "models": [
+      "Claude, GPT, Gemini, Llama 等"
+    ],
+    "modelLogo": "https://openrouter.ai/favicon.ico",
+    "pricing": {
+      "zh": "模型各异",
+      "en": "Varies by model"
+    },
+    "context": {
+      "zh": "视具体模型",
+      "en": "Varies by model"
+    },
+    "resolution": {
+      "zh": "",
+      "en": ""
+    },
+    "sources": {
+      "zh": [
+        "官方来源 - OpenRouter models: https://openrouter.ai/models"
+      ],
+      "en": [
+        "Official source - OpenRouter models: https://openrouter.ai/models"
+      ]
+    },
+    "next": {
+      "zh": [
+        "访问官网"
+      ],
+      "en": [
+        "Visit official site"
+      ]
+    },
+    "related": {
+      "zh": [],
+      "en": []
+    },
+    "updated": "2026-08-04"
+  },
+  {
+    "id": "midjourney",
+    "view": "models",
+    "icon": "🧠",
+    "gradient": "linear-gradient(135deg, #6B8E23 0%, #4a6b18 100%)",
+    "category": "模型图谱",
+    "title": {
+      "zh": "Midjourney",
+      "en": "Midjourney"
+    },
+    "provider": {
+      "zh": "Midjourney",
+      "en": "Midjourney"
+    },
+    "domain": {
+      "zh": "模型",
+      "en": "Models"
+    },
+    "summary": {
+      "zh": "Discord 生态的顶级图像生成模型，艺术风格独特",
+      "en": "Top-tier image generation via Discord with distinctive artistic style"
+    },
+    "tags": {
+      "zh": [
+        "图像生成",
+        "艺术风格",
+        "Discord"
+      ],
+      "en": [
+        "Image Gen",
+        "Artistic Style",
+        "Discord"
+      ]
+    },
+    "modelType": "Image",
+    "models": [],
+    "modelLogo": "https://cdn.midjourney.com/favicon.ico",
+    "pricing": {
+      "zh": "$10-30/月",
+      "en": "$10-30/month"
+    },
+    "context": {
+      "zh": "",
+      "en": ""
+    },
+    "resolution": {
+      "zh": "1024x1024+",
+      "en": "1024x1024+"
+    },
+    "sources": {
+      "zh": [
+        "官方来源 - Midjourney documentation: https://docs.midjourney.com/hc/en-us"
+      ],
+      "en": [
+        "Official source - Midjourney documentation: https://docs.midjourney.com/hc/en-us"
+      ]
+    },
+    "next": {
+      "zh": [
+        "访问官网"
+      ],
+      "en": [
+        "Visit official site"
+      ]
+    },
+    "related": {
+      "zh": [],
+      "en": []
+    },
+    "updated": "2026-08-04"
+  },
+  {
+    "id": "stable-diffusion",
+    "view": "models",
+    "icon": "🧠",
+    "gradient": "linear-gradient(135deg, #6B8E23 0%, #8fae3a 100%)",
+    "category": "模型图谱",
+    "title": {
+      "zh": "Stable Diffusion 3",
+      "en": "Stable Diffusion 3"
+    },
+    "provider": {
+      "zh": "Stability AI",
+      "en": "Stability AI"
+    },
+    "domain": {
+      "zh": "模型",
+      "en": "Models"
+    },
+    "summary": {
+      "zh": "开源图像生成模型，支持本地部署和高度定制",
+      "en": "Open-source image generation with local deployment and high customization"
+    },
+    "tags": {
+      "zh": [
+        "图像生成",
+        "开源",
+        "本地部署"
+      ],
+      "en": [
+        "Image Gen",
+        "Open Source",
+        "Local Deploy"
+      ]
+    },
+    "modelType": "Image",
+    "models": [],
+    "modelLogo": "https://stability.ai/favicon.ico",
+    "pricing": {
+      "zh": "免费开源",
+      "en": "Free open source"
+    },
+    "context": {
+      "zh": "",
+      "en": ""
+    },
+    "resolution": {
+      "zh": "最高 1024x1024",
+      "en": "Up to 1024x1024"
+    },
+    "sources": {
+      "zh": [
+        "官方来源 - Stability AI documentation: https://platform.stability.ai/docs"
+      ],
+      "en": [
+        "Official source - Stability AI documentation: https://platform.stability.ai/docs"
+      ]
+    },
+    "next": {
+      "zh": [
+        "访问官网"
+      ],
+      "en": [
+        "Visit official site"
+      ]
+    },
+    "related": {
+      "zh": [],
+      "en": []
+    },
+    "updated": "2026-08-04"
+  },
+  {
+    "id": "runway-gen3",
+    "view": "models",
+    "icon": "🧠",
+    "gradient": "linear-gradient(135deg, #9B59B6 0%, #7d3c98 100%)",
+    "category": "模型图谱",
+    "title": {
+      "zh": "Gen-3 Alpha",
+      "en": "Gen-3 Alpha"
+    },
+    "provider": {
+      "zh": "Runway",
+      "en": "Runway"
+    },
+    "domain": {
+      "zh": "模型",
+      "en": "Models"
+    },
+    "summary": {
+      "zh": "AI 视频生成平台，支持文字/图像转视频、镜头控制",
+      "en": "AI video generation from text/images with camera control"
+    },
+    "tags": {
+      "zh": [
+        "视频生成",
+        "AI 电影",
+        "镜头控制"
+      ],
+      "en": [
+        "Video Gen",
+        "AI Film",
+        "Camera Control"
+      ]
+    },
+    "modelType": "Video",
+    "models": [],
+    "modelLogo": "https://runwayml.com/favicon.ico",
+    "pricing": {
+      "zh": "$15-35/月",
+      "en": "$15-35/month"
+    },
+    "context": {
+      "zh": "",
+      "en": ""
+    },
+    "resolution": {
+      "zh": "720p-1080p",
+      "en": "720p-1080p"
+    },
+    "sources": {
+      "zh": [
+        "官方来源 - Runway: https://runway.com/"
+      ],
+      "en": [
+        "Official source - Runway: https://runway.com/"
+      ]
+    },
+    "next": {
+      "zh": [
+        "访问官网"
+      ],
+      "en": [
+        "Visit official site"
+      ]
+    },
+    "related": {
+      "zh": [],
+      "en": []
+    },
+    "updated": "2026-08-04"
+  },
+  {
+    "id": "pika-video",
+    "view": "models",
+    "icon": "🧠",
+    "gradient": "linear-gradient(135deg, #FF6B9D 0%, #ff4a7f 100%)",
+    "category": "模型图谱",
+    "title": {
+      "zh": "Pika 2.0",
+      "en": "Pika 2.0"
+    },
+    "provider": {
+      "zh": "Pika",
+      "en": "Pika"
+    },
+    "domain": {
+      "zh": "模型",
+      "en": "Models"
+    },
+    "summary": {
+      "zh": "快速文本/图像转视频生成，强调易用性与创作速度",
+      "en": "Fast text/image-to-video with emphasis on ease of use and creative speed"
+    },
+    "tags": {
+      "zh": [
+        "视频生成",
+        "快速创作",
+        "易用"
+      ],
+      "en": [
+        "Video Gen",
+        "Fast Creation",
+        "Easy to Use"
+      ]
+    },
+    "modelType": "Video",
+    "models": [],
+    "modelLogo": "https://pika.art/favicon.ico",
+    "pricing": {
+      "zh": "免费额度",
+      "en": "Free tier"
+    },
+    "context": {
+      "zh": "",
+      "en": ""
+    },
+    "resolution": {
+      "zh": "768x768 - 1920x1080",
+      "en": "768x768 - 1920x1080"
+    },
+    "sources": {
+      "zh": [
+        "官方来源 - Pika: https://pika.art/"
+      ],
+      "en": [
+        "Official source - Pika: https://pika.art/"
+      ]
+    },
+    "next": {
+      "zh": [
+        "访问官网"
+      ],
+      "en": [
+        "Visit official site"
+      ]
+    },
+    "related": {
+      "zh": [],
+      "en": []
+    },
+    "updated": "2026-08-04"
+  },
+  {
+    "id": "kling-ai",
+    "view": "models",
+    "icon": "🧠",
+    "gradient": "linear-gradient(135deg, #00D4AA 0%, #00a080 100%)",
+    "category": "模型图谱",
+    "title": {
+      "zh": "Kling AI",
+      "en": "Kling AI"
+    },
+    "provider": {
+      "zh": "快影 Kuaishou",
+      "en": "Kuaishou"
+    },
+    "domain": {
+      "zh": "模型",
+      "en": "Models"
+    },
+    "summary": {
+      "zh": "快影自研视频生成模型，支持 3D 场景和高动态效果",
+      "en": "Kuaishou's self-developed video model with 3D scenes and high-dynamic effects"
+    },
+    "tags": {
+      "zh": [
+        "视频生成",
+        "3D 场景",
+        "高动态"
+      ],
+      "en": [
+        "Video Gen",
+        "3D Scene",
+        "High Dynamic"
+      ]
+    },
+    "modelType": "Video",
+    "models": [],
+    "modelLogo": "https://klingai.com/favicon.ico",
+    "pricing": {
+      "zh": "免费额度",
+      "en": "Free tier"
+    },
+    "context": {
+      "zh": "",
+      "en": ""
+    },
+    "resolution": {
+      "zh": "1080p",
+      "en": "1080p"
+    },
+    "sources": {
+      "zh": [
+        "官方来源 - Kling AI: https://klingai.com/"
+      ],
+      "en": [
+        "Official source - Kling AI: https://klingai.com/"
+      ]
+    },
+    "next": {
+      "zh": [
+        "访问官网"
+      ],
+      "en": [
+        "Visit official site"
+      ]
+    },
+    "related": {
+      "zh": [],
+      "en": []
+    },
+    "updated": "2026-08-04"
+  }
+]

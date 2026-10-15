@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=5d1f56fb-2fec-48b7-bc44-becf4ba8db5a
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="知识宇宙是一个面向 AI 实践者的知识、模型、智能体、提示词与工具工作台。">
+  <meta name="theme-color" content="#f3f5f2">
+  <link rel="icon" href="assets/brand-mark.png" type="image/png">
+  <title>知识宇宙</title>
+  <script>
+    // Claim scroll restoration before the browser restores a previous entry position.
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.history.scrollRestoration = "manual";
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css?v=20261008-1">
+  <link rel="stylesheet" href="styles/workflows.css?v=20261008-2">
+  <script src="modules/workflow-ui.js?v=20261008-2"></script>
+  <script defer src="modules/entry-video.js?v=20260915-3"></script>
+  <script defer src="app_code.js?v=20261008-3"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/animejs@4.5.0/dist/bundles/anime.umd.min.js"></script>
+  <script defer src="organic-bg.js?v=20260806-6"></script>
+  <script defer src="brand-particles.js?v=20260807-7"></script>
+  <script defer src="motion-cues.js?v=20260818-1"></script>
+</head>
+<body class="is-loading">
+  <a class="skip-link" href="#mainContent">跳到主要内容</a>
+
+  <section id="entryExperience" class="entry-experience" aria-label="进入知识宇宙">
+    <div class="entry-sticky-stage">
+      <video id="entryVideo" class="entry-video" muted playsinline preload="metadata" poster="assets/entry-poster.png">
+        <source src="assets/knowledge-cosmos-entry.mp4" type="video/mp4">
+      </video>
+      <div class="entry-shade" aria-hidden="true"></div>
+      <div class="entry-blackout" aria-hidden="true"></div>
+      <div class="entry-content">
+        <h1>进入知识宇宙</h1>
+        <div class="entry-actions">
+          <button id="entrySkip" class="entry-skip" type="button">直接进入</button>
+          <span id="entryScrollHint" class="entry-scroll-hint"><span class="entry-scroll-line" aria-hidden="true"></span>向下滚动进入</span>
+        </div>
+      </div>
+      <div class="entry-progress" aria-hidden="true"><span id="entryProgressBar"></span></div>
+      <p id="entryStatus" class="sr-only" role="status" aria-live="polite">入场动效加载中</p>
+    </div>
+  </section>
+
+  <div id="entryCurtain" class="entry-curtain" aria-hidden="true"></div>
+
+  <div class="app-shell">
+    <header class="topbar" data-od-id="topbar">
+      <div class="topbar-context">
+        <span class="mobile-brand">
+          <img class="mobile-brand-glyph" src="assets/brand-mark.png" alt="" aria-hidden="true">
+          <span class="mobile-wordmark">知识宇宙</span>
+        </span>
+      </div>
+      <div class="topbar-actions">
+        <div id="headerSearch" class="header-search" role="search">
+          <label class="sr-only" for="searchInput" data-i18n="searchLabel">搜索内容</label>
+          <input id="searchInput" type="search" placeholder="搜索全部内容" autocomplete="off" aria-label="搜索内容">
+          <button id="clearSearch" class="header-search-clear" type="button" aria-label="清空搜索" hidden>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"></path></svg>
+          </button>
+          <button id="searchToggle" class="header-search-toggle" type="button" aria-label="展开搜索" aria-controls="searchInput" aria-expanded="false" title="搜索">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="5.75"></circle><path d="M13.5 13.5L18 18"></path></svg>
+          </button>
+        </div>
+        <button id="langToggle" class="icon-text-button" type="button" aria-label="Switch to English">EN</button>
+      </div>
+    </header>
+
+    <nav class="sidenav" data-od-id="sidenav" aria-label="主导航">
+      <div class="brand-mark" data-od-id="brand-mark">
+        <button id="brandParticleTrigger" class="brand-glyph" type="button" aria-label="播放品牌粒子动画" aria-busy="true" title="播放品牌粒子动画">
+          <canvas id="brandParticleCanvas" class="brand-particle-canvas" aria-hidden="true"></canvas>
+          <img class="brand-glyph-media" src="assets/brand-mark.png" alt="">
+        </button>
+        <span class="brand-copy">
+          <strong class="wordmark">知识宇宙</strong>
+          <small>知识宇宙</small>
+        </span>
+      </div>
+
+      <div class="nav-items">
+        <button class="nav-item active" type="button" data-view="home" data-od-id="nav-home" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16"><path d="M2 8h12M8 2v12M4 4l8 8M12 4l-8 8"></path></svg>
+          </span>
+          <span class="rail-label" data-i18n="navHome">首页</span>
+          <span class="nav-count" data-nav-count="home">--</span>
+        </button>
+        <button class="nav-item" type="button" data-view="knowledge" data-od-id="nav-knowledge">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16"><circle cx="8" cy="8" r="5"></circle><circle cx="8" cy="8" r="2"></circle></svg>
+          </span>
+          <span class="rail-label" data-i18n="navKnowledge">知识库</span>
+          <span class="nav-count" data-nav-count="knowledge">--</span>
+        </button>
+        <button class="nav-item" type="button" data-view="models" data-od-id="nav-models">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16"><rect x="2" y="3" width="5" height="4" rx="1"></rect><rect x="9" y="3" width="5" height="4" rx="1"></rect><rect x="2" y="9" width="5" height="4" rx="1"></rect><rect x="9" y="9" width="5" height="4" rx="1"></rect></svg>
+          </span>
+          <span class="rail-label" data-i18n="navModels">模型</span>
+          <span class="nav-count" data-nav-count="models">--</span>
+        </button>
+        <button class="nav-item" type="button" data-view="agents" data-od-id="nav-agents">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16"><circle cx="6" cy="5" r="2.5"></circle><circle cx="10" cy="11" r="2.5"></circle><path d="M8 3.5v2M8 8v2M6 7.5l-2 2M10 8.5l2 2"></path></svg>
+          </span>
+          <span class="rail-label" data-i18n="navAgents">智能体</span>
+          <span class="nav-count" data-nav-count="agents">--</span>
+        </button>
+        <button class="nav-item" type="button" data-view="prompts" data-od-id="nav-prompts">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16"><path d="M2 4h12M2 8h8M2 12h5"></path><rect x="11" y="7" width="3" height="6" rx="1"></rect></svg>
+          </span>
+          <span class="rail-label" data-i18n="navPrompts">提示词</span>
+          <span class="nav-count" data-nav-count="prompts">--</span>
+        </button>
+        <button class="nav-item" type="button" data-view="workflows" data-od-id="nav-workflows">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16"><circle cx="3.2" cy="4" r="1.4"></circle><circle cx="12.8" cy="4" r="1.4"></circle><circle cx="8" cy="12" r="1.4"></circle><path d="M4.5 4h7M4.1 5.1l2.9 5.4M11.9 5.1L9 10.5"></path></svg>
+          </span>
+          <span class="rail-label" data-i18n="navWorkflows">工作流</span>
+          <span class="nav-count" data-nav-count="workflows">--</span>
+        </button>
+        <button class="nav-item" type="button" data-view="aitools" data-od-id="nav-aitools">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16"><path d="M8 2l1.7 3.5 3.8.5-2.7 2.7.7 3.8L8 10.7l-3.5 1.8.7-3.8L2.5 6l3.8-.5L8 2z"></path></svg>
+          </span>
+          <span class="rail-label" data-i18n="navTools">AI 工具</span>
+          <span class="nav-count" data-nav-count="aitools">--</span>
+        </button>
+        <button class="nav-item" type="button" data-view="lab" data-od-id="nav-lab">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16"><path d="M6 2h4M7 2v4l-3 6a1.2 1.2 0 001.1 1.8h5.8A1.2 1.2 0 0012 12L9 6V2"></path><path d="M5.5 10h5"></path></svg>
+          </span>
+          <span class="rail-label" data-i18n="navLab">实验室</span>
+          <span class="nav-count" data-nav-count="lab">--</span>
+        </button>
+        <button class="nav-item" type="button" data-view="my" data-od-id="nav-my">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16"><circle cx="8" cy="5" r="2.5"></circle><path d="M3.5 13c.7-2.2 2.2-3.4 4.5-3.4S11.8 10.8 12.5 13"></path></svg>
+          </span>
+          <span class="rail-label" data-i18n="navMy">我的</span>
+          <span class="nav-count" data-nav-count="my">--</span>
+        </button>
+        <button class="nav-item" type="button" data-view="team" data-od-id="nav-team">
+          <span class="nav-icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16"><circle cx="5.5" cy="5.5" r="2"></circle><circle cx="11" cy="6.5" r="1.7"></circle><path d="M2.5 12.5c.5-2 1.7-3 3.8-3s3.4 1 3.9 3M9.2 10.2c1.7-.2 3 .5 3.6 2.3"></path></svg>
+          </span>
+          <span class="rail-label" data-i18n="navTeam">团队</span>
+          <span class="nav-count" data-nav-count="team">--</span>
+        </button>
+      </div>
+
+      <div class="sidebar-footer">
+        <p data-i18n="sidebarHint">从任务出发，找到可执行的下一步。</p>
+        <button id="sidebarToggle" class="icon-button sidebar-toggle" type="button" aria-label="收起侧边栏" title="收起侧边栏">
+          <svg class="toggle-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 4h10M3 8h10M3 12h10"></path></svg>
+          <svg class="toggle-icon-collapsed" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l5 5-5 5"></path></svg>
+        </button>
+      </div>
+    </nav>
+
+    <main id="mainContent" class="main-content" data-od-id="main-content" tabindex="-1">
+      <header class="view-header">
+        <div class="view-heading">
+          <p id="viewEyebrow" class="eyebrow" hidden></p>
+          <h1 id="viewTitle" class="view-title">首页</h1>
+          <p id="viewSubtitle" class="view-subtitle" hidden></p>
+          <p id="viewTaskStatus" class="view-task-status" hidden></p>
+        </div>
+      </header>
+
+      <section id="taskEntrySection" class="task-entry-section" aria-labelledby="taskEntryTitle">
+        <div class="section-heading task-entry-heading">
+          <div>
+            <h2 id="taskEntryTitle">你现在要完成什么？</h2>
+          </div>
+        </div>
+        <div id="taskEntryGrid" class="task-entry-grid" role="list"></div>
+      </section>
+
+      <section id="workflowOverview" class="workflow-overview" aria-labelledby="workflowOverviewTitle" hidden>
+        <div class="section-heading workflow-overview-heading">
+          <div>
+            <h2 id="workflowOverviewTitle" data-i18n="workflowLibraryTitle">工作流程</h2>
+          </div>
+          <button id="workflowViewAll" class="text-button" type="button">查看全部</button>
+        </div>
+        <div id="workflowGrid" class="workflow-grid" role="list" aria-live="polite"></div>
+      </section>
+
+      <section id="knowledgeField" class="knowledge-field" aria-labelledby="knowledgeFieldTitle" hidden>
+        <div class="knowledge-field-copy">
+          <h2 id="knowledgeFieldTitle">知识路径</h2>
+        </div>
+        <div class="knowledge-field-stage" data-field-stage>
+          <div class="field-aura field-aura-one"></div>
+          <div class="field-aura field-aura-two"></div>
+          <svg class="field-orbit-lines" viewBox="0 0 640 460" role="presentation" aria-hidden="true">
+            <ellipse class="field-orbit field-orbit-main" cx="320" cy="230" rx="230" ry="132"></ellipse>
+            <ellipse class="field-orbit field-orbit-cross" cx="320" cy="230" rx="158" ry="214" transform="rotate(54 320 230)"></ellipse>
+            <path class="field-connector field-connector-knowledge" d="M152 122 C226 142 253 178 292 211"></path>
+            <path class="field-connector field-connector-models" d="M477 130 C421 158 392 186 350 214"></path>
+            <path class="field-connector field-connector-agents" d="M505 332 C444 304 402 279 355 247"></path>
+            <path class="field-connector field-connector-prompts" d="M152 344 C214 316 253 283 294 250"></path>
+          </svg>
+          <div class="field-core" data-field-core>
+            <span class="field-core-ring"></span>
+            <span class="field-core-wordmark"><strong>知识</strong><strong>宇宙</strong></span>
+          </div>
+          <button class="field-node field-node-knowledge" type="button" data-surface-target="knowledge">
+            <span class="field-node-index">01</span><strong>知识</strong><small>建立框架</small>
+          </button>
+          <button class="field-node field-node-models" type="button" data-surface-target="models">
+            <span class="field-node-index">02</span><strong>模型</strong><small>选择能力</small>
+          </button>
+          <button class="field-node field-node-agents" type="button" data-surface-target="agents">
+            <span class="field-node-index">03</span><strong>智能体</strong><small>连接行动</small>
+          </button>
+          <button class="field-node field-node-prompts" type="button" data-surface-target="prompts">
+            <span class="field-node-index">04</span><strong>提示词</strong><small>组织意图</small>
+          </button>
+          <span class="field-particle field-particle-one"></span>
+          <span class="field-particle field-particle-two"></span>
+          <span class="field-particle field-particle-three"></span>
+          <span class="field-particle field-particle-four"></span>
+        </div>
+      </section>
+
+      <section id="surfaceOverview" class="surface-overview" aria-labelledby="surfaceOverviewTitle">
+        <div class="section-heading">
+          <div>
+            <h2 id="surfaceOverviewTitle" data-i18n="overviewTitle">内容入口</h2>
+          </div>
+        </div>
+        <section class="knowledge-stage" data-knowledge-stage aria-label="知识宇宙入口动效导航">
+          <div class="knowledge-stage-copy">
+            <h3>知识宇宙</h3>
+          </div>
+          <div class="knowledge-stage-orbit">
+            <span class="stage-grid" aria-hidden="true"></span>
+            <span class="stage-ring stage-ring-one" aria-hidden="true"></span>
+            <span class="stage-ring stage-ring-two" aria-hidden="true"></span>
+            <span class="stage-ring stage-ring-three" aria-hidden="true"></span>
+            <span class="stage-trace stage-trace-one" aria-hidden="true"></span>
+            <span class="stage-trace stage-trace-two" aria-hidden="true"></span>
+            <span class="stage-core" aria-hidden="true"><strong>知识</strong><small>宇宙</small></span>
+            <button class="stage-node stage-node-knowledge" type="button" data-stage-node="knowledge" data-surface-target="knowledge"><span>知识</span><small>基础</small></button>
+            <button class="stage-node stage-node-models" type="button" data-stage-node="models" data-surface-target="models"><span>模型</span><small>能力</small></button>
+            <button class="stage-node stage-node-agents" type="button" data-stage-node="agents" data-surface-target="agents"><span>智能体</span><small>协作</small></button>
+            <button class="stage-node stage-node-prompts" type="button" data-stage-node="prompts" data-surface-target="prompts"><span>提示词</span><small>表达</small></button>
+            <button class="stage-node stage-node-aitools" type="button" data-stage-node="aitools" data-surface-target="aitools"><span>工具</span><small>执行</small></button>
+            <button class="stage-node stage-node-lab" type="button" data-stage-node="lab" data-surface-target="lab"><span>实验室</span><small>验证</small></button>
+          </div>
+        </section>
+        <div id="surfaceGrid" class="surface-grid"></div>
+      </section>
+
+      <section id="homeLeaderboard" class="model-leaderboard home-leaderboard" aria-labelledby="homeLeaderboardTitle" hidden>
+        <header class="leaderboard-header">
+          <div>
+            <h2 id="homeLeaderboardTitle">精选模型榜单</h2>
+          </div>
+          <button class="leaderboard-view-tab" type="button" data-view-target="models">查看完整榜单</button>
+        </header>
+        <div id="homeLeaderboardTabs" class="leaderboard-tabs" role="tablist" aria-label="首页模型榜单分类"></div>
+        <div id="homeLeaderboardBoard" class="leaderboard-board" aria-live="polite"></div>
+      </section>
+
+      <section id="modelLeaderboard" class="model-leaderboard" aria-labelledby="modelLeaderboardTitle">
+        <header class="leaderboard-header">
+          <div>
+            <h2 id="modelLeaderboardTitle">大模型榜单</h2>
+          </div>
+          <div id="modelRankView" class="leaderboard-view-switch" role="tablist" aria-label="榜单展示方式"></div>
+        </header>
+        <div id="modelRankTabs" class="leaderboard-tabs" role="tablist" aria-label="模型能力榜分类" data-model-rank-tabs></div>
+        <div id="modelRankSubtabs" class="leaderboard-subtabs" role="tablist" aria-label="模型任务榜分类" hidden></div>
+        <div id="modelRankBoard" class="leaderboard-board" data-model-rank-board aria-live="polite"></div>
+      </section>
+
+      <section id="skillLeaderboard" class="model-leaderboard skill-leaderboard" aria-labelledby="skillLeaderboardTitle">
+        <header class="leaderboard-header">
+          <div>
+        <h2 id="skillLeaderboardTitle">技能榜单</h2>
+          </div>
+        </header>
+        <div id="skillRankTabs" class="leaderboard-tabs" role="tablist" aria-label="技能榜单类型" data-skill-rank-tabs></div>
+        <div id="skillRankBoard" class="leaderboard-board" data-skill-rank-board aria-live="polite"></div>
+      </section>
+
+      <section class="library" aria-labelledby="libraryTitle">
+        <div class="library-heading">
+          <div>
+            <p id="libraryEyebrow" class="eyebrow" hidden></p>
+            <h2 id="libraryTitle" data-i18n="libraryTitle">内容索引</h2>
+          </div>
+        </div>
+
+        <div id="libraryToolbar" class="library-toolbar">
+          <div class="filter-controls">
+            <div class="filter-axis">
+              <span id="primaryFilterLabel" class="filter-axis-label">主要分类</span>
+              <div id="modeTabsFrame" class="mode-tabs-frame">
+                <button id="modeTabsPrev" class="tab-scroll-button" type="button" aria-label="向左浏览分类" title="向左浏览分类" hidden>
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10.5 3.5L6 8l4.5 4.5"></path></svg>
+                </button>
+                <div id="modeTabs" class="mode-tabs" role="tablist" aria-label="主要分类"></div>
+                <button id="modeTabsNext" class="tab-scroll-button" type="button" aria-label="向右浏览分类" title="向右浏览分类" hidden>
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5L10 8l-4.5 4.5"></path></svg>
+                </button>
+              </div>
+            </div>
+            <div id="secondaryFilterAxis" class="filter-axis filter-axis-secondary">
+              <span id="secondaryFilterLabel" class="filter-axis-label">次级分类</span>
+              <div id="secondaryTabsFrame" class="mode-tabs-frame">
+                <button id="secondaryTabsPrev" class="tab-scroll-button" type="button" aria-label="向左浏览次级分类" title="向左浏览次级分类" hidden>
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10.5 3.5L6 8l4.5 4.5"></path></svg>
+                </button>
+                <div id="secondaryTabs" class="mode-tabs secondary-mode-tabs" role="tablist" aria-label="次级分类"></div>
+                <button id="secondaryTabsNext" class="tab-scroll-button" type="button" aria-label="向右浏览次级分类" title="向右浏览次级分类" hidden>
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 3.5L10 8l-4.5 4.5"></path></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="results-row">
+          <p id="resultCount" class="result-count" role="status" aria-live="polite" aria-atomic="true">正在整理内容...</p>
+          <div class="results-actions">
+            <button id="savedFilter" class="filter-icon-button" type="button" data-mode="saved" aria-pressed="false" aria-label="只看收藏" title="只看收藏">
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.8l1.8 3.7 4.1.6-3 2.9.7 4.1L8 11.2l-3.6 1.9.7-4.1-3-2.9 4.1-.6L8 1.8z"></path></svg>
+            </button>
+            <button id="resetFilters" class="text-button" type="button" hidden data-i18n="resetFilters">重置筛选</button>
+          </div>
+        </div>
+
+        <div id="contentGrid" class="card-grid" data-od-id="card-grid" role="list" aria-busy="true"></div>
+
+        <div id="emptyState" class="empty-state" data-od-id="empty-state" role="status" hidden>
+          <span class="empty-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="M15.5 15.5L21 21M7.5 10.5h6"></path></svg>
+          </span>
+          <h3 id="emptyTitle">没有匹配内容</h3>
+          <p id="emptyHint">换一个关键词，或清除当前筛选。</p>
+          <button id="emptyAction" class="secondary-button" type="button">查看全部</button>
+        </div>
+
+        <div id="loadMoreWrap" class="load-more-wrap" hidden>
+          <button id="loadMore" class="secondary-button load-more" type="button">
+            <span data-i18n="loadMore">加载更多</span>
+            <span id="loadMoreCount" class="load-more-count"></span>
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <button id="panelBackdrop" class="panel-backdrop" type="button" aria-label="关闭详情" hidden></button>
+  <aside id="detailPanel" class="detail-panel" data-od-id="detail-panel" role="dialog" aria-modal="true" aria-labelledby="panelTitle" aria-describedby="panelSummary" aria-hidden="true" tabindex="-1" inert>
+    <header class="panel-header">
+      <div class="panel-identity">
+        <span id="panelType" class="panel-type">KNOWLEDGE</span>
+        <span id="panelId" class="panel-id">--</span>
+      </div>
+      <div class="panel-header-actions">
+        <button id="panelSave" class="icon-button panel-save" type="button" aria-label="收藏内容" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.7 5.4 6 .9-4.4 4.2 1.1 6-5.4-2.8L6.6 20l1.1-6-4.4-4.2 6-.9L12 3.5z"></path></svg>
+        </button>
+        <button id="panelClose" class="icon-button panel-close" type="button" aria-label="关闭">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"></path></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="panel-scroll">
+      <div id="panelVisual" class="panel-visual" data-surface="knowledge" aria-hidden="true">
+        <img id="panelLogo" src="" alt="" hidden>
+        <span id="panelMonogram">AI</span>
+      </div>
+      <h2 id="panelTitle" class="panel-title">选择一条内容</h2>
+      <p id="panelSummary" class="panel-summary">点击内容卡片查看详情。</p>
+
+      <div id="panelDecision" class="panel-decision" aria-label="内容判断">
+        <div><span id="panelDecisionUseLabel">适合</span><strong id="panelDecisionUse">--</strong></div>
+        <div><span id="panelDecisionTypeLabel">类型</span><strong id="panelDecisionType">--</strong></div>
+        <div><span id="panelDecisionUpdatedLabel">更新</span><strong id="panelDecisionUpdated">--</strong></div>
+      </div>
+
+      <dl class="panel-facts">
+        <div id="panelDomainRow"><dt data-i18n="domainLabel">领域</dt><dd id="panelDomain">--</dd></div>
+        <div><dt data-i18n="updatedLabel">最近更新</dt><dd id="panelUpdated">--</dd></div>
+      </dl>
+
+      <section id="panelNextSection" class="panel-section" aria-labelledby="panelNextLabel">
+        <h3 id="panelNextLabel" data-i18n="nextLabel">下一步</h3>
+        <ul id="panelNext" class="panel-list numbered"></ul>
+      </section>
+
+      <section class="panel-section panel-content-section" aria-labelledby="panelContentLabel">
+        <h3 id="panelContentLabel" data-i18n="contentLabel">详细内容</h3>
+        <div id="panelContent" class="panel-content"></div>
+      </section>
+
+      <section id="panelRelatedSection" class="panel-section panel-supporting-section" aria-labelledby="panelRelatedLabel" hidden>
+        <h3 id="panelRelatedLabel">关联内容</h3>
+        <div id="panelRelated" class="panel-related-list"></div>
+      </section>
+
+      <section class="panel-section panel-supporting-section" aria-labelledby="panelSourcesLabel">
+        <h3 id="panelSourcesLabel" data-i18n="sourcesLabel">来源</h3>
+        <ul id="panelSources" class="panel-list"></ul>
+      </section>
+
+      <section class="panel-section panel-supporting-section" aria-labelledby="panelTagsLabel">
+        <h3 id="panelTagsLabel" data-i18n="tagsLabel">标签</h3>
+        <div id="panelTags" class="panel-tags"></div>
+      </section>
+    </div>
+
+    <footer class="panel-actions">
+      <button id="copyContent" class="secondary-button" type="button">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="5" width="8" height="8" rx="1.5"></rect><path d="M3 10V4a1 1 0 011-1h6"></path></svg>
+        <span data-i18n="copyContent" aria-live="polite">复制内容</span>
+      </button>
+      <a id="panelSourceLink" class="primary-button" href="#" target="_blank" rel="noopener noreferrer" hidden>
+        <span data-i18n="openSource">打开来源</span>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3h7v7M13 3L5 11"></path><path d="M11 9v3a1 1 0 01-1 1H4a1 1 0 01-1-1V6a1 1 0 011-1h3"></path></svg>
+      </a>
+    </footer>
+  </aside>
+
+  <div id="loadingOverlay" class="loading-overlay" role="status" aria-live="polite" aria-atomic="true" aria-busy="true">
+    <div class="loading-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+    <p id="loadingTitle" data-i18n="indexLoading">正在整理知识索引</p>
+    <div class="loading-track" aria-hidden="true"><span></span></div>
+  </div>
+
+  <noscript><p class="noscript-message">此页面需要 JavaScript 才能加载知识索引。</p></noscript>
+</body>
+</html>

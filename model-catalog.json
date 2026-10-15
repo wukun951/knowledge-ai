@@ -1,0 +1,4662 @@
+[
+  {
+    "id": "anthropic-claude-haiku-4-5",
+    "view": "models",
+    "company": "anthropic",
+    "provider": "Anthropic",
+    "series": "Claude Haiku",
+    "modelId": "claude-haiku-4-5",
+    "modelType": "LLM",
+    "contextWindow": "200K tokens",
+    "category": "模型",
+    "title": {
+      "zh": "Claude Haiku 4.5",
+      "en": "Claude Haiku 4.5"
+    },
+    "domain": {
+      "zh": "文本与视觉",
+      "en": "Text & vision"
+    },
+    "summary": {
+      "zh": "Claude 系列的轻量型号，适合高频调用、分类、提取与低延迟任务。",
+      "en": "The lightweight Claude family model for high-volume, low-latency classification and extraction."
+    },
+    "tags": [
+      "Haiku",
+      "低延迟",
+      "高频调用"
+    ],
+    "sources": [
+      "Anthropic 官方模型文档: https://platform.claude.com/docs/en/about-claude/models/overview"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "anthropic-claude-sonnet-5",
+    "view": "models",
+    "company": "anthropic",
+    "provider": "Anthropic",
+    "series": "Claude Sonnet",
+    "modelId": "claude-sonnet-5",
+    "modelType": "LLM",
+    "contextWindow": "1M tokens · max output 128K",
+    "category": "模型",
+    "title": {
+      "zh": "Claude Sonnet 5",
+      "en": "Claude Sonnet 5"
+    },
+    "domain": {
+      "zh": "文本与视觉",
+      "en": "Text & vision"
+    },
+    "summary": {
+      "zh": "Claude 系列的均衡型号，在推理、代码、写作与工具调用之间保持平衡。",
+      "en": "The balanced Claude model for reasoning, coding, writing, and tool use."
+    },
+    "tags": [
+      "Sonnet",
+      "推理",
+      "代码"
+    ],
+    "sources": [
+      "Anthropic 官方模型文档: https://platform.claude.com/docs/en/about-claude/models/overview"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "anthropic-claude-opus-5",
+    "view": "models",
+    "company": "anthropic",
+    "provider": "Anthropic",
+    "series": "Claude Opus",
+    "modelId": "claude-opus-5",
+    "modelType": "LLM",
+    "contextWindow": "1M tokens · max output 128K",
+    "category": "模型",
+    "title": {
+      "zh": "Claude Opus 5",
+      "en": "Claude Opus 5"
+    },
+    "domain": {
+      "zh": "文本与视觉",
+      "en": "Text & vision"
+    },
+    "summary": {
+      "zh": "Claude 系列的高能力型号，面向复杂推理、长任务和高质量代码工作。",
+      "en": "The high-capability Claude model for complex reasoning, long tasks, and demanding code work."
+    },
+    "tags": [
+      "Opus",
+      "复杂推理",
+      "长任务"
+    ],
+    "sources": [
+      "Anthropic 官方模型文档: https://platform.claude.com/docs/en/about-claude/models/overview"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "anthropic-claude-fable-5",
+    "view": "models",
+    "company": "anthropic",
+    "provider": "Anthropic",
+    "series": "Claude Fable",
+    "modelId": "claude-fable-5",
+    "modelType": "LLM",
+    "contextWindow": "1M tokens · max output 128K",
+    "category": "模型",
+    "title": {
+      "zh": "Claude Fable 5",
+      "en": "Claude Fable 5"
+    },
+    "domain": {
+      "zh": "文本与视觉",
+      "en": "Text & vision"
+    },
+    "summary": {
+      "zh": "Anthropic 官方模型目录中的 Fable 系列，适合创作型与通用任务。",
+      "en": "Anthropic's Fable family for creative and general-purpose workloads."
+    },
+    "tags": [
+      "Fable",
+      "创作",
+      "通用"
+    ],
+    "sources": [
+      "Anthropic 官方模型文档: https://platform.claude.com/docs/en/about-claude/models/overview"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "anthropic-claude-mythos-5",
+    "view": "models",
+    "company": "anthropic",
+    "provider": "Anthropic",
+    "series": "Claude Mythos",
+    "modelId": "claude-mythos-5",
+    "modelType": "LLM",
+    "contextWindow": "1M tokens · max output 128K",
+    "category": "模型",
+    "title": {
+      "zh": "Claude Mythos 5",
+      "en": "Claude Mythos 5"
+    },
+    "domain": {
+      "zh": "安全研究",
+      "en": "Safety research"
+    },
+    "summary": {
+      "zh": "Anthropic 官方目录中的限量可用型号，当前定位在防御性网络安全研究。",
+      "en": "A limited-availability Anthropic model positioned for defensive cybersecurity research."
+    },
+    "tags": [
+      "Mythos",
+      "限量可用",
+      "安全研究"
+    ],
+    "availability": {
+      "zh": "Project Glasswing 限量邀请制，不是 GA。",
+      "en": "Limited Project Glasswing access by invitation; not GA."
+    },
+    "sources": [
+      "Anthropic 官方模型文档: https://platform.claude.com/docs/en/about-claude/models/overview"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "openai-gpt-5-6",
+    "view": "models",
+    "company": "openai",
+    "provider": "OpenAI",
+    "series": "GPT",
+    "modelId": "gpt-5.6",
+    "modelType": "LLM",
+    "contextWindow": "1M tokens",
+    "category": "模型",
+    "title": {
+      "zh": "GPT-5.6",
+      "en": "GPT-5.6"
+    },
+    "domain": {
+      "zh": "文本与视觉",
+      "en": "Text & vision"
+    },
+    "summary": {
+      "zh": "OpenAI 当前模型目录中的通用旗舰型号，面向复杂推理与多模态任务。",
+      "en": "OpenAI's current general-purpose flagship for complex reasoning and multimodal tasks."
+    },
+    "tags": [
+      "GPT",
+      "旗舰",
+      "多模态"
+    ],
+    "sources": [
+      "OpenAI 官方模型文档: https://developers.openai.com/api/docs/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "openai-gpt-5-6-sol",
+    "view": "models",
+    "company": "openai",
+    "provider": "OpenAI",
+    "series": "GPT-5.6",
+    "modelId": "gpt-5.6-sol",
+    "modelType": "LLM",
+    "contextWindow": "1M tokens",
+    "category": "模型",
+    "title": {
+      "zh": "GPT-5.6 Sol",
+      "en": "GPT-5.6 Sol"
+    },
+    "domain": {
+      "zh": "推理",
+      "en": "Reasoning"
+    },
+    "summary": {
+      "zh": "GPT-5.6 系列的高智能变体，适合分析、规划和复杂任务拆解。",
+      "en": "The high-intelligence GPT-5.6 variant for analysis, planning, and complex task decomposition."
+    },
+    "tags": [
+      "GPT-5.6",
+      "高智能",
+      "规划"
+    ],
+    "sources": [
+      "OpenAI 官方模型文档: https://developers.openai.com/api/docs/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "openai-gpt-5-6-luna",
+    "view": "models",
+    "company": "openai",
+    "provider": "OpenAI",
+    "series": "GPT-5.6",
+    "modelId": "gpt-5.6-luna",
+    "modelType": "LLM",
+    "contextWindow": "1M tokens",
+    "category": "模型",
+    "title": {
+      "zh": "GPT-5.6 Luna",
+      "en": "GPT-5.6 Luna"
+    },
+    "domain": {
+      "zh": "成本优化",
+      "en": "Cost optimized"
+    },
+    "summary": {
+      "zh": "GPT-5.6 系列的成本敏感变体，适合高频、规模化调用。",
+      "en": "The cost-sensitive GPT-5.6 variant for high-volume production calls."
+    },
+    "tags": [
+      "GPT-5.6",
+      "成本优化",
+      "高频调用"
+    ],
+    "sources": [
+      "OpenAI 官方模型文档: https://developers.openai.com/api/docs/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "openai-gpt-4o",
+    "view": "models",
+    "company": "openai",
+    "provider": "OpenAI",
+    "series": "GPT-4o",
+    "modelId": "gpt-4o",
+    "modelType": "Multimodal",
+    "contextWindow": "128K tokens",
+    "category": "模型",
+    "title": {
+      "zh": "GPT-4o",
+      "en": "GPT-4o"
+    },
+    "domain": {
+      "zh": "文本、图像与音频",
+      "en": "Text, image & audio"
+    },
+    "summary": {
+      "zh": "成熟的多模态通用型号，适合文本、图像与音频统一输入输出。",
+      "en": "A mature multimodal model for unified text, image, and audio workflows."
+    },
+    "tags": [
+      "GPT-4o",
+      "多模态",
+      "通用"
+    ],
+    "sources": [
+      "OpenAI 官方模型文档: https://developers.openai.com/api/docs/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "openai-gpt-4o-mini",
+    "view": "models",
+    "company": "openai",
+    "provider": "OpenAI",
+    "series": "GPT-4o mini",
+    "modelId": "gpt-4o-mini",
+    "modelType": "Multimodal",
+    "contextWindow": "128K tokens",
+    "category": "模型",
+    "title": {
+      "zh": "GPT-4o mini",
+      "en": "GPT-4o mini"
+    },
+    "domain": {
+      "zh": "轻量多模态",
+      "en": "Lightweight multimodal"
+    },
+    "summary": {
+      "zh": "GPT-4o 的轻量版本，适合成本敏感和高并发应用。",
+      "en": "The lightweight GPT-4o variant for cost-sensitive and high-throughput applications."
+    },
+    "tags": [
+      "GPT-4o",
+      "轻量",
+      "高并发"
+    ],
+    "sources": [
+      "OpenAI 官方模型文档: https://developers.openai.com/api/docs/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "openai-o3",
+    "view": "models",
+    "company": "openai",
+    "provider": "OpenAI",
+    "series": "o-series",
+    "modelId": "o3",
+    "modelType": "Reasoning",
+    "contextWindow": "200K tokens",
+    "category": "模型",
+    "title": {
+      "zh": "o3",
+      "en": "o3"
+    },
+    "domain": {
+      "zh": "深度推理",
+      "en": "Deep reasoning"
+    },
+    "summary": {
+      "zh": "OpenAI 的推理系列型号，适合复杂分析、数学和多步骤任务。",
+      "en": "An OpenAI reasoning model for complex analysis, mathematics, and multi-step tasks."
+    },
+    "tags": [
+      "o-series",
+      "推理",
+      "数学"
+    ],
+    "sources": [
+      "OpenAI 官方模型文档: https://developers.openai.com/api/docs/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "openai-o4-mini",
+    "view": "models",
+    "company": "openai",
+    "provider": "OpenAI",
+    "series": "o-series",
+    "modelId": "o4-mini",
+    "modelType": "Reasoning",
+    "contextWindow": "200K tokens",
+    "category": "模型",
+    "title": {
+      "zh": "o4-mini",
+      "en": "o4-mini"
+    },
+    "domain": {
+      "zh": "轻量推理",
+      "en": "Lightweight reasoning"
+    },
+    "summary": {
+      "zh": "推理系列的轻量型号，在速度、成本和推理能力之间平衡。",
+      "en": "A compact reasoning model balancing speed, cost, and analytical capability."
+    },
+    "tags": [
+      "o-series",
+      "轻量",
+      "推理"
+    ],
+    "sources": [
+      "OpenAI 官方模型文档: https://developers.openai.com/api/docs/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "google-gemini-3-6-flash",
+    "view": "models",
+    "company": "google",
+    "provider": "Google DeepMind",
+    "series": "Gemini 3.6",
+    "modelId": "gemini-3.6-flash",
+    "modelType": "Multimodal",
+    "contextWindow": "1M tokens",
+    "category": "模型",
+    "title": {
+      "zh": "Gemini 3.6 Flash",
+      "en": "Gemini 3.6 Flash"
+    },
+    "domain": {
+      "zh": "快速多模态",
+      "en": "Fast multimodal"
+    },
+    "summary": {
+      "zh": "Gemini 新一代 Flash 型号，面向快速、多模态和高吞吐任务。",
+      "en": "A next-generation Gemini Flash model for fast, multimodal, high-throughput tasks."
+    },
+    "tags": [
+      "Gemini",
+      "Flash",
+      "多模态"
+    ],
+    "sources": [
+      "Google 官方模型文档: https://ai.google.dev/gemini-api/docs/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "google-gemini-3-5-flash",
+    "view": "models",
+    "company": "google",
+    "provider": "Google DeepMind",
+    "series": "Gemini 3.5",
+    "modelId": "gemini-3.5-flash",
+    "modelType": "Multimodal",
+    "contextWindow": "1M tokens",
+    "category": "模型",
+    "title": {
+      "zh": "Gemini 3.5 Flash",
+      "en": "Gemini 3.5 Flash"
+    },
+    "domain": {
+      "zh": "快速多模态",
+      "en": "Fast multimodal"
+    },
+    "summary": {
+      "zh": "Gemini 3.5 的快速型号，适合实时应用和通用多模态工作流。",
+      "en": "The fast Gemini 3.5 model for real-time apps and general multimodal workflows."
+    },
+    "tags": [
+      "Gemini",
+      "Flash",
+      "实时"
+    ],
+    "sources": [
+      "Google 官方模型文档: https://ai.google.dev/gemini-api/docs/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "google-gemini-3-5-flash-lite",
+    "view": "models",
+    "company": "google",
+    "provider": "Google DeepMind",
+    "series": "Gemini 3.5",
+    "modelId": "gemini-3.5-flash-lite",
+    "modelType": "Multimodal",
+    "contextWindow": "1M tokens",
+    "category": "模型",
+    "title": {
+      "zh": "Gemini 3.5 Flash-Lite",
+      "en": "Gemini 3.5 Flash-Lite"
+    },
+    "domain": {
+      "zh": "轻量多模态",
+      "en": "Lightweight multimodal"
+    },
+    "summary": {
+      "zh": "Gemini 3.5 的轻量型号，用于低成本、高频率调用。",
+      "en": "The lightweight Gemini 3.5 model for low-cost, high-volume calls."
+    },
+    "tags": [
+      "Gemini",
+      "Flash-Lite",
+      "低成本"
+    ],
+    "sources": [
+      "Google 官方模型文档: https://ai.google.dev/gemini-api/docs/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "google-gemini-3-1-pro",
+    "view": "models",
+    "company": "google",
+    "provider": "Google DeepMind",
+    "series": "Gemini 3.1",
+    "modelId": "gemini-3.1-pro",
+    "modelType": "Multimodal",
+    "contextWindow": "1M tokens",
+    "category": "模型",
+    "title": {
+      "zh": "Gemini 3.1 Pro",
+      "en": "Gemini 3.1 Pro"
+    },
+    "domain": {
+      "zh": "复杂任务",
+      "en": "Complex tasks"
+    },
+    "summary": {
+      "zh": "Gemini Pro 系列型号，适合复杂推理、长上下文和工具调用。",
+      "en": "A Gemini Pro model for complex reasoning, long context, and tool use."
+    },
+    "tags": [
+      "Gemini",
+      "Pro",
+      "长上下文"
+    ],
+    "sources": [
+      "Google 官方模型文档: https://ai.google.dev/gemini-api/docs/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "google-gemini-2-5-pro",
+    "view": "models",
+    "company": "google",
+    "provider": "Google DeepMind",
+    "series": "Gemini 2.5",
+    "modelId": "gemini-2.5-pro",
+    "modelType": "Reasoning",
+    "contextWindow": "1M tokens",
+    "category": "模型",
+    "title": {
+      "zh": "Gemini 2.5 Pro",
+      "en": "Gemini 2.5 Pro"
+    },
+    "domain": {
+      "zh": "推理",
+      "en": "Reasoning"
+    },
+    "summary": {
+      "zh": "Gemini 2.5 Pro 推理型号，适合代码、分析与多模态复杂任务。",
+      "en": "The Gemini 2.5 Pro reasoning model for code, analysis, and multimodal tasks."
+    },
+    "tags": [
+      "Gemini",
+      "Pro",
+      "推理"
+    ],
+    "sources": [
+      "Google 官方模型文档: https://ai.google.dev/gemini-api/docs/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "google-gemini-2-5-flash",
+    "view": "models",
+    "company": "google",
+    "provider": "Google DeepMind",
+    "series": "Gemini 2.5",
+    "modelId": "gemini-2.5-flash",
+    "modelType": "Multimodal",
+    "contextWindow": "1M tokens",
+    "category": "模型",
+    "title": {
+      "zh": "Gemini 2.5 Flash",
+      "en": "Gemini 2.5 Flash"
+    },
+    "domain": {
+      "zh": "快速多模态",
+      "en": "Fast multimodal"
+    },
+    "summary": {
+      "zh": "Gemini 2.5 Flash 快速型号，适合实时产品和规模化调用。",
+      "en": "The fast Gemini 2.5 model for real-time products and scaled workloads."
+    },
+    "tags": [
+      "Gemini",
+      "Flash",
+      "规模化"
+    ],
+    "sources": [
+      "Google 官方模型文档: https://ai.google.dev/gemini-api/docs/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "deepseek-v4-flash",
+    "view": "models",
+    "company": "deepseek",
+    "provider": "DeepSeek",
+    "series": "DeepSeek V4",
+    "modelId": "deepseek-v4-flash",
+    "modelType": "LLM",
+    "contextWindow": "1M tokens",
+    "category": "模型",
+    "title": {
+      "zh": "DeepSeek V4 Flash",
+      "en": "DeepSeek V4 Flash"
+    },
+    "domain": {
+      "zh": "高吞吐",
+      "en": "High throughput"
+    },
+    "summary": {
+      "zh": "DeepSeek V4 的快速型号，适合高吞吐与成本敏感的通用任务。",
+      "en": "The fast DeepSeek V4 model for high-throughput, cost-sensitive workloads."
+    },
+    "tags": [
+      "DeepSeek V4",
+      "Flash",
+      "高吞吐"
+    ],
+    "sources": [
+      "DeepSeek 官方模型文档: https://api-docs.deepseek.com/quick_start/pricing"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "deepseek-v4-pro",
+    "view": "models",
+    "company": "deepseek",
+    "provider": "DeepSeek",
+    "series": "DeepSeek V4",
+    "modelId": "deepseek-v4-pro",
+    "modelType": "LLM",
+    "contextWindow": "1M tokens",
+    "category": "模型",
+    "title": {
+      "zh": "DeepSeek V4 Pro",
+      "en": "DeepSeek V4 Pro"
+    },
+    "domain": {
+      "zh": "复杂任务",
+      "en": "Complex tasks"
+    },
+    "summary": {
+      "zh": "DeepSeek V4 的高能力型号，面向复杂推理、代码和长上下文任务。",
+      "en": "The high-capability DeepSeek V4 model for reasoning, code, and long-context tasks."
+    },
+    "tags": [
+      "DeepSeek V4",
+      "Pro",
+      "代码"
+    ],
+    "sources": [
+      "DeepSeek 官方模型文档: https://api-docs.deepseek.com/quick_start/pricing"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "xai-grok-4-5",
+    "view": "models",
+    "company": "xai",
+    "provider": "xAI",
+    "series": "Grok 4",
+    "modelId": "grok-4.5",
+    "modelType": "LLM",
+    "contextWindow": "500K tokens",
+    "category": "模型",
+    "title": {
+      "zh": "Grok 4.5",
+      "en": "Grok 4.5"
+    },
+    "domain": {
+      "zh": "文本与视觉",
+      "en": "Text & vision"
+    },
+    "summary": {
+      "zh": "xAI 的通用型号，支持文本与图像输入、工具调用和结构化输出。",
+      "en": "xAI's general-purpose model with text and image input, tool use, and structured output."
+    },
+    "tags": [
+      "Grok",
+      "多模态",
+      "工具调用"
+    ],
+    "sources": [
+      "xAI 官方模型文档: https://docs.x.ai/developers/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "xai-grok-4-20-multi-agent",
+    "view": "models",
+    "company": "xai",
+    "provider": "xAI",
+    "series": "Grok 4.20",
+    "modelId": "grok-4.20-multi-agent-0309",
+    "modelType": "Agentic",
+    "contextWindow": "1M tokens",
+    "category": "模型",
+    "title": {
+      "zh": "Grok 4.20 Multi-Agent",
+      "en": "Grok 4.20 Multi-Agent"
+    },
+    "domain": {
+      "zh": "多 Agent",
+      "en": "Multi-agent"
+    },
+    "summary": {
+      "zh": "面向多 Agent 协作的 Grok 变体，适合并行任务和工具编排。",
+      "en": "A Grok variant for multi-agent collaboration, parallel tasks, and tool orchestration."
+    },
+    "tags": [
+      "Grok 4.20",
+      "Multi-Agent",
+      "工具编排"
+    ],
+    "sources": [
+      "xAI 官方模型文档: https://docs.x.ai/developers/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "xai-grok-4-20-reasoning",
+    "view": "models",
+    "company": "xai",
+    "provider": "xAI",
+    "series": "Grok 4.20",
+    "modelId": "grok-4.20-0309-reasoning",
+    "modelType": "Reasoning",
+    "contextWindow": "1M tokens",
+    "category": "模型",
+    "title": {
+      "zh": "Grok 4.20 Reasoning",
+      "en": "Grok 4.20 Reasoning"
+    },
+    "domain": {
+      "zh": "推理",
+      "en": "Reasoning"
+    },
+    "summary": {
+      "zh": "Grok 4.20 的推理变体，适合复杂问题分解与多步决策。",
+      "en": "The reasoning variant of Grok 4.20 for decomposition and multi-step decisions."
+    },
+    "tags": [
+      "Grok 4.20",
+      "推理",
+      "决策"
+    ],
+    "sources": [
+      "xAI 官方模型文档: https://docs.x.ai/developers/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "xai-grok-code-fast-1",
+    "view": "models",
+    "company": "xai",
+    "provider": "xAI",
+    "series": "Grok Code",
+    "modelId": "grok-code-fast-1",
+    "modelType": "Coding",
+    "contextWindow": "256K tokens",
+    "category": "模型",
+    "title": {
+      "zh": "Grok Code Fast 1",
+      "en": "Grok Code Fast 1"
+    },
+    "domain": {
+      "zh": "代码",
+      "en": "Coding"
+    },
+    "summary": {
+      "zh": "xAI 的代码专用快速型号，用于代码生成、修改与仓库任务。",
+      "en": "xAI's fast coding model for generation, editing, and repository tasks."
+    },
+    "tags": [
+      "Grok Code",
+      "代码",
+      "快速"
+    ],
+    "sources": [
+      "xAI 官方模型文档: https://docs.x.ai/developers/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "xai-grok-imagine-video-1-5",
+    "view": "models",
+    "company": "xai",
+    "provider": "xAI",
+    "series": "Grok Imagine",
+    "modelId": "grok-imagine-video-1.5",
+    "modelType": "Video",
+    "contextWindow": "Text, image, audio, video",
+    "category": "模型",
+    "title": {
+      "zh": "Grok Imagine Video 1.5",
+      "en": "Grok Imagine Video 1.5"
+    },
+    "domain": {
+      "zh": "视频生成",
+      "en": "Video generation"
+    },
+    "summary": {
+      "zh": "xAI 的视频生成型号，支持文本、图像、音频和视频输入。",
+      "en": "xAI's video generation model with text, image, audio, and video input."
+    },
+    "tags": [
+      "Grok Imagine",
+      "视频",
+      "多模态"
+    ],
+    "sources": [
+      "xAI 官方模型文档: https://docs.x.ai/developers/models"
+    ],
+    "next": [
+      "查看官方模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "openrouter-auto",
+    "view": "models",
+    "company": "openrouter",
+    "provider": "OpenRouter",
+    "series": "Auto Router",
+    "modelId": "openrouter/auto",
+    "modelType": "Router",
+    "contextWindow": "视目标模型",
+    "category": "模型平台",
+    "title": {
+      "zh": "OpenRouter Auto",
+      "en": "OpenRouter Auto"
+    },
+    "domain": {
+      "zh": "模型路由",
+      "en": "Model routing"
+    },
+    "summary": {
+      "zh": "按任务和可用性自动选择模型的路由入口，适合统一 API 与成本控制。",
+      "en": "An automatic routing entry point for unified APIs, availability, and cost control."
+    },
+    "tags": [
+      "OpenRouter",
+      "路由",
+      "统一 API"
+    ],
+    "sources": [
+      "OpenRouter 官方模型目录: https://openrouter.ai/models"
+    ],
+    "next": [
+      "查看官方模型目录"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "midjourney-v7",
+    "view": "models",
+    "company": "midjourney",
+    "provider": "Midjourney",
+    "series": "Midjourney",
+    "modelId": "midjourney-v7",
+    "modelType": "Image",
+    "contextWindow": "Image generation",
+    "category": "模型",
+    "title": {
+      "zh": "Midjourney V7",
+      "en": "Midjourney V7"
+    },
+    "domain": {
+      "zh": "图像生成",
+      "en": "Image generation"
+    },
+    "summary": {
+      "zh": "Midjourney 当前主力图像生成型号，强调审美、细节和风格一致性。",
+      "en": "Midjourney's current image model focused on aesthetics, detail, and style consistency."
+    },
+    "tags": [
+      "图像",
+      "审美",
+      "风格一致性"
+    ],
+    "sources": [
+      "Midjourney 官方文档: https://docs.midjourney.com/hc/en-us"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "midjourney-v6-1",
+    "view": "models",
+    "company": "midjourney",
+    "provider": "Midjourney",
+    "series": "Midjourney",
+    "modelId": "midjourney-v6.1",
+    "modelType": "Image",
+    "contextWindow": "Image generation",
+    "category": "模型",
+    "title": {
+      "zh": "Midjourney V6.1",
+      "en": "Midjourney V6.1"
+    },
+    "domain": {
+      "zh": "图像生成",
+      "en": "Image generation"
+    },
+    "summary": {
+      "zh": "Midjourney 的成熟图像型号，适合稳定的写实、概念和产品视觉。",
+      "en": "A mature Midjourney image model for consistent photoreal, concept, and product visuals."
+    },
+    "tags": [
+      "图像",
+      "写实",
+      "产品视觉"
+    ],
+    "sources": [
+      "Midjourney 官方文档: https://docs.midjourney.com/hc/en-us"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "stability-sd-3-5-large",
+    "view": "models",
+    "company": "stability",
+    "provider": "Stability AI",
+    "series": "Stable Diffusion 3.5",
+    "modelId": "sd3.5-large",
+    "modelType": "Image",
+    "contextWindow": "Image generation",
+    "category": "模型",
+    "title": {
+      "zh": "Stable Diffusion 3.5 Large",
+      "en": "Stable Diffusion 3.5 Large"
+    },
+    "domain": {
+      "zh": "图像生成",
+      "en": "Image generation"
+    },
+    "summary": {
+      "zh": "Stable Diffusion 3.5 的高质量型号，适合细节丰富的本地或 API 生成。",
+      "en": "The high-quality Stable Diffusion 3.5 model for detailed local or API generation."
+    },
+    "tags": [
+      "Stable Diffusion",
+      "开源",
+      "高质量"
+    ],
+    "sources": [
+      "Stability AI 官方文档: https://platform.stability.ai/docs"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "stability-sd-3-5-medium",
+    "view": "models",
+    "company": "stability",
+    "provider": "Stability AI",
+    "series": "Stable Diffusion 3.5",
+    "modelId": "sd3.5-medium",
+    "modelType": "Image",
+    "contextWindow": "Image generation",
+    "category": "模型",
+    "title": {
+      "zh": "Stable Diffusion 3.5 Medium",
+      "en": "Stable Diffusion 3.5 Medium"
+    },
+    "domain": {
+      "zh": "图像生成",
+      "en": "Image generation"
+    },
+    "summary": {
+      "zh": "Stable Diffusion 3.5 的平衡型号，在本地显存、速度和质量之间取平衡。",
+      "en": "The balanced Stable Diffusion 3.5 model for local memory, speed, and quality."
+    },
+    "tags": [
+      "Stable Diffusion",
+      "本地部署",
+      "平衡"
+    ],
+    "sources": [
+      "Stability AI 官方文档: https://platform.stability.ai/docs"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "runway-gen-4-5",
+    "view": "models",
+    "company": "runway",
+    "provider": "Runway",
+    "series": "Gen",
+    "modelId": "gen-4.5",
+    "modelType": "Video",
+    "contextWindow": "Text & image to video",
+    "category": "模型",
+    "title": {
+      "zh": "Gen-4.5",
+      "en": "Gen-4.5"
+    },
+    "domain": {
+      "zh": "视频生成",
+      "en": "Video generation"
+    },
+    "summary": {
+      "zh": "Runway 的高质量视频生成型号，适合镜头、运动和叙事控制。",
+      "en": "Runway's high-quality video model for camera, motion, and narrative control."
+    },
+    "tags": [
+      "Runway",
+      "视频",
+      "镜头控制"
+    ],
+    "sources": [
+      "Runway 官方平台: https://runway.com/"
+    ],
+    "next": [
+      "查看官方平台"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "runway-gen-4",
+    "view": "models",
+    "company": "runway",
+    "provider": "Runway",
+    "series": "Gen",
+    "modelId": "gen-4",
+    "modelType": "Video",
+    "contextWindow": "Text & image to video",
+    "category": "模型",
+    "title": {
+      "zh": "Gen-4",
+      "en": "Gen-4"
+    },
+    "domain": {
+      "zh": "视频生成",
+      "en": "Video generation"
+    },
+    "summary": {
+      "zh": "Runway Gen 系列的视频生成型号，适合图像转视频和可控镜头。",
+      "en": "A Runway Gen model for image-to-video and controlled camera movement."
+    },
+    "tags": [
+      "Runway",
+      "图生视频",
+      "镜头控制"
+    ],
+    "sources": [
+      "Runway 官方平台: https://runway.com/"
+    ],
+    "next": [
+      "查看官方平台"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "pika-2-0",
+    "view": "models",
+    "company": "pika",
+    "provider": "Pika",
+    "series": "Pika",
+    "modelId": "product-only",
+    "modelType": "Video",
+    "contextWindow": "Text & image to video",
+    "category": "模型",
+    "title": {
+      "zh": "Pika 2.0",
+      "en": "Pika 2.0"
+    },
+    "domain": {
+      "zh": "视频生成",
+      "en": "Video generation"
+    },
+    "summary": {
+      "zh": "Pika 的快速视频生成型号，适合轻量创作和短内容实验。",
+      "en": "Pika's fast video model for lightweight creation and short-form experiments."
+    },
+    "tags": [
+      "Pika",
+      "视频",
+      "快速创作"
+    ],
+    "sources": [
+      "Pika 官方平台: https://pika.art/"
+    ],
+    "next": [
+      "查看官方平台"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "kuaishou-kling-2-5-turbo",
+    "view": "models",
+    "company": "kuaishou",
+    "provider": "快手 Kuaishou",
+    "series": "Kling",
+    "modelId": "kling-v2-5-turbo",
+    "modelType": "Video",
+    "contextWindow": "Text & image to video",
+    "category": "模型",
+    "title": {
+      "zh": "Kling 2.5 Turbo",
+      "en": "Kling 2.5 Turbo"
+    },
+    "domain": {
+      "zh": "视频生成",
+      "en": "Video generation"
+    },
+    "summary": {
+      "zh": "快手 Kling 系列的快速视频型号，强调运动表现和生成效率。",
+      "en": "A fast Kling video model focused on motion quality and generation efficiency."
+    },
+    "tags": [
+      "Kling",
+      "视频",
+      "运动"
+    ],
+    "sources": [
+      "Kling API 能力地图: https://www.klingai.com/document-api/guides/capability-map/video"
+    ],
+    "next": [
+      "查看官方平台"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "kuaishou-kling-2-1",
+    "view": "models",
+    "company": "kuaishou",
+    "provider": "快手 Kuaishou",
+    "series": "Kling",
+    "modelId": "kling-2.1",
+    "modelType": "Video",
+    "contextWindow": "Text & image to video",
+    "category": "模型",
+    "title": {
+      "zh": "Kling 2.1",
+      "en": "Kling 2.1"
+    },
+    "domain": {
+      "zh": "视频生成",
+      "en": "Video generation"
+    },
+    "summary": {
+      "zh": "Kling 的成熟视频型号，适合文本或图像生成动态镜头。",
+      "en": "A mature Kling video model for text-to-video and image-to-video shots."
+    },
+    "tags": [
+      "Kling",
+      "图生视频",
+      "动态镜头"
+    ],
+    "sources": [
+      "Kling 官方平台: https://klingai.com/"
+    ],
+    "next": [
+      "查看官方平台"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "openai-gpt-image-2",
+    "view": "models",
+    "company": "openai",
+    "provider": "OpenAI",
+    "series": "GPT Image",
+    "modelId": "gpt-image-2",
+    "modelType": "Image",
+    "contextWindow": "Text & image input to image",
+    "category": "模型",
+    "title": {
+      "zh": "GPT Image 2",
+      "en": "GPT Image 2"
+    },
+    "domain": {
+      "zh": "图像生成与编辑",
+      "en": "Image generation and editing"
+    },
+    "summary": {
+      "zh": "OpenAI 当前的图像生成与编辑模型，适合从文字或参考图生成高质量视觉内容。",
+      "en": "OpenAI's current image generation and editing model for high-quality visual content from text or reference images."
+    },
+    "input": {
+      "zh": "文本、参考图",
+      "en": "Text, reference images"
+    },
+    "output": {
+      "zh": "图像；支持 1K、2K、4K",
+      "en": "Images; 1K, 2K, and 4K"
+    },
+    "limits": {
+      "zh": "最大边长 3840px；边长需为 16px 倍数；宽高比不超过 3:1；当前不支持透明背景。",
+      "en": "Maximum edge 3840px; dimensions must be multiples of 16; aspect ratio up to 3:1; transparent backgrounds are not currently supported."
+    },
+    "availability": {
+      "zh": "API 可用；具体能力取决于所用接口。",
+      "en": "Available through the API; capabilities depend on the endpoint."
+    },
+    "tags": [
+      "OpenAI",
+      "图像生成",
+      "图像编辑",
+      "4K"
+    ],
+    "sources": [
+      "OpenAI Developers: https://developers.openai.com/api/docs/models/gpt-image-2"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "openai-gpt-image-1-5",
+    "view": "models",
+    "company": "openai",
+    "provider": "OpenAI",
+    "series": "GPT Image",
+    "modelId": "gpt-image-1.5",
+    "modelType": "Image",
+    "contextWindow": "Text & image input to image",
+    "category": "模型",
+    "title": {
+      "zh": "GPT Image 1.5",
+      "en": "GPT Image 1.5"
+    },
+    "domain": {
+      "zh": "图像生成与编辑",
+      "en": "Image generation and editing"
+    },
+    "summary": {
+      "zh": "GPT Image 系列的上一代图像生成型号，支持生成和基于参考图的编辑工作流。",
+      "en": "The previous-generation GPT Image model for generation and reference-image editing workflows."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "API 可用性以官方模型页为准。",
+      "en": "API availability is subject to the official model page."
+    },
+    "tags": [
+      "OpenAI",
+      "图像生成",
+      "图像编辑"
+    ],
+    "sources": [
+      "OpenAI Developers: https://developers.openai.com/api/docs/models/gpt-image-1.5"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "openai-gpt-image-1",
+    "view": "models",
+    "company": "openai",
+    "provider": "OpenAI",
+    "series": "GPT Image",
+    "modelId": "gpt-image-1",
+    "modelType": "Image",
+    "contextWindow": "Text & image input to image",
+    "category": "模型",
+    "title": {
+      "zh": "GPT Image 1",
+      "en": "GPT Image 1"
+    },
+    "domain": {
+      "zh": "图像生成与编辑",
+      "en": "Image generation and editing"
+    },
+    "summary": {
+      "zh": "OpenAI 的图像生成与编辑模型，适合插画、概念图和基于输入图的修改。",
+      "en": "OpenAI's image generation and editing model for illustrations, concepts, and image transformations."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "API 可用性以官方模型页为准。",
+      "en": "API availability is subject to the official model page."
+    },
+    "tags": [
+      "OpenAI",
+      "图像生成",
+      "图像编辑"
+    ],
+    "sources": [
+      "OpenAI Developers: https://developers.openai.com/api/docs/models/gpt-image-1"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "openai-gpt-image-1-mini",
+    "view": "models",
+    "company": "openai",
+    "provider": "OpenAI",
+    "series": "GPT Image",
+    "modelId": "gpt-image-1-mini",
+    "modelType": "Image",
+    "contextWindow": "Text & image input to image",
+    "category": "模型",
+    "title": {
+      "zh": "GPT Image 1 Mini",
+      "en": "GPT Image 1 Mini"
+    },
+    "domain": {
+      "zh": "轻量图像生成",
+      "en": "Lightweight image generation"
+    },
+    "summary": {
+      "zh": "GPT Image 的轻量型号，适合成本敏感的图像生成和编辑任务。",
+      "en": "A lightweight GPT Image model for cost-sensitive generation and editing tasks."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "API 可用性以官方模型页为准。",
+      "en": "API availability is subject to the official model page."
+    },
+    "tags": [
+      "OpenAI",
+      "图像生成",
+      "轻量"
+    ],
+    "sources": [
+      "OpenAI Models: https://platform.openai.com/docs/models"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "openai-sora-2",
+    "view": "models",
+    "company": "openai",
+    "provider": "OpenAI",
+    "series": "Sora",
+    "modelId": "sora-2",
+    "modelType": "Video",
+    "contextWindow": "Text or image input to video with audio",
+    "category": "模型",
+    "title": {
+      "zh": "Sora 2",
+      "en": "Sora 2"
+    },
+    "domain": {
+      "zh": "视频生成",
+      "en": "Video generation"
+    },
+    "summary": {
+      "zh": "OpenAI 的视频生成模型，支持文本或图像输入，输出带同步音频的视频。",
+      "en": "OpenAI's video generation model that accepts text or images and produces video with synchronized audio."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "aliases": {
+      "zh": "sora-2-2025-10-06、sora-2-2025-12-08",
+      "en": "sora-2-2025-10-06, sora-2-2025-12-08"
+    },
+    "output": {
+      "zh": "视频与同步音频",
+      "en": "Video with synchronized audio"
+    },
+    "limits": {
+      "zh": "官方 guide 与当前 API schema 的时长和尺寸存在冲突：guide 写 16/20 秒，schema 写 4/8/12 秒并列出四种尺寸；实际接入以账号当前 schema 为准。",
+      "en": "The official guide and current API schema conflict on duration and sizes: the guide lists 16/20 seconds, while the schema lists 4/8/12 seconds and four sizes. Use the schema available to the account at integration time."
+    },
+    "availability": {
+      "zh": "Deprecated；官方计划于 2026-09-24 shutdown。",
+      "en": "Deprecated; official shutdown is scheduled for 2026-09-24."
+    },
+    "tags": [
+      "OpenAI",
+      "视频生成",
+      "同步音频",
+      "Deprecated",
+      "Sunset"
+    ],
+    "sources": [
+      "OpenAI Video Guide: https://developers.openai.com/api/docs/guides/video-generation",
+      "OpenAI Deprecations: https://developers.openai.com/api/docs/deprecations"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "openai-sora-2-pro",
+    "view": "models",
+    "company": "openai",
+    "provider": "OpenAI",
+    "series": "Sora",
+    "modelId": "sora-2-pro",
+    "modelType": "Video",
+    "contextWindow": "Text or image input to video with audio",
+    "category": "模型",
+    "title": {
+      "zh": "Sora 2 Pro",
+      "en": "Sora 2 Pro"
+    },
+    "domain": {
+      "zh": "高质量视频生成",
+      "en": "High-quality video generation"
+    },
+    "summary": {
+      "zh": "Sora 2 的高质量型号，面向更高要求的镜头、画面和音频生成任务。",
+      "en": "The higher-quality Sora 2 model for demanding video, shot, and audio generation tasks."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "aliases": {
+      "zh": "sora-2-pro-2025-10-06",
+      "en": "sora-2-pro-2025-10-06"
+    },
+    "output": {
+      "zh": "视频与同步音频",
+      "en": "Video with synchronized audio"
+    },
+    "limits": {
+      "zh": "官方 guide 宣称支持 1920×1080、1080×1920 和 16/20 秒，但当前 API schema 仍列 4/8/12 秒及四种 720p/1792p 尺寸；实际接入以账号当前 schema 为准。",
+      "en": "The guide claims 1920x1080, 1080x1920, and 16/20 seconds, while the current API schema still lists 4/8/12 seconds and four 720p/1792p sizes. Use the schema available to the account at integration time."
+    },
+    "availability": {
+      "zh": "Deprecated；官方计划于 2026-09-24 shutdown。",
+      "en": "Deprecated; official shutdown is scheduled for 2026-09-24."
+    },
+    "tags": [
+      "OpenAI",
+      "视频生成",
+      "高质量",
+      "同步音频",
+      "Deprecated",
+      "Sunset"
+    ],
+    "sources": [
+      "OpenAI Video Guide: https://developers.openai.com/api/docs/guides/video-generation",
+      "OpenAI Deprecations: https://developers.openai.com/api/docs/deprecations"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "google-nano-banana-2-lite",
+    "view": "models",
+    "company": "google",
+    "provider": "Google DeepMind",
+    "series": "Nano Banana 2",
+    "modelId": "gemini-3.1-flash-lite-image",
+    "modelType": "Image",
+    "contextWindow": "Text and image input to image",
+    "category": "模型",
+    "title": {
+      "zh": "Nano Banana 2 Lite",
+      "en": "Nano Banana 2 Lite"
+    },
+    "domain": {
+      "zh": "轻量图像生成与编辑",
+      "en": "Lightweight image generation and editing"
+    },
+    "summary": {
+      "zh": "Google 的轻量图像生成型号，适合快速生成、改图和需要较低延迟的视觉任务。",
+      "en": "Google's lightweight image model for fast generation, editing, and lower-latency visual tasks."
+    },
+    "input": {
+      "zh": "文本、图像、对话上下文",
+      "en": "Text, images, conversational context"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "Gemini API 模型。",
+      "en": "Available as a Gemini API model."
+    },
+    "tags": [
+      "Google",
+      "Nano Banana",
+      "图像生成",
+      "轻量"
+    ],
+    "sources": [
+      "Google AI for Developers: https://ai.google.dev/gemini-api/docs/image-generation"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "google-nano-banana-2",
+    "view": "models",
+    "company": "google",
+    "provider": "Google DeepMind",
+    "series": "Nano Banana 2",
+    "modelId": "gemini-3.1-flash-image",
+    "modelType": "Image",
+    "contextWindow": "Text and image input to image",
+    "category": "模型",
+    "title": {
+      "zh": "Nano Banana 2",
+      "en": "Nano Banana 2"
+    },
+    "domain": {
+      "zh": "图像生成与编辑",
+      "en": "Image generation and editing"
+    },
+    "summary": {
+      "zh": "Google 的 Nano Banana 2 图像模型，适合对话式生图、局部编辑和多轮视觉创作。",
+      "en": "Google's Nano Banana 2 image model for conversational generation, local edits, and iterative visual creation."
+    },
+    "input": {
+      "zh": "文本、图像、对话上下文",
+      "en": "Text, images, conversational context"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "Gemini API 模型。",
+      "en": "Available as a Gemini API model."
+    },
+    "tags": [
+      "Google",
+      "Nano Banana",
+      "图像生成",
+      "图像编辑"
+    ],
+    "sources": [
+      "Google AI for Developers: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "google-nano-banana-pro",
+    "view": "models",
+    "company": "google",
+    "provider": "Google DeepMind",
+    "series": "Nano Banana",
+    "modelId": "gemini-3-pro-image",
+    "modelType": "Image",
+    "contextWindow": "Text and image input to image",
+    "category": "模型",
+    "title": {
+      "zh": "Nano Banana Pro",
+      "en": "Nano Banana Pro"
+    },
+    "domain": {
+      "zh": "专业图像生成与编辑",
+      "en": "Professional image generation and editing"
+    },
+    "summary": {
+      "zh": "Nano Banana 系列的专业型号，适合更复杂的构图、文字排版和参考图编辑。",
+      "en": "The professional Nano Banana model for complex composition, text rendering, and reference-image editing."
+    },
+    "input": {
+      "zh": "文本、图像、对话上下文",
+      "en": "Text, images, conversational context"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "Gemini API 模型。",
+      "en": "Available as a Gemini API model."
+    },
+    "tags": [
+      "Google",
+      "Nano Banana",
+      "图像生成",
+      "专业编辑"
+    ],
+    "sources": [
+      "Google AI for Developers: https://ai.google.dev/gemini-api/docs/image-generation"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "google-nano-banana",
+    "view": "models",
+    "company": "google",
+    "provider": "Google DeepMind",
+    "series": "Nano Banana",
+    "modelId": "gemini-2.5-flash-image",
+    "modelType": "Image",
+    "contextWindow": "Text and image input to image",
+    "category": "模型",
+    "title": {
+      "zh": "Nano Banana（旧版）",
+      "en": "Nano Banana (legacy)"
+    },
+    "domain": {
+      "zh": "图像生成与编辑",
+      "en": "Image generation and editing"
+    },
+    "summary": {
+      "zh": "Nano Banana 的早期 Gemini 图像型号，保留用于查找旧工作流和迁移参考。",
+      "en": "The earlier Gemini image model behind Nano Banana, retained for legacy workflow and migration reference."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "旧版型号；新项目应优先查看当前 Nano Banana 系列。",
+      "en": "Legacy model; new projects should prefer the current Nano Banana series."
+    },
+    "tags": [
+      "Google",
+      "Nano Banana",
+      "旧版",
+      "迁移"
+    ],
+    "sources": [
+      "Google AI for Developers: https://ai.google.dev/gemini-api/docs/image-generation"
+    ],
+    "next": [
+      "查看迁移文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "google-veo-3-1",
+    "view": "models",
+    "company": "google",
+    "provider": "Google DeepMind",
+    "series": "Veo",
+    "modelId": "veo-3.1-generate-preview",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Veo 3.1",
+      "en": "Veo 3.1"
+    },
+    "domain": {
+      "zh": "视频生成",
+      "en": "Video generation"
+    },
+    "summary": {
+      "zh": "Google DeepMind 的 Veo 视频生成型号，面向高质量文本生视频和图生视频。",
+      "en": "Google DeepMind's Veo video model for high-quality text-to-video and image-to-video generation."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "视频",
+      "en": "Video"
+    },
+    "availability": {
+      "zh": "Preview；接口和配额可能变化。",
+      "en": "Preview; API behavior and quotas may change."
+    },
+    "tags": [
+      "Google",
+      "Veo",
+      "视频生成",
+      "图生视频"
+    ],
+    "sources": [
+      "Google AI for Developers: https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "google-veo-3-1-fast",
+    "view": "models",
+    "company": "google",
+    "provider": "Google DeepMind",
+    "series": "Veo",
+    "modelId": "veo-3.1-fast-generate-preview",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Veo 3.1 Fast",
+      "en": "Veo 3.1 Fast"
+    },
+    "domain": {
+      "zh": "快速视频生成",
+      "en": "Fast video generation"
+    },
+    "summary": {
+      "zh": "Veo 3.1 的快速型号，适合需要更短等待时间的迭代式视频创作。",
+      "en": "A fast Veo 3.1 variant for iterative video creation with shorter generation latency."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "视频",
+      "en": "Video"
+    },
+    "availability": {
+      "zh": "Preview；接口和配额可能变化。",
+      "en": "Preview; API behavior and quotas may change."
+    },
+    "tags": [
+      "Google",
+      "Veo",
+      "视频生成",
+      "快速"
+    ],
+    "sources": [
+      "Google AI for Developers: https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "google-veo-3-1-lite",
+    "view": "models",
+    "company": "google",
+    "provider": "Google DeepMind",
+    "series": "Veo",
+    "modelId": "veo-3.1-lite-generate-preview",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Veo 3.1 Lite",
+      "en": "Veo 3.1 Lite"
+    },
+    "domain": {
+      "zh": "轻量视频生成",
+      "en": "Lightweight video generation"
+    },
+    "summary": {
+      "zh": "Veo 3.1 的轻量型号，适合快速预览、分镜探索和低成本迭代。",
+      "en": "A lightweight Veo 3.1 variant for previews, storyboarding, and lower-cost iteration."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "视频",
+      "en": "Video"
+    },
+    "availability": {
+      "zh": "Preview；接口和配额可能变化。",
+      "en": "Preview; API behavior and quotas may change."
+    },
+    "tags": [
+      "Google",
+      "Veo",
+      "视频生成",
+      "轻量"
+    ],
+    "sources": [
+      "Google AI for Developers: https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "google-imagen-4",
+    "view": "models",
+    "company": "google",
+    "provider": "Google DeepMind",
+    "series": "Imagen",
+    "modelId": "imagen-4.0-generate",
+    "modelType": "Image",
+    "contextWindow": "Text to image",
+    "category": "模型",
+    "title": {
+      "zh": "Imagen 4",
+      "en": "Imagen 4"
+    },
+    "domain": {
+      "zh": "图像生成",
+      "en": "Image generation"
+    },
+    "summary": {
+      "zh": "Google 的 Imagen 4 文生图型号，保留在目录中用于识别旧项目和迁移路径。",
+      "en": "Google's Imagen 4 text-to-image model, retained for legacy project identification and migration paths."
+    },
+    "input": {
+      "zh": "文本",
+      "en": "Text"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "Deprecated；官方资料显示计划于 2026-08-17 停服。",
+      "en": "Deprecated; official material indicates service sunset on 2026-08-17."
+    },
+    "tags": [
+      "Google",
+      "Imagen",
+      "图像生成",
+      "Deprecated"
+    ],
+    "sources": [
+      "Google AI for Developers: https://ai.google.dev/gemini-api/docs/image-generation"
+    ],
+    "next": [
+      "查看迁移文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "xai-grok-4-3",
+    "view": "models",
+    "company": "xai",
+    "provider": "xAI",
+    "series": "Grok 4",
+    "modelId": "grok-4.3",
+    "modelType": "LLM",
+    "contextWindow": "Text input to text",
+    "category": "模型",
+    "title": {
+      "zh": "Grok 4.3",
+      "en": "Grok 4.3"
+    },
+    "domain": {
+      "zh": "通用对话与推理",
+      "en": "General conversation and reasoning"
+    },
+    "summary": {
+      "zh": "xAI Grok 4 系列的通用语言模型，适合对话、知识问答和实时信息相关任务。",
+      "en": "A general language model in xAI's Grok 4 family for conversation, knowledge tasks, and real-time information workflows."
+    },
+    "input": {
+      "zh": "文本",
+      "en": "Text"
+    },
+    "output": {
+      "zh": "文本",
+      "en": "Text"
+    },
+    "availability": {
+      "zh": "可通过 xAI 官方模型平台使用。",
+      "en": "Available through xAI's official model platform."
+    },
+    "tags": [
+      "xAI",
+      "Grok",
+      "通用模型",
+      "推理"
+    ],
+    "sources": [
+      "xAI Developers: https://docs.x.ai/developers/models"
+    ],
+    "next": [
+      "查看官方模型列表"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "xai-grok-4-20-non-reasoning",
+    "view": "models",
+    "company": "xai",
+    "provider": "xAI",
+    "series": "Grok 4.20",
+    "modelId": "grok-4.20-0309-non-reasoning",
+    "modelType": "LLM",
+    "contextWindow": "Text input to text",
+    "category": "模型",
+    "title": {
+      "zh": "Grok 4.20 Non-Reasoning",
+      "en": "Grok 4.20 Non-Reasoning"
+    },
+    "domain": {
+      "zh": "快速通用对话",
+      "en": "Fast general conversation"
+    },
+    "summary": {
+      "zh": "Grok 4.20 的非推理版本，适合需要较低延迟的常规对话和内容生成。",
+      "en": "The non-reasoning Grok 4.20 variant for lower-latency conversation and content generation."
+    },
+    "input": {
+      "zh": "文本",
+      "en": "Text"
+    },
+    "output": {
+      "zh": "文本",
+      "en": "Text"
+    },
+    "availability": {
+      "zh": "xAI API 型号；具体区域和配额以官方平台为准。",
+      "en": "An xAI API model; region and quota availability depend on the official platform."
+    },
+    "tags": [
+      "xAI",
+      "Grok",
+      "低延迟",
+      "非推理"
+    ],
+    "sources": [
+      "xAI Developers: https://docs.x.ai/developers/models"
+    ],
+    "next": [
+      "查看官方模型列表"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "xai-grok-imagine-image",
+    "view": "models",
+    "company": "xai",
+    "provider": "xAI",
+    "series": "Grok Imagine",
+    "modelId": "grok-imagine-image",
+    "modelType": "Image",
+    "contextWindow": "Text and image input to image",
+    "category": "模型",
+    "title": {
+      "zh": "Grok Imagine Image",
+      "en": "Grok Imagine Image"
+    },
+    "domain": {
+      "zh": "图像生成与编辑",
+      "en": "Image generation and editing"
+    },
+    "summary": {
+      "zh": "xAI 的 Grok Imagine 图像模型，面向文本生图和参考图编辑。",
+      "en": "xAI's Grok Imagine image model for text-to-image generation and reference-image editing."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "可通过 xAI 官方 API 使用。",
+      "en": "Available through xAI's official API."
+    },
+    "tags": [
+      "xAI",
+      "Grok Imagine",
+      "图像生成",
+      "图像编辑"
+    ],
+    "sources": [
+      "xAI Developers: https://docs.x.ai/developers/models"
+    ],
+    "next": [
+      "查看官方模型列表"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "xai-grok-imagine-image-quality",
+    "view": "models",
+    "company": "xai",
+    "provider": "xAI",
+    "series": "Grok Imagine",
+    "modelId": "grok-imagine-image-quality",
+    "modelType": "Image",
+    "contextWindow": "Text and image input to image",
+    "category": "模型",
+    "title": {
+      "zh": "Grok Imagine Image Quality",
+      "en": "Grok Imagine Image Quality"
+    },
+    "domain": {
+      "zh": "高质量图像生成",
+      "en": "High-quality image generation"
+    },
+    "summary": {
+      "zh": "Grok Imagine 的质量优先图像型号，适合需要更高画面精度的生成任务。",
+      "en": "The quality-oriented Grok Imagine image model for higher-fidelity generation tasks."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "可通过 xAI 官方 API 使用。",
+      "en": "Available through xAI's official API."
+    },
+    "tags": [
+      "xAI",
+      "Grok Imagine",
+      "图像生成",
+      "高质量"
+    ],
+    "sources": [
+      "xAI Developers: https://docs.x.ai/developers/models/grok-imagine-image-quality"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "xai-grok-imagine-video",
+    "view": "models",
+    "company": "xai",
+    "provider": "xAI",
+    "series": "Grok Imagine",
+    "modelId": "grok-imagine-video",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Grok Imagine Video",
+      "en": "Grok Imagine Video"
+    },
+    "domain": {
+      "zh": "视频生成",
+      "en": "Video generation"
+    },
+    "summary": {
+      "zh": "xAI 的 Grok Imagine 视频型号，支持从文字或图像生成短视频。",
+      "en": "xAI's Grok Imagine video model for short video generation from text or images."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "视频",
+      "en": "Video"
+    },
+    "availability": {
+      "zh": "可通过 xAI 官方 API 使用。",
+      "en": "Available through xAI's official API."
+    },
+    "tags": [
+      "xAI",
+      "Grok Imagine",
+      "视频生成",
+      "图生视频"
+    ],
+    "sources": [
+      "xAI Developers: https://docs.x.ai/developers/models"
+    ],
+    "next": [
+      "查看官方模型列表"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "anthropic-claude-opus-4-8",
+    "view": "models",
+    "company": "anthropic",
+    "provider": "Anthropic",
+    "series": "Claude Opus",
+    "modelId": "claude-opus-4-8",
+    "modelType": "LLM",
+    "contextWindow": "1M tokens · max output 128K",
+    "category": "模型",
+    "title": {
+      "zh": "Claude Opus 4.8",
+      "en": "Claude Opus 4.8"
+    },
+    "domain": {
+      "zh": "复杂推理与专业任务",
+      "en": "Complex reasoning and expert tasks"
+    },
+    "summary": {
+      "zh": "Claude Opus 系列的高能力型号，面向复杂推理、长任务和高质量代码工作流。",
+      "en": "A high-capability Claude Opus model for complex reasoning, long-running tasks, and high-quality coding workflows."
+    },
+    "input": {
+      "zh": "文本、图像、文件、工具调用",
+      "en": "Text, images, files, tool use"
+    },
+    "output": {
+      "zh": "文本、结构化输出",
+      "en": "Text, structured output"
+    },
+    "availability": {
+      "zh": "Claude API 与官方产品；版本可用性以官方模型页为准。",
+      "en": "Claude API and first-party products; version availability follows the official model page."
+    },
+    "tags": [
+      "Anthropic",
+      "Claude",
+      "Opus",
+      "推理",
+      "代码"
+    ],
+    "sources": [
+      "Anthropic Models: https://platform.claude.com/docs/en/about-claude/models/overview"
+    ],
+    "next": [
+      "查看官方模型列表"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "anthropic-claude-opus-4-7",
+    "view": "models",
+    "company": "anthropic",
+    "provider": "Anthropic",
+    "series": "Claude Opus",
+    "modelId": "claude-opus-4-7",
+    "modelType": "LLM",
+    "contextWindow": "1M tokens · max output 128K",
+    "category": "模型",
+    "title": {
+      "zh": "Claude Opus 4.7",
+      "en": "Claude Opus 4.7"
+    },
+    "domain": {
+      "zh": "复杂推理与专业任务",
+      "en": "Complex reasoning and expert tasks"
+    },
+    "summary": {
+      "zh": "Claude Opus 系列上一代高能力型号，适合复杂分析、写作和编码任务。",
+      "en": "A previous high-capability Claude Opus model for complex analysis, writing, and coding."
+    },
+    "input": {
+      "zh": "文本、图像、文件、工具调用",
+      "en": "Text, images, files, tool use"
+    },
+    "output": {
+      "zh": "文本、结构化输出",
+      "en": "Text, structured output"
+    },
+    "availability": {
+      "zh": "版本可用性以官方模型页为准。",
+      "en": "Version availability follows the official model page."
+    },
+    "tags": [
+      "Anthropic",
+      "Claude",
+      "Opus",
+      "推理"
+    ],
+    "sources": [
+      "Anthropic Models: https://platform.claude.com/docs/en/about-claude/models/overview"
+    ],
+    "next": [
+      "查看官方模型列表"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "anthropic-claude-opus-4-6",
+    "view": "models",
+    "company": "anthropic",
+    "provider": "Anthropic",
+    "series": "Claude Opus",
+    "modelId": "claude-opus-4-6",
+    "modelType": "LLM",
+    "contextWindow": "1M tokens · max output 128K",
+    "category": "模型",
+    "title": {
+      "zh": "Claude Opus 4.6",
+      "en": "Claude Opus 4.6"
+    },
+    "domain": {
+      "zh": "复杂推理与专业任务",
+      "en": "Complex reasoning and expert tasks"
+    },
+    "summary": {
+      "zh": "Claude Opus 系列的成熟高能力型号，适合复杂推理、研究和代码生成。",
+      "en": "A mature high-capability Claude Opus model for complex reasoning, research, and code generation."
+    },
+    "input": {
+      "zh": "文本、图像、文件、工具调用",
+      "en": "Text, images, files, tool use"
+    },
+    "output": {
+      "zh": "文本、结构化输出",
+      "en": "Text, structured output"
+    },
+    "availability": {
+      "zh": "版本可用性以官方模型页为准。",
+      "en": "Version availability follows the official model page."
+    },
+    "tags": [
+      "Anthropic",
+      "Claude",
+      "Opus",
+      "研究"
+    ],
+    "sources": [
+      "Anthropic Models: https://platform.claude.com/docs/en/about-claude/models/overview"
+    ],
+    "next": [
+      "查看官方模型列表"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "anthropic-claude-opus-4-5",
+    "view": "models",
+    "company": "anthropic",
+    "provider": "Anthropic",
+    "series": "Claude Opus",
+    "modelId": "claude-opus-4-5-20251101",
+    "modelType": "LLM",
+    "contextWindow": "200K tokens · max output 64K",
+    "category": "模型",
+    "title": {
+      "zh": "Claude Opus 4.5",
+      "en": "Claude Opus 4.5"
+    },
+    "domain": {
+      "zh": "复杂推理与专业任务",
+      "en": "Complex reasoning and expert tasks"
+    },
+    "summary": {
+      "zh": "Claude Opus 系列的上一代通用高能力型号，适合分析、写作和编程。",
+      "en": "A previous general high-capability Claude Opus model for analysis, writing, and programming."
+    },
+    "input": {
+      "zh": "文本、图像、文件、工具调用",
+      "en": "Text, images, files, tool use"
+    },
+    "output": {
+      "zh": "文本、结构化输出",
+      "en": "Text, structured output"
+    },
+    "availability": {
+      "zh": "版本可用性以官方模型页为准。",
+      "en": "Version availability follows the official model page."
+    },
+    "tags": [
+      "Anthropic",
+      "Claude",
+      "Opus",
+      "编程"
+    ],
+    "sources": [
+      "Anthropic Models: https://platform.claude.com/docs/en/about-claude/models/overview"
+    ],
+    "next": [
+      "查看官方模型列表"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "anthropic-claude-sonnet-4-6",
+    "view": "models",
+    "company": "anthropic",
+    "provider": "Anthropic",
+    "series": "Claude Sonnet",
+    "modelId": "claude-sonnet-4-6",
+    "modelType": "LLM",
+    "contextWindow": "1M tokens · max output 128K",
+    "category": "模型",
+    "title": {
+      "zh": "Claude Sonnet 4.6",
+      "en": "Claude Sonnet 4.6"
+    },
+    "domain": {
+      "zh": "通用工作与代码",
+      "en": "General work and coding"
+    },
+    "summary": {
+      "zh": "Claude Sonnet 系列的均衡型号，在能力、速度和成本之间取得平衡。",
+      "en": "A balanced Claude Sonnet model trading off capability, speed, and cost."
+    },
+    "input": {
+      "zh": "文本、图像、文件、工具调用",
+      "en": "Text, images, files, tool use"
+    },
+    "output": {
+      "zh": "文本、结构化输出",
+      "en": "Text, structured output"
+    },
+    "availability": {
+      "zh": "Claude API 与官方产品；版本可用性以官方模型页为准。",
+      "en": "Claude API and first-party products; version availability follows the official model page."
+    },
+    "tags": [
+      "Anthropic",
+      "Claude",
+      "Sonnet",
+      "代码",
+      "均衡"
+    ],
+    "sources": [
+      "Anthropic Models: https://platform.claude.com/docs/en/about-claude/models/overview"
+    ],
+    "next": [
+      "查看官方模型列表"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "anthropic-claude-sonnet-4-5",
+    "view": "models",
+    "company": "anthropic",
+    "provider": "Anthropic",
+    "series": "Claude Sonnet",
+    "modelId": "claude-sonnet-4-5-20250929",
+    "modelType": "LLM",
+    "contextWindow": "200K tokens · max output 64K",
+    "category": "模型",
+    "title": {
+      "zh": "Claude Sonnet 4.5",
+      "en": "Claude Sonnet 4.5"
+    },
+    "domain": {
+      "zh": "通用工作与代码",
+      "en": "General work and coding"
+    },
+    "summary": {
+      "zh": "Claude Sonnet 系列的上一代均衡型号，适合日常知识工作和代码任务。",
+      "en": "A previous balanced Claude Sonnet model for everyday knowledge work and coding tasks."
+    },
+    "input": {
+      "zh": "文本、图像、文件、工具调用",
+      "en": "Text, images, files, tool use"
+    },
+    "output": {
+      "zh": "文本、结构化输出",
+      "en": "Text, structured output"
+    },
+    "availability": {
+      "zh": "版本可用性以官方模型页为准。",
+      "en": "Version availability follows the official model page."
+    },
+    "tags": [
+      "Anthropic",
+      "Claude",
+      "Sonnet",
+      "代码"
+    ],
+    "sources": [
+      "Anthropic Models: https://platform.claude.com/docs/en/about-claude/models/overview"
+    ],
+    "next": [
+      "查看官方模型列表"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "anthropic-claude-haiku-4-5-api",
+    "view": "models",
+    "company": "anthropic",
+    "provider": "Anthropic",
+    "series": "Claude Haiku",
+    "modelId": "claude-haiku-4-5-20251001",
+    "modelType": "LLM",
+    "contextWindow": "Text input to text",
+    "category": "模型",
+    "title": {
+      "zh": "Claude Haiku 4.5（API）",
+      "en": "Claude Haiku 4.5 (API)"
+    },
+    "domain": {
+      "zh": "快速轻量工作",
+      "en": "Fast lightweight work"
+    },
+    "summary": {
+      "zh": "Claude Haiku 4.5 的完整 API 版本 ID，适合低延迟、高吞吐的日常任务。",
+      "en": "The full API version ID for Claude Haiku 4.5, suited to low-latency and high-throughput tasks."
+    },
+    "input": {
+      "zh": "文本、图像、文件、工具调用",
+      "en": "Text, images, files, tool use"
+    },
+    "output": {
+      "zh": "文本、结构化输出",
+      "en": "Text, structured output"
+    },
+    "availability": {
+      "zh": "Claude API 可用；模型别名与快照 ID 需区分。",
+      "en": "Available in the Claude API; model aliases and snapshot IDs should be distinguished."
+    },
+    "tags": [
+      "Anthropic",
+      "Claude",
+      "Haiku",
+      "低延迟",
+      "API"
+    ],
+    "sources": [
+      "Anthropic Models: https://platform.claude.com/docs/en/about-claude/models/overview"
+    ],
+    "next": [
+      "查看官方模型列表"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "blackforest-flux-2-max",
+    "view": "models",
+    "company": "blackforest",
+    "provider": "Black Forest Labs",
+    "series": "FLUX.2",
+    "modelId": "flux-2-max",
+    "modelType": "Image",
+    "contextWindow": "Text and up to 8 reference images",
+    "category": "模型",
+    "title": {
+      "zh": "FLUX.2 Max",
+      "en": "FLUX.2 Max"
+    },
+    "domain": {
+      "zh": "高质量图像生成与编辑",
+      "en": "High-quality image generation and editing"
+    },
+    "summary": {
+      "zh": "FLUX.2 系列的质量优先型号，适合高要求的品牌视觉、概念图和多参考图编辑。",
+      "en": "The quality-first FLUX.2 model for demanding brand visuals, concepts, and multi-reference image editing."
+    },
+    "input": {
+      "zh": "文本、最多 8 张参考图",
+      "en": "Text, up to 8 reference images"
+    },
+    "output": {
+      "zh": "图像，最高约 4MP",
+      "en": "Images, up to approximately 4MP"
+    },
+    "limits": {
+      "zh": "参考图数量和分辨率受 API 参数限制。",
+      "en": "Reference-image count and resolution depend on API parameters."
+    },
+    "availability": {
+      "zh": "Black Forest Labs API。",
+      "en": "Available through the Black Forest Labs API."
+    },
+    "tags": [
+      "Black Forest Labs",
+      "FLUX",
+      "图像生成",
+      "多参考图",
+      "高质量"
+    ],
+    "sources": [
+      "BFL Docs: https://docs.bfl.ai/flux_2/flux2_overview"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "blackforest-flux-2-pro",
+    "view": "models",
+    "company": "blackforest",
+    "provider": "Black Forest Labs",
+    "series": "FLUX.2",
+    "modelId": "flux-2-pro",
+    "modelType": "Image",
+    "contextWindow": "Text and up to 8 reference images",
+    "category": "模型",
+    "title": {
+      "zh": "FLUX.2 Pro",
+      "en": "FLUX.2 Pro"
+    },
+    "domain": {
+      "zh": "专业图像生成与编辑",
+      "en": "Professional image generation and editing"
+    },
+    "summary": {
+      "zh": "FLUX.2 的专业生产型号，在质量、控制力和生成效率之间保持平衡。",
+      "en": "The production-oriented FLUX.2 model balancing quality, control, and generation efficiency."
+    },
+    "input": {
+      "zh": "文本、最多 8 张参考图",
+      "en": "Text, up to 8 reference images"
+    },
+    "output": {
+      "zh": "图像，最高约 4MP",
+      "en": "Images, up to approximately 4MP"
+    },
+    "availability": {
+      "zh": "Black Forest Labs API。",
+      "en": "Available through the Black Forest Labs API."
+    },
+    "tags": [
+      "Black Forest Labs",
+      "FLUX",
+      "图像生成",
+      "图像编辑"
+    ],
+    "sources": [
+      "BFL Docs: https://docs.bfl.ai/flux_2/flux2_overview"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "blackforest-flux-2-pro-preview",
+    "view": "models",
+    "company": "blackforest",
+    "provider": "Black Forest Labs",
+    "series": "FLUX.2",
+    "modelId": "flux-2-pro-preview",
+    "modelType": "Image",
+    "contextWindow": "Text and reference images",
+    "category": "模型",
+    "title": {
+      "zh": "FLUX.2 Pro Preview",
+      "en": "FLUX.2 Pro Preview"
+    },
+    "domain": {
+      "zh": "预览版图像生成",
+      "en": "Preview image generation"
+    },
+    "summary": {
+      "zh": "FLUX.2 Pro 的预览通道，用于提前体验新能力，不应与稳定生产型号混淆。",
+      "en": "The FLUX.2 Pro preview channel for early capabilities; it should not be confused with the stable production model."
+    },
+    "input": {
+      "zh": "文本、参考图",
+      "en": "Text, reference images"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "Preview；接口行为可能变化。",
+      "en": "Preview; API behavior may change."
+    },
+    "tags": [
+      "Black Forest Labs",
+      "FLUX",
+      "Preview",
+      "图像生成"
+    ],
+    "sources": [
+      "BFL Docs: https://docs.bfl.ai/flux_2/flux2_overview"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "blackforest-flux-2-flex",
+    "view": "models",
+    "company": "blackforest",
+    "provider": "Black Forest Labs",
+    "series": "FLUX.2",
+    "modelId": "flux-2-flex",
+    "modelType": "Image",
+    "contextWindow": "Text and up to 8 reference images",
+    "category": "模型",
+    "title": {
+      "zh": "FLUX.2 Flex",
+      "en": "FLUX.2 Flex"
+    },
+    "domain": {
+      "zh": "可调图像生成",
+      "en": "Configurable image generation"
+    },
+    "summary": {
+      "zh": "FLUX.2 的可调节型号，适合在速度、质量和成本之间按任务做取舍。",
+      "en": "A configurable FLUX.2 model for tuning the trade-off among speed, quality, and cost."
+    },
+    "input": {
+      "zh": "文本、最多 8 张参考图",
+      "en": "Text, up to 8 reference images"
+    },
+    "output": {
+      "zh": "图像，最高约 4MP",
+      "en": "Images, up to approximately 4MP"
+    },
+    "availability": {
+      "zh": "Black Forest Labs API。",
+      "en": "Available through the Black Forest Labs API."
+    },
+    "tags": [
+      "Black Forest Labs",
+      "FLUX",
+      "图像生成",
+      "可调参数"
+    ],
+    "sources": [
+      "BFL Docs: https://docs.bfl.ai/flux_2/flux2_overview"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "blackforest-flux-2-klein-4b",
+    "view": "models",
+    "company": "blackforest",
+    "provider": "Black Forest Labs",
+    "series": "FLUX.2 Klein",
+    "modelId": "flux-2-klein-4b",
+    "modelType": "Image",
+    "contextWindow": "Text and up to 4 reference images",
+    "category": "模型",
+    "title": {
+      "zh": "FLUX.2 Klein 4B",
+      "en": "FLUX.2 Klein 4B"
+    },
+    "domain": {
+      "zh": "轻量图像生成",
+      "en": "Lightweight image generation"
+    },
+    "summary": {
+      "zh": "FLUX.2 Klein 的 4B 轻量型号，适合低延迟生成和更紧凑的部署场景。",
+      "en": "The 4B lightweight FLUX.2 Klein model for low-latency generation and compact deployments."
+    },
+    "input": {
+      "zh": "文本、最多 4 张参考图",
+      "en": "Text, up to 4 reference images"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "API 与官方授权的部署方式以文档为准。",
+      "en": "API and licensed deployment options follow the official documentation."
+    },
+    "tags": [
+      "Black Forest Labs",
+      "FLUX",
+      "Klein",
+      "4B",
+      "轻量"
+    ],
+    "sources": [
+      "BFL Docs: https://docs.bfl.ml/flux_2/flux2_text_to_image"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "blackforest-flux-2-klein-9b",
+    "view": "models",
+    "company": "blackforest",
+    "provider": "Black Forest Labs",
+    "series": "FLUX.2 Klein",
+    "modelId": "flux-2-klein-9b",
+    "modelType": "Image",
+    "contextWindow": "Text and up to 4 reference images",
+    "category": "模型",
+    "title": {
+      "zh": "FLUX.2 Klein 9B",
+      "en": "FLUX.2 Klein 9B"
+    },
+    "domain": {
+      "zh": "紧凑型图像生成",
+      "en": "Compact image generation"
+    },
+    "summary": {
+      "zh": "FLUX.2 Klein 的 9B 型号，在紧凑部署和图像质量之间提供更高能力选择。",
+      "en": "The 9B FLUX.2 Klein model offering higher capability while retaining compact deployment characteristics."
+    },
+    "input": {
+      "zh": "文本、最多 4 张参考图",
+      "en": "Text, up to 4 reference images"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "API 与官方授权的部署方式以文档为准。",
+      "en": "API and licensed deployment options follow the official documentation."
+    },
+    "tags": [
+      "Black Forest Labs",
+      "FLUX",
+      "Klein",
+      "9B"
+    ],
+    "sources": [
+      "BFL Docs: https://docs.bfl.ml/flux_2/flux2_text_to_image"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "blackforest-flux-3",
+    "view": "models",
+    "company": "blackforest",
+    "provider": "Black Forest Labs",
+    "series": "FLUX 3",
+    "modelId": "product-only",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video with audio",
+    "category": "模型",
+    "title": {
+      "zh": "FLUX 3",
+      "en": "FLUX 3"
+    },
+    "domain": {
+      "zh": "多模态视频生成",
+      "en": "Multimodal video generation"
+    },
+    "summary": {
+      "zh": "Black Forest Labs 的多模态视频创作系列，支持文本生视频、图生视频和同步音频；目录不把产品名伪装成稳定 API ID。",
+      "en": "Black Forest Labs' multimodal video family for text-to-video, image-to-video, and synchronized audio; the catalog does not present the product name as a stable API ID."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "最高 Full HD、20 秒、带同步音频的视频",
+      "en": "Up to Full HD, 20-second video with synchronized audio"
+    },
+    "availability": {
+      "zh": "产品系列；具体 API 型号与开放范围以官方文档为准。",
+      "en": "Product family; exact API model IDs and availability follow the official documentation."
+    },
+    "tags": [
+      "Black Forest Labs",
+      "FLUX",
+      "多模态",
+      "视频生成",
+      "同步音频"
+    ],
+    "sources": [
+      "BFL Docs: https://docs.bfl.ml/flux_3/flux3_overview"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "stability-stable-image-ultra",
+    "view": "models",
+    "company": "stability",
+    "provider": "Stability AI",
+    "series": "Stable Image",
+    "modelId": "endpoint:/v2beta/stable-image/generate/ultra",
+    "modelType": "Image",
+    "contextWindow": "Text input to image",
+    "category": "模型",
+    "title": {
+      "zh": "Stable Image Ultra",
+      "en": "Stable Image Ultra"
+    },
+    "domain": {
+      "zh": "高质量图像生成",
+      "en": "High-quality image generation"
+    },
+    "summary": {
+      "zh": "Stability AI 的高质量图像生成服务端点，适合需要更强画面细节的创作任务。",
+      "en": "Stability AI's high-quality image generation endpoint for tasks requiring stronger visual detail."
+    },
+    "input": {
+      "zh": "文本提示词",
+      "en": "Text prompt"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "通过 Stability AI API 端点使用。",
+      "en": "Available through a Stability AI API endpoint."
+    },
+    "tags": [
+      "Stability AI",
+      "Stable Image",
+      "图像生成",
+      "高质量"
+    ],
+    "sources": [
+      "Stability AI API Reference: https://platform.stability.ai/docs/api-reference"
+    ],
+    "next": [
+      "查看 API 文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "stability-stable-image-core",
+    "view": "models",
+    "company": "stability",
+    "provider": "Stability AI",
+    "series": "Stable Image",
+    "modelId": "endpoint:/v2beta/stable-image/generate/core",
+    "modelType": "Image",
+    "contextWindow": "Text input to image",
+    "category": "模型",
+    "title": {
+      "zh": "Stable Image Core",
+      "en": "Stable Image Core"
+    },
+    "domain": {
+      "zh": "快速图像生成",
+      "en": "Fast image generation"
+    },
+    "summary": {
+      "zh": "Stability AI 的快速图像生成服务端点，适合探索、草图和批量迭代。",
+      "en": "Stability AI's fast image generation endpoint for exploration, drafts, and batch iteration."
+    },
+    "input": {
+      "zh": "文本提示词",
+      "en": "Text prompt"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "通过 Stability AI API 端点使用。",
+      "en": "Available through a Stability AI API endpoint."
+    },
+    "tags": [
+      "Stability AI",
+      "Stable Image",
+      "图像生成",
+      "快速"
+    ],
+    "sources": [
+      "Stability AI API Reference: https://platform.stability.ai/docs/api-reference"
+    ],
+    "next": [
+      "查看 API 文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "stability-sd-3-5-large-turbo",
+    "view": "models",
+    "company": "stability",
+    "provider": "Stability AI",
+    "series": "Stable Diffusion 3.5",
+    "modelId": "sd3.5-large-turbo",
+    "modelType": "Image",
+    "contextWindow": "Text input to image",
+    "category": "模型",
+    "title": {
+      "zh": "Stable Diffusion 3.5 Large Turbo",
+      "en": "Stable Diffusion 3.5 Large Turbo"
+    },
+    "domain": {
+      "zh": "快速图像生成",
+      "en": "Fast image generation"
+    },
+    "summary": {
+      "zh": "Stable Diffusion 3.5 Large 的快速版本，面向较短等待时间的高质量文生图。",
+      "en": "The fast Stable Diffusion 3.5 Large variant for high-quality text-to-image generation with shorter latency."
+    },
+    "input": {
+      "zh": "文本提示词",
+      "en": "Text prompt"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "API 与授权部署方式以 Stability AI 官方资料为准。",
+      "en": "API and licensed deployment options follow Stability AI's official materials."
+    },
+    "tags": [
+      "Stability AI",
+      "Stable Diffusion",
+      "3.5",
+      "快速"
+    ],
+    "sources": [
+      "Stability AI API Reference: https://platform.stability.ai/docs/api-reference"
+    ],
+    "next": [
+      "查看 API 文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "midjourney-v8-2",
+    "view": "models",
+    "company": "midjourney",
+    "provider": "Midjourney",
+    "series": "Midjourney",
+    "modelId": "product-only",
+    "modelType": "Image",
+    "contextWindow": "Prompt input to image",
+    "category": "模型",
+    "title": {
+      "zh": "Midjourney V8.2",
+      "en": "Midjourney V8.2"
+    },
+    "domain": {
+      "zh": "艺术图像生成",
+      "en": "Artistic image generation"
+    },
+    "summary": {
+      "zh": "Midjourney 的 V8.2 产品版本，适合艺术化图像和风格探索；官方未提供公开稳定 API model ID。",
+      "en": "Midjourney V8.2 for artistic image generation and style exploration; Midjourney does not provide a public stable API model ID."
+    },
+    "input": {
+      "zh": "提示词、图像参考",
+      "en": "Prompts, image references"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "Midjourney 产品端；不是公开 API 型号。",
+      "en": "Available in the Midjourney product; not a public API model."
+    },
+    "tags": [
+      "Midjourney",
+      "V8.2",
+      "艺术",
+      "产品端"
+    ],
+    "sources": [
+      "Midjourney Version: https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version"
+    ],
+    "next": [
+      "查看版本说明"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "midjourney-v8-1",
+    "view": "models",
+    "company": "midjourney",
+    "provider": "Midjourney",
+    "series": "Midjourney",
+    "modelId": "product-only",
+    "modelType": "Image",
+    "contextWindow": "Prompt input to image",
+    "category": "模型",
+    "title": {
+      "zh": "Midjourney V8.1",
+      "en": "Midjourney V8.1"
+    },
+    "domain": {
+      "zh": "艺术图像生成",
+      "en": "Artistic image generation"
+    },
+    "summary": {
+      "zh": "Midjourney 的 V8.1 产品版本，保留用于版本对照和旧项目检索。",
+      "en": "Midjourney V8.1, retained for version comparison and legacy project lookup."
+    },
+    "input": {
+      "zh": "提示词、图像参考",
+      "en": "Prompts, image references"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "Midjourney 产品端；不是公开 API 型号。",
+      "en": "Available in the Midjourney product; not a public API model."
+    },
+    "tags": [
+      "Midjourney",
+      "V8.1",
+      "艺术",
+      "产品端"
+    ],
+    "sources": [
+      "Midjourney Version: https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version"
+    ],
+    "next": [
+      "查看版本说明"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "midjourney-niji-7",
+    "view": "models",
+    "company": "midjourney",
+    "provider": "Midjourney",
+    "series": "Niji",
+    "modelId": "product-only",
+    "modelType": "Image",
+    "contextWindow": "Prompt input to image",
+    "category": "模型",
+    "title": {
+      "zh": "Niji 7",
+      "en": "Niji 7"
+    },
+    "domain": {
+      "zh": "动漫与插画生成",
+      "en": "Anime and illustration generation"
+    },
+    "summary": {
+      "zh": "Midjourney 与 Spellbrush 方向的 Niji 7 产品型号，偏向动漫、角色和插画风格。",
+      "en": "The Niji 7 product model oriented toward anime, characters, and illustration styles."
+    },
+    "input": {
+      "zh": "提示词、图像参考",
+      "en": "Prompts, image references"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "Midjourney 产品端；不是公开 API 型号。",
+      "en": "Available in the Midjourney product; not a public API model."
+    },
+    "tags": [
+      "Midjourney",
+      "Niji",
+      "动漫",
+      "插画",
+      "产品端"
+    ],
+    "sources": [
+      "Midjourney Version: https://docs.midjourney.com/hc/en-us/articles/32199405667853-Version"
+    ],
+    "next": [
+      "查看版本说明"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "adobe-firefly-image-model-5",
+    "view": "models",
+    "company": "adobe",
+    "provider": "Adobe",
+    "series": "Firefly Image",
+    "modelId": "product-only",
+    "modelType": "Image",
+    "contextWindow": "Text and image input to image",
+    "category": "模型",
+    "title": {
+      "zh": "Firefly Image Model 5",
+      "en": "Firefly Image Model 5"
+    },
+    "domain": {
+      "zh": "商业图像生成与编辑",
+      "en": "Commercial image generation and editing"
+    },
+    "summary": {
+      "zh": "Adobe Firefly 当前的图像模型版本，适合与 Creative Cloud 工作流结合的商业视觉创作。",
+      "en": "Adobe Firefly's current image model for commercial visual work integrated with Creative Cloud workflows."
+    },
+    "input": {
+      "zh": "文本、参考图、构图参考",
+      "en": "Text, reference images, composition references"
+    },
+    "output": {
+      "zh": "图像",
+      "en": "Images"
+    },
+    "availability": {
+      "zh": "Firefly 产品与 API 服务；官方没有公开稳定版本级 modelId。",
+      "en": "Available in Firefly products and API services; Adobe does not publish a stable version-level model ID."
+    },
+    "tags": [
+      "Adobe",
+      "Firefly",
+      "图像生成",
+      "商业创作",
+      "产品端"
+    ],
+    "sources": [
+      "Adobe Firefly API: https://developer.adobe.com/firefly-services/docs/firefly-api/"
+    ],
+    "next": [
+      "查看 Firefly API"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "bytedance-jimeng-video",
+    "view": "models",
+    "company": "bytedance",
+    "provider": "字节跳动 / 即梦",
+    "series": "即梦 AI",
+    "modelId": "product-only",
+    "modelType": "Video",
+    "contextWindow": "Prompt and image reference to video",
+    "category": "模型",
+    "title": {
+      "zh": "即梦 AI 视频生成系列",
+      "en": "Jimeng AI Video Generation"
+    },
+    "domain": {
+      "zh": "中文视频创作",
+      "en": "Chinese video creation"
+    },
+    "summary": {
+      "zh": "字节跳动即梦 AI 的视频创作产品入口，覆盖文生视频、图生视频和短视频创作工作流；产品端没有公开稳定 API model ID。",
+      "en": "ByteDance's Jimeng AI video creation product covering text-to-video, image-to-video, and short-form workflows; the product does not publish a stable public API model ID."
+    },
+    "input": {
+      "zh": "中文或多语言提示词、图像参考",
+      "en": "Chinese or multilingual prompts, image references"
+    },
+    "output": {
+      "zh": "短视频",
+      "en": "Short videos"
+    },
+    "availability": {
+      "zh": "即梦产品端；具体版本随产品更新。",
+      "en": "Available in the Jimeng product; exact versions change with the product."
+    },
+    "tags": [
+      "字节跳动",
+      "即梦",
+      "视频生成",
+      "文生视频",
+      "图生视频",
+      "产品端"
+    ],
+    "sources": [
+      "即梦 AI 官方平台: https://jimeng.jianying.com/"
+    ],
+    "next": [
+      "查看产品入口"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "bytedance-seedance-2",
+    "view": "models",
+    "company": "bytedance",
+    "provider": "字节跳动 / 即梦 Dreamina",
+    "series": "即梦 AI / Seedance 2.0",
+    "modelId": "dreamina-seedance-2-0-260128",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Seedance 2.0",
+      "en": "Seedance 2.0"
+    },
+    "domain": {
+      "zh": "视频生成",
+      "en": "Video generation"
+    },
+    "summary": {
+      "zh": "字节跳动即梦 Dreamina / Seedance 2.0 的正式 API 型号，支持多模态参考和原生音频。",
+      "en": "The official ByteDance Jimeng Dreamina / Seedance 2.0 API model with multimodal references and native audio."
+    },
+    "input": {
+      "zh": "文本、图像、视频、音频；不支持文本与音频组合或仅音频",
+      "en": "Text, images, video, audio; text plus audio and audio-only are not supported"
+    },
+    "output": {
+      "zh": "4–15 秒视频；480p、720p、1080p、4K；原生音频",
+      "en": "4–15 second video; 480p, 720p, 1080p, and 4K; native audio"
+    },
+    "limits": {
+      "zh": "4K 仅此型号支持；比例和输入组合以 BytePlus ModelArk 参数为准。",
+      "en": "4K is supported only by this model; aspect ratios and input combinations follow BytePlus ModelArk parameters."
+    },
+    "availability": {
+      "zh": "BytePlus ModelArk current API；即梦是面向创作者的产品入口。",
+      "en": "Current BytePlus ModelArk API; Jimeng is the creator-facing product entry."
+    },
+    "tags": [
+      "字节跳动",
+      "Seedance",
+      "视频生成",
+      "图生视频"
+    ],
+    "sources": [
+      "BytePlus ModelArk: https://docs.byteplus.com/en/docs/ModelArk/2291680"
+    ],
+    "next": [
+      "查看 BytePlus API 文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "bytedance-seedance-2-fast",
+    "view": "models",
+    "company": "bytedance",
+    "provider": "字节跳动 / 即梦 Dreamina",
+    "series": "即梦 AI / Seedance 2.0",
+    "modelId": "dreamina-seedance-2-0-fast-260128",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Seedance 2.0 Fast",
+      "en": "Seedance 2.0 Fast"
+    },
+    "domain": {
+      "zh": "快速视频生成",
+      "en": "Fast video generation"
+    },
+    "summary": {
+      "zh": "Seedance 2.0 的快速 API 型号，适合镜头探索和需要更短等待的迭代。",
+      "en": "The fast Seedance 2.0 API model for shot exploration and shorter-latency iteration."
+    },
+    "input": {
+      "zh": "文本、图像、视频、音频",
+      "en": "Text, images, video, audio"
+    },
+    "output": {
+      "zh": "4–15 秒视频；最高 1080p；原生音频",
+      "en": "4–15 second video; up to 1080p; native audio"
+    },
+    "availability": {
+      "zh": "BytePlus ModelArk current API。",
+      "en": "Current BytePlus ModelArk API."
+    },
+    "tags": [
+      "字节跳动",
+      "Seedance",
+      "视频生成",
+      "快速"
+    ],
+    "sources": [
+      "BytePlus ModelArk: https://docs.byteplus.com/en/docs/ModelArk/2291680"
+    ],
+    "next": [
+      "查看 BytePlus API 文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "bytedance-seedance-2-mini",
+    "view": "models",
+    "company": "bytedance",
+    "provider": "字节跳动 / 即梦 Dreamina",
+    "series": "即梦 AI / Seedance 2.0",
+    "modelId": "dreamina-seedance-2-0-mini-260615",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Seedance 2.0 Mini",
+      "en": "Seedance 2.0 Mini"
+    },
+    "domain": {
+      "zh": "轻量视频生成",
+      "en": "Lightweight video generation"
+    },
+    "summary": {
+      "zh": "Seedance 2.0 的轻量 API 型号，适合低成本预览和批量生成。",
+      "en": "The lightweight Seedance 2.0 API model for low-cost previews and batch generation."
+    },
+    "input": {
+      "zh": "文本、图像、视频、音频",
+      "en": "Text, images, video, audio"
+    },
+    "output": {
+      "zh": "4–15 秒视频；最高 1080p；原生音频",
+      "en": "4–15 second video; up to 1080p; native audio"
+    },
+    "availability": {
+      "zh": "BytePlus ModelArk current API。",
+      "en": "Current BytePlus ModelArk API."
+    },
+    "tags": [
+      "字节跳动",
+      "Seedance",
+      "视频生成",
+      "轻量"
+    ],
+    "sources": [
+      "BytePlus ModelArk: https://docs.byteplus.com/en/docs/ModelArk/2291680"
+    ],
+    "next": [
+      "查看 BytePlus API 文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "bytedance-seedance-2-5",
+    "view": "models",
+    "company": "bytedance",
+    "provider": "字节跳动 / 即梦 Dreamina",
+    "series": "即梦 AI / Seedance 2.5",
+    "modelId": "product-only",
+    "modelType": "Video",
+    "contextWindow": "Text, image, video, and audio references to video",
+    "category": "模型",
+    "title": {
+      "zh": "Seedance 2.5",
+      "en": "Seedance 2.5"
+    },
+    "domain": {
+      "zh": "多模态视频生成",
+      "en": "Multimodal video generation"
+    },
+    "summary": {
+      "zh": "字节跳动已公开的 Seedance 2.5 产品型号，支持文本、图像、视频和音频参考；截至当前核查日 API 与 Playground 尚未作为稳定 API 型号公开。",
+      "en": "ByteDance's announced Seedance 2.5 product model supporting text, image, video, and audio references; as of the verification date, API and Playground access were not published as a stable API model."
+    },
+    "input": {
+      "zh": "文本、图像、视频、音频参考",
+      "en": "Text, image, video, and audio references"
+    },
+    "output": {
+      "zh": "最长 30 秒视频，可延展两次",
+      "en": "Video up to 30 seconds, extendable twice"
+    },
+    "availability": {
+      "zh": "产品已公布；API / Playground coming soon；modelId 使用 product-only。",
+      "en": "Product announced; API / Playground coming soon; modelId is product-only."
+    },
+    "tags": [
+      "字节跳动",
+      "即梦",
+      "Seedance",
+      "视频生成",
+      "多模态",
+      "Preview"
+    ],
+    "sources": [
+      "Seedance 2.5 官方公告: https://seed.bytedance.com/en/seedance2_5"
+    ],
+    "next": [
+      "查看产品公告"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "runway-seedance-2",
+    "view": "models",
+    "company": "runway",
+    "provider": "Runway（Seedance 集成）",
+    "series": "Seedance",
+    "modelId": "seedance2",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Seedance 2（Runway 集成）",
+      "en": "Seedance 2 (Runway integration)"
+    },
+    "domain": {
+      "zh": "视频生成",
+      "en": "Video generation"
+    },
+    "summary": {
+      "zh": "Runway 平台提供的 Seedance 2 集成入口，与字节跳动原生即梦入口分开记录。",
+      "en": "Runway's Seedance 2 integration, recorded separately from ByteDance's native Jimeng product entry."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "视频",
+      "en": "Video"
+    },
+    "availability": {
+      "zh": "Runway API 集成；不代表 Runway 自研型号。",
+      "en": "Runway API integration; this is not a Runway-native model."
+    },
+    "tags": [
+      "Runway",
+      "Seedance",
+      "视频生成",
+      "第三方集成"
+    ],
+    "sources": [
+      "Runway Models: https://docs.dev.runwayml.com/guides/models/"
+    ],
+    "next": [
+      "查看 Runway 模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "runway-gen-4-turbo",
+    "view": "models",
+    "company": "runway",
+    "provider": "Runway",
+    "series": "Gen",
+    "modelId": "gen4_turbo",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Gen-4 Turbo",
+      "en": "Gen-4 Turbo"
+    },
+    "domain": {
+      "zh": "快速视频生成",
+      "en": "Fast video generation"
+    },
+    "summary": {
+      "zh": "Runway Gen-4 的快速型号，适合更快的视频草稿、镜头探索和迭代。",
+      "en": "The fast Runway Gen-4 model for video drafts, shot exploration, and iteration."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "视频",
+      "en": "Video"
+    },
+    "availability": {
+      "zh": "Runway API。",
+      "en": "Available through the Runway API."
+    },
+    "tags": [
+      "Runway",
+      "Gen-4",
+      "视频生成",
+      "快速"
+    ],
+    "sources": [
+      "Runway Models: https://docs.dev.runwayml.com/guides/models/"
+    ],
+    "next": [
+      "查看 Runway 模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "runway-veo-3-1",
+    "view": "models",
+    "company": "runway",
+    "provider": "Runway（Google Veo 集成）",
+    "series": "Veo",
+    "modelId": "veo3.1",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Veo 3.1（Runway 集成）",
+      "en": "Veo 3.1 (Runway integration)"
+    },
+    "domain": {
+      "zh": "视频生成",
+      "en": "Video generation"
+    },
+    "summary": {
+      "zh": "Runway 平台提供的 Google Veo 3.1 集成入口，单独标示平台归属和原始模型来源。",
+      "en": "Runway's Google Veo 3.1 integration, with platform ownership and original model source made explicit."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "视频",
+      "en": "Video"
+    },
+    "availability": {
+      "zh": "Runway API 集成；不代表 Runway 自研型号。",
+      "en": "Runway API integration; this is not a Runway-native model."
+    },
+    "tags": [
+      "Runway",
+      "Veo",
+      "视频生成",
+      "第三方集成"
+    ],
+    "sources": [
+      "Runway Models: https://docs.dev.runwayml.com/guides/models/"
+    ],
+    "next": [
+      "查看 Runway 模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "runway-aleph-2",
+    "view": "models",
+    "company": "runway",
+    "provider": "Runway",
+    "series": "Aleph",
+    "modelId": "aleph2",
+    "modelType": "Video",
+    "contextWindow": "Video input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Aleph 2",
+      "en": "Aleph 2"
+    },
+    "domain": {
+      "zh": "视频编辑与变换",
+      "en": "Video editing and transformation"
+    },
+    "summary": {
+      "zh": "Runway 的视频编辑与变换型号，适合对已有视频进行风格、内容和镜头处理。",
+      "en": "Runway's video editing and transformation model for style, content, and shot changes on existing video."
+    },
+    "input": {
+      "zh": "视频、编辑指令",
+      "en": "Video, editing instructions"
+    },
+    "output": {
+      "zh": "视频",
+      "en": "Video"
+    },
+    "availability": {
+      "zh": "Runway API。",
+      "en": "Available through the Runway API."
+    },
+    "tags": [
+      "Runway",
+      "Aleph",
+      "视频编辑",
+      "视频变换"
+    ],
+    "sources": [
+      "Runway Models: https://docs.dev.runwayml.com/guides/models/"
+    ],
+    "next": [
+      "查看 Runway 模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "runway-act-two",
+    "view": "models",
+    "company": "runway",
+    "provider": "Runway",
+    "series": "Act-Two",
+    "modelId": "act_two",
+    "modelType": "Video",
+    "contextWindow": "Video and character input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Act-Two",
+      "en": "Act-Two"
+    },
+    "domain": {
+      "zh": "角色表演迁移",
+      "en": "Character performance transfer"
+    },
+    "summary": {
+      "zh": "Runway 的角色表演驱动型号，将表演视频的动作和表情迁移到角色素材。",
+      "en": "Runway's performance-driven model for transferring motion and expression from a performance video to character media."
+    },
+    "input": {
+      "zh": "表演视频、角色素材",
+      "en": "Performance video, character media"
+    },
+    "output": {
+      "zh": "角色视频",
+      "en": "Character video"
+    },
+    "availability": {
+      "zh": "Runway API。",
+      "en": "Available through the Runway API."
+    },
+    "tags": [
+      "Runway",
+      "Act-Two",
+      "角色动画",
+      "表情迁移"
+    ],
+    "sources": [
+      "Runway Models: https://docs.dev.runwayml.com/guides/models/"
+    ],
+    "next": [
+      "查看 Runway 模型文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "lumalabs-ray-3-2",
+    "view": "models",
+    "company": "lumalabs",
+    "provider": "Luma AI",
+    "series": "Ray 3.2",
+    "modelId": "ray-3.2",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Ray 3.2",
+      "en": "Ray 3.2"
+    },
+    "domain": {
+      "zh": "视频生成与编辑",
+      "en": "Video generation and editing"
+    },
+    "summary": {
+      "zh": "Luma AI 当前的 Ray 3.2 视频 API 型号，适合文本生视频、图生视频和视频参考工作流。",
+      "en": "Luma AI's current Ray 3.2 video API model for text-to-video, image-to-video, and video-reference workflows."
+    },
+    "input": {
+      "zh": "文本、图像、视频参考",
+      "en": "Text, images, video references"
+    },
+    "output": {
+      "zh": "5 秒或 10 秒视频；360p、540p、720p、1080p；MP4",
+      "en": "5 or 10 second video; 360p, 540p, 720p, 1080p; MP4"
+    },
+    "limits": {
+      "zh": "API 支持 9:16、3:4、1:1、4:3、16:9、21:9；HDR 需 720p/1080p，EXR 需 HDR。产品公告与 API 时长不一致时以 API schema 为准。",
+      "en": "API supports 9:16, 3:4, 1:1, 4:3, 16:9, and 21:9; HDR requires 720p/1080p and EXR requires HDR. Where product announcements and API duration differ, follow the API schema."
+    },
+    "availability": {
+      "zh": "Luma current API。",
+      "en": "Current Luma API."
+    },
+    "tags": [
+      "Luma AI",
+      "Ray",
+      "视频生成",
+      "图生视频",
+      "视频编辑"
+    ],
+    "sources": [
+      "Luma Model Guide: https://docs.agents.lumalabs.ai/guides/model/",
+      "Luma Video Generation: https://docs.agents.lumalabs.ai/guides/videos/generation/"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "lumalabs-ray-2",
+    "view": "models",
+    "company": "lumalabs",
+    "provider": "Luma AI",
+    "series": "Ray",
+    "modelId": "ray-2",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Ray 2",
+      "en": "Ray 2"
+    },
+    "domain": {
+      "zh": "视频生成",
+      "en": "Video generation"
+    },
+    "summary": {
+      "zh": "Luma AI Ray 系列的上一代视频型号，保留用于旧项目识别和模型迁移。",
+      "en": "A previous Luma AI Ray video model retained for legacy project identification and migration."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "视频",
+      "en": "Video"
+    },
+    "availability": {
+      "zh": "版本可用性以 Luma 官方平台为准。",
+      "en": "Version availability follows Luma's official platform."
+    },
+    "tags": [
+      "Luma AI",
+      "Ray",
+      "视频生成",
+      "旧版"
+    ],
+    "sources": [
+      "Luma AI API: https://docs.lumalabs.ai/"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "lumalabs-ray-2-flash",
+    "view": "models",
+    "company": "lumalabs",
+    "provider": "Luma AI",
+    "series": "Ray",
+    "modelId": "ray-2-flash",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Ray 2 Flash",
+      "en": "Ray 2 Flash"
+    },
+    "domain": {
+      "zh": "快速视频生成",
+      "en": "Fast video generation"
+    },
+    "summary": {
+      "zh": "Ray 2 的快速型号，适合预览、批量生成和镜头快速迭代。",
+      "en": "A fast Ray 2 variant for previews, batch generation, and rapid shot iteration."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "视频",
+      "en": "Video"
+    },
+    "availability": {
+      "zh": "版本可用性以 Luma 官方平台为准。",
+      "en": "Version availability follows Luma's official platform."
+    },
+    "tags": [
+      "Luma AI",
+      "Ray",
+      "视频生成",
+      "快速"
+    ],
+    "sources": [
+      "Luma AI API: https://docs.lumalabs.ai/"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "minimax-hailuo-02",
+    "view": "models",
+    "company": "minimax",
+    "provider": "MiniMax / 海螺 AI",
+    "series": "Hailuo",
+    "modelId": "MiniMax-Hailuo-02",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Hailuo 02",
+      "en": "Hailuo 02"
+    },
+    "domain": {
+      "zh": "视频生成",
+      "en": "Video generation"
+    },
+    "summary": {
+      "zh": "MiniMax 海螺视频系列的型号，适合文本生视频和图生视频。",
+      "en": "A MiniMax Hailuo video model for text-to-video and image-to-video generation."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "视频",
+      "en": "Video"
+    },
+    "availability": {
+      "zh": "MiniMax API 与海螺产品端；版本和地区可用性以官方为准。",
+      "en": "Available through MiniMax API and Hailuo products; version and region availability follow official sources."
+    },
+    "tags": [
+      "MiniMax",
+      "海螺",
+      "Hailuo",
+      "视频生成",
+      "图生视频"
+    ],
+    "sources": [
+      "MiniMax API: https://platform.minimaxi.com/document/"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "minimax-hailuo-2-3",
+    "view": "models",
+    "company": "minimax",
+    "provider": "MiniMax / 海螺 AI",
+    "series": "Hailuo",
+    "modelId": "MiniMax-Hailuo-2.3",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Hailuo 2.3",
+      "en": "Hailuo 2.3"
+    },
+    "domain": {
+      "zh": "视频生成",
+      "en": "Video generation"
+    },
+    "summary": {
+      "zh": "MiniMax 海螺系列的升级视频型号，面向人物动作、镜头连续性和短视频创作。",
+      "en": "An upgraded MiniMax Hailuo video model for human motion, shot continuity, and short-form creation."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "视频",
+      "en": "Video"
+    },
+    "availability": {
+      "zh": "MiniMax API 与海螺产品端；版本和地区可用性以官方为准。",
+      "en": "Available through MiniMax API and Hailuo products; version and region availability follow official sources."
+    },
+    "tags": [
+      "MiniMax",
+      "海螺",
+      "Hailuo",
+      "视频生成",
+      "人物动作"
+    ],
+    "sources": [
+      "MiniMax API: https://platform.minimaxi.com/document/"
+    ],
+    "next": [
+      "查看官方文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "pika-2-2",
+    "view": "models",
+    "company": "pika",
+    "provider": "Pika",
+    "series": "Pika",
+    "modelId": "product-only",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Pika 2.2",
+      "en": "Pika 2.2"
+    },
+    "domain": {
+      "zh": "短视频生成与特效",
+      "en": "Short video generation and effects"
+    },
+    "summary": {
+      "zh": "Pika 的视频生成和特效创作型号，适合短视频、社交内容和快速视觉实验。",
+      "en": "A Pika video generation and effects model for short-form, social, and rapid visual experiments."
+    },
+    "input": {
+      "zh": "文本、图像、视频素材",
+      "en": "Text, images, video assets"
+    },
+    "output": {
+      "zh": "视频或视频特效",
+      "en": "Video or video effects"
+    },
+    "availability": {
+      "zh": "Pika 产品与 API 入口以官方平台为准。",
+      "en": "Product and API access follows Pika's official platform."
+    },
+    "tags": [
+      "Pika",
+      "视频生成",
+      "视频特效",
+      "短视频"
+    ],
+    "sources": [
+      "Pika 官方平台: https://pika.art/"
+    ],
+    "next": [
+      "查看官方平台"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "kuaishou-kling-3-0-turbo",
+    "view": "models",
+    "company": "kuaishou",
+    "provider": "快手 Kuaishou",
+    "series": "Kling 3.0",
+    "modelId": "kling-3.0-turbo",
+    "modelType": "Video",
+    "contextWindow": "Text and image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Kling 3.0 Turbo",
+      "en": "Kling 3.0 Turbo"
+    },
+    "domain": {
+      "zh": "快速视频生成",
+      "en": "Fast video generation"
+    },
+    "summary": {
+      "zh": "可灵 3.0 的快速型号，支持文本或图像生成 3–15 秒视频和音画同出。",
+      "en": "The fast Kling 3.0 model for 3–15 second video with text or image input and synchronized audio."
+    },
+    "input": {
+      "zh": "文本、图像",
+      "en": "Text, images"
+    },
+    "output": {
+      "zh": "3–15 秒视频；720P / 1080P；音画同出",
+      "en": "3–15 second video; 720P / 1080P; synchronized audio"
+    },
+    "availability": {
+      "zh": "Kling current API。",
+      "en": "Current Kling API."
+    },
+    "tags": [
+      "快手",
+      "可灵",
+      "Kling",
+      "视频生成",
+      "快速",
+      "音画同出"
+    ],
+    "sources": [
+      "Kling API 能力地图: https://www.klingai.com/document-api/guides/capability-map/video"
+    ],
+    "next": [
+      "查看 API 能力地图"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "kuaishou-kling-3-0",
+    "view": "models",
+    "company": "kuaishou",
+    "provider": "快手 Kuaishou",
+    "series": "Kling 3.0",
+    "modelId": "kling-v3",
+    "modelType": "Video",
+    "contextWindow": "Text, image, and video input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Kling 3.0",
+      "en": "Kling 3.0"
+    },
+    "domain": {
+      "zh": "多镜头视频生成",
+      "en": "Multi-shot video generation"
+    },
+    "summary": {
+      "zh": "可灵 3.0，支持文本、图像、视频参考、多镜头叙事和音画同出。",
+      "en": "Kling 3.0 with text, image, and video references, multi-shot storytelling, and synchronized audio."
+    },
+    "input": {
+      "zh": "文本、图像、视频",
+      "en": "Text, images, video"
+    },
+    "output": {
+      "zh": "3–15 秒视频；720P / 1080P / 4K；音画同出",
+      "en": "3–15 second video; 720P / 1080P / 4K; synchronized audio"
+    },
+    "availability": {
+      "zh": "Kling current API。",
+      "en": "Current Kling API."
+    },
+    "tags": [
+      "快手",
+      "可灵",
+      "Kling",
+      "视频生成",
+      "多镜头",
+      "4K"
+    ],
+    "sources": [
+      "Kling API 能力地图: https://www.klingai.com/document-api/guides/capability-map/video"
+    ],
+    "next": [
+      "查看 API 能力地图"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "kuaishou-kling-3-0-omni",
+    "view": "models",
+    "company": "kuaishou",
+    "provider": "快手 Kuaishou",
+    "series": "Kling 3.0 Omni",
+    "modelId": "kling-v3-omni",
+    "modelType": "Multimodal",
+    "contextWindow": "Text, image, and video input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Kling 3.0 Omni",
+      "en": "Kling 3.0 Omni"
+    },
+    "domain": {
+      "zh": "多模态视频生成",
+      "en": "Multimodal video generation"
+    },
+    "summary": {
+      "zh": "可灵 3.0 Omni，多模态参考能力更强，适合复杂角色、场景和镜头连续性工作流。",
+      "en": "Kling 3.0 Omni with stronger multimodal references for complex characters, scenes, and shot continuity."
+    },
+    "input": {
+      "zh": "文本、图像、视频",
+      "en": "Text, images, video"
+    },
+    "output": {
+      "zh": "3–15 秒视频；720P / 1080P / 4K；音画同出",
+      "en": "3–15 second video; 720P / 1080P / 4K; synchronized audio"
+    },
+    "availability": {
+      "zh": "Kling current API。",
+      "en": "Current Kling API."
+    },
+    "tags": [
+      "快手",
+      "可灵",
+      "Kling",
+      "Omni",
+      "多模态",
+      "4K"
+    ],
+    "sources": [
+      "Kling API 能力地图: https://www.klingai.com/document-api/guides/capability-map/video"
+    ],
+    "next": [
+      "查看 API 能力地图"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "kuaishou-kling-o1",
+    "view": "models",
+    "company": "kuaishou",
+    "provider": "快手 Kuaishou",
+    "series": "Kling O1",
+    "modelId": "kling-video-o1",
+    "modelType": "Video",
+    "contextWindow": "Text, image, and video input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Kling O1",
+      "en": "Kling O1"
+    },
+    "domain": {
+      "zh": "参考视频与首尾帧",
+      "en": "Video references and keyframes"
+    },
+    "summary": {
+      "zh": "可灵 O1，支持视频参考、首尾帧和视频编辑工作流，但不支持音画同出。",
+      "en": "Kling O1 with video references, start/end frames, and video editing workflows; synchronized audio is not supported."
+    },
+    "input": {
+      "zh": "文本、图像、视频",
+      "en": "Text, images, video"
+    },
+    "output": {
+      "zh": "3–10 秒视频；720P / 1080P",
+      "en": "3–10 second video; 720P / 1080P"
+    },
+    "availability": {
+      "zh": "Kling current API。",
+      "en": "Current Kling API."
+    },
+    "tags": [
+      "快手",
+      "可灵",
+      "Kling O1",
+      "视频编辑",
+      "首尾帧"
+    ],
+    "sources": [
+      "Kling API 能力地图: https://www.klingai.com/document-api/guides/capability-map/video"
+    ],
+    "next": [
+      "查看 API 能力地图"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "kuaishou-kling-2-6",
+    "view": "models",
+    "company": "kuaishou",
+    "provider": "快手 Kuaishou",
+    "series": "Kling 2.6",
+    "modelId": "kling-v2-6",
+    "modelType": "Video",
+    "contextWindow": "Text, image, and video input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Kling 2.6",
+      "en": "Kling 2.6"
+    },
+    "domain": {
+      "zh": "视频生成",
+      "en": "Video generation"
+    },
+    "summary": {
+      "zh": "可灵 2.6，支持文本、图像、视频参考和音画同出；人声控制有时长和分辨率限制。",
+      "en": "Kling 2.6 with text, image, and video references plus synchronized audio; voice control has duration and resolution limits."
+    },
+    "input": {
+      "zh": "文本、图像、视频",
+      "en": "Text, images, video"
+    },
+    "output": {
+      "zh": "3–10 秒视频；720P / 1080P；音画同出",
+      "en": "3–10 second video; 720P / 1080P; synchronized audio"
+    },
+    "availability": {
+      "zh": "Kling current API。",
+      "en": "Current Kling API."
+    },
+    "tags": [
+      "快手",
+      "可灵",
+      "Kling",
+      "视频生成",
+      "音画同出"
+    ],
+    "sources": [
+      "Kling API 能力地图: https://www.klingai.com/document-api/guides/capability-map/video"
+    ],
+    "next": [
+      "查看 API 能力地图"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "pika-2-5-text-to-video",
+    "view": "models",
+    "company": "pika",
+    "provider": "Pika",
+    "series": "Pika 2.5",
+    "modelId": "pika/pika-2.5/text-to-video",
+    "modelType": "Video",
+    "contextWindow": "Text input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Pika 2.5 Text to Video",
+      "en": "Pika 2.5 Text to Video"
+    },
+    "domain": {
+      "zh": "文生视频",
+      "en": "Text-to-video"
+    },
+    "summary": {
+      "zh": "Pika 2.5 的文生视频 API route，使用完整 route 作为调用标识，而不是单独的 model 字段。",
+      "en": "Pika 2.5's text-to-video API route, using the full route as its identifier instead of a separate model field."
+    },
+    "input": {
+      "zh": "文本",
+      "en": "Text"
+    },
+    "output": {
+      "zh": "固定 5 秒视频；720p / 1080p",
+      "en": "Fixed 5-second video; 720p / 1080p"
+    },
+    "availability": {
+      "zh": "Pika API Club current API。",
+      "en": "Current Pika API Club API."
+    },
+    "tags": [
+      "Pika",
+      "2.5",
+      "文生视频",
+      "API route"
+    ],
+    "sources": [
+      "Pika API: https://dev.pika.art/models/pika/pika-2.5/text-to-video"
+    ],
+    "next": [
+      "查看 Pika API"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "pika-2-5-image-to-video",
+    "view": "models",
+    "company": "pika",
+    "provider": "Pika",
+    "series": "Pika 2.5",
+    "modelId": "pika/pika-2.5/image-to-video",
+    "modelType": "Video",
+    "contextWindow": "Image and optional text input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Pika 2.5 Image to Video",
+      "en": "Pika 2.5 Image to Video"
+    },
+    "domain": {
+      "zh": "图生视频",
+      "en": "Image-to-video"
+    },
+    "summary": {
+      "zh": "Pika 2.5 的图生视频 API route，支持图像与可选文本提示词。",
+      "en": "Pika 2.5's image-to-video API route with image input and an optional text prompt."
+    },
+    "input": {
+      "zh": "图像、可选文本",
+      "en": "Image, optional text"
+    },
+    "output": {
+      "zh": "5 秒或 10 秒视频；720p / 1080p",
+      "en": "5 or 10 second video; 720p / 1080p"
+    },
+    "availability": {
+      "zh": "Pika API Club current API。",
+      "en": "Current Pika API Club API."
+    },
+    "tags": [
+      "Pika",
+      "2.5",
+      "图生视频",
+      "API route"
+    ],
+    "sources": [
+      "Pika API: https://dev.pika.art/models/pika/pika-2.5/image-to-video"
+    ],
+    "next": [
+      "查看 Pika API"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "pika-pikadditions",
+    "view": "models",
+    "company": "pika",
+    "provider": "Pika",
+    "series": "Pikadditions",
+    "modelId": "pika/pikadditions/video-to-video",
+    "modelType": "Video",
+    "contextWindow": "Video with optional image and text input",
+    "category": "模型",
+    "title": {
+      "zh": "Pikadditions",
+      "en": "Pikadditions"
+    },
+    "domain": {
+      "zh": "视频元素添加",
+      "en": "Video element addition"
+    },
+    "summary": {
+      "zh": "Pika 的视频到视频特效 route，用于向视频中添加人物或对象。",
+      "en": "Pika's video-to-video effects route for adding people or objects to video."
+    },
+    "input": {
+      "zh": "视频、可选图像和文本",
+      "en": "Video, optional image and text"
+    },
+    "output": {
+      "zh": "5 秒或 10 秒视频；720p / 1080p",
+      "en": "5 or 10 second video; 720p / 1080p"
+    },
+    "availability": {
+      "zh": "Pika API Club current API。",
+      "en": "Current Pika API Club API."
+    },
+    "tags": [
+      "Pika",
+      "Pikadditions",
+      "视频特效",
+      "视频编辑"
+    ],
+    "sources": [
+      "Pika API: https://dev.pika.art/models/pika/pikadditions/video-to-video"
+    ],
+    "next": [
+      "查看 Pika API"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "pika-pikaswaps",
+    "view": "models",
+    "company": "pika",
+    "provider": "Pika",
+    "series": "Pikaswaps",
+    "modelId": "pika/pikaswaps/video-to-video",
+    "modelType": "Video",
+    "contextWindow": "Video with optional image and text input",
+    "category": "模型",
+    "title": {
+      "zh": "Pikaswaps",
+      "en": "Pikaswaps"
+    },
+    "domain": {
+      "zh": "视频局部替换",
+      "en": "Local video replacement"
+    },
+    "summary": {
+      "zh": "Pika 的局部替换 route，支持 ROI 或 mask 控制视频中的对象替换。",
+      "en": "Pika's local replacement route with ROI or mask control for swapping objects in video."
+    },
+    "input": {
+      "zh": "视频、可选图像和文本、ROI 或 mask",
+      "en": "Video, optional image and text, ROI or mask"
+    },
+    "output": {
+      "zh": "5 秒或 10 秒视频；720p / 1080p",
+      "en": "5 or 10 second video; 720p / 1080p"
+    },
+    "availability": {
+      "zh": "Pika API Club current API。",
+      "en": "Current Pika API Club API."
+    },
+    "tags": [
+      "Pika",
+      "Pikaswaps",
+      "视频编辑",
+      "Mask"
+    ],
+    "sources": [
+      "Pika API: https://dev.pika.art/models/pika/pikaswaps/video-to-video"
+    ],
+    "next": [
+      "查看 Pika API"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "pika-pikaffects-image-to-video",
+    "view": "models",
+    "company": "pika",
+    "provider": "Pika",
+    "series": "Pikaffects",
+    "modelId": "pika/pikaffects/image-to-video",
+    "modelType": "Video",
+    "contextWindow": "Image and effect input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Pikaffects Image to Video",
+      "en": "Pikaffects Image to Video"
+    },
+    "domain": {
+      "zh": "图像特效视频",
+      "en": "Image effects video"
+    },
+    "summary": {
+      "zh": "Pika 的图像特效 route，通过预设 effect 将静态图像转成短视频。",
+      "en": "Pika's image effects route for turning a still image into short video using preset effects."
+    },
+    "input": {
+      "zh": "图像、effect 参数",
+      "en": "Image, effect parameter"
+    },
+    "output": {
+      "zh": "预设特效视频",
+      "en": "Preset-effect video"
+    },
+    "availability": {
+      "zh": "Pika API Club current API。",
+      "en": "Current Pika API Club API."
+    },
+    "tags": [
+      "Pika",
+      "Pikaffects",
+      "图生视频",
+      "预设特效"
+    ],
+    "sources": [
+      "Pika API: https://dev.pika.art/models/pika/pikaffects/image-to-video"
+    ],
+    "next": [
+      "查看 Pika API"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "pika-pikaffects-video-to-video",
+    "view": "models",
+    "company": "pika",
+    "provider": "Pika",
+    "series": "Pikaffects",
+    "modelId": "pika/pikaffects/video-to-video",
+    "modelType": "Video",
+    "contextWindow": "Video and effect input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Pikaffects Video to Video",
+      "en": "Pikaffects Video to Video"
+    },
+    "domain": {
+      "zh": "视频特效转换",
+      "en": "Video effects transformation"
+    },
+    "summary": {
+      "zh": "Pika 的视频特效 route，通过预设 effect 对输入视频进行转换。",
+      "en": "Pika's video effects route for transforming input video with preset effects."
+    },
+    "input": {
+      "zh": "视频、effect 参数",
+      "en": "Video, effect parameter"
+    },
+    "output": {
+      "zh": "预设特效视频",
+      "en": "Preset-effect video"
+    },
+    "availability": {
+      "zh": "Pika API Club current API。",
+      "en": "Current Pika API Club API."
+    },
+    "tags": [
+      "Pika",
+      "Pikaffects",
+      "视频特效",
+      "视频转换"
+    ],
+    "sources": [
+      "Pika API: https://dev.pika.art/models/pika/pikaffects/video-to-video"
+    ],
+    "next": [
+      "查看 Pika API"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "minimax-h3",
+    "view": "models",
+    "company": "minimax",
+    "provider": "MiniMax / 海螺 AI",
+    "series": "MiniMax Video",
+    "modelId": "MiniMax-H3",
+    "modelType": "Multimodal",
+    "contextWindow": "Text, image, video, and audio input to video",
+    "category": "模型",
+    "title": {
+      "zh": "MiniMax H3",
+      "en": "MiniMax H3"
+    },
+    "domain": {
+      "zh": "多模态视频生成与编辑",
+      "en": "Multimodal video generation and editing"
+    },
+    "summary": {
+      "zh": "MiniMax 当前新一代视频 API 模型，支持首尾帧、图像 / 视频 / 音频参考和视频编辑。",
+      "en": "MiniMax's current-generation video API model with start/end frames, image/video/audio references, and video editing."
+    },
+    "input": {
+      "zh": "文本、图像、视频、音频；最多 9 张参考图、3 个视频或音频参考",
+      "en": "Text, images, video, audio; up to 9 reference images and 3 video or audio references"
+    },
+    "output": {
+      "zh": "4–15 秒视频；768P / 2K；24fps",
+      "en": "4–15 second video; 768P / 2K; 24fps"
+    },
+    "limits": {
+      "zh": "总请求体不超过 64MB；文生视频需填写比例。",
+      "en": "Total request body must not exceed 64MB; text-to-video requires an aspect ratio."
+    },
+    "availability": {
+      "zh": "MiniMax current API；海螺产品端也已展示 H3。",
+      "en": "Current MiniMax API; H3 is also shown in the Hailuo product."
+    },
+    "tags": [
+      "MiniMax",
+      "海螺",
+      "H3",
+      "多模态",
+      "视频生成",
+      "2K"
+    ],
+    "sources": [
+      "MiniMax H3 API: https://platform.minimax.io/docs/api-reference/video-generation-v2-create"
+    ],
+    "next": [
+      "查看 H3 API 文档"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "minimax-hailuo-2-3-fast",
+    "view": "models",
+    "company": "minimax",
+    "provider": "MiniMax / 海螺 AI",
+    "series": "Hailuo 2.3",
+    "modelId": "MiniMax-Hailuo-2.3-Fast",
+    "modelType": "Video",
+    "contextWindow": "Image input to video",
+    "category": "模型",
+    "title": {
+      "zh": "Hailuo 2.3 Fast",
+      "en": "Hailuo 2.3 Fast"
+    },
+    "domain": {
+      "zh": "快速图生视频",
+      "en": "Fast image-to-video"
+    },
+    "summary": {
+      "zh": "Hailuo 2.3 的快速图生视频型号，当前作为旧接口兼容型号保留。",
+      "en": "The fast Hailuo 2.3 image-to-video model retained for legacy API compatibility."
+    },
+    "input": {
+      "zh": "图像、文本提示词",
+      "en": "Image, text prompt"
+    },
+    "output": {
+      "zh": "768P：6 秒或 10 秒；1080P：6 秒",
+      "en": "768P: 6 or 10 seconds; 1080P: 6 seconds"
+    },
+    "availability": {
+      "zh": "Legacy API；官方枚举仍存在，新项目优先评估 MiniMax H3。",
+      "en": "Legacy API; the official enum remains available, while new projects should evaluate MiniMax H3 first."
+    },
+    "tags": [
+      "MiniMax",
+      "海螺",
+      "Hailuo",
+      "图生视频",
+      "Legacy API"
+    ],
+    "sources": [
+      "MiniMax I2V API: https://platform.minimax.io/docs/api-reference/video-generation-i2v"
+    ],
+    "next": [
+      "查看旧接口文档",
+      "对比 MiniMax H3"
+    ],
+    "updated": "2026-08-06"
+  },
+  {
+    "id": "google-gemini-omni-flash-preview",
+    "view": "models",
+    "company": "google",
+    "provider": "Google DeepMind",
+    "series": "Gemini Omni",
+    "modelId": "gemini-omni-flash-preview",
+    "modelType": "Video",
+    "contextWindow": "1,048,576 tokens",
+    "category": "模型",
+    "title": {
+      "zh": "Gemini Omni Flash Preview",
+      "en": "Gemini Omni Flash Preview"
+    },
+    "domain": {
+      "zh": "对话式视频生成与编辑",
+      "en": "Conversational video generation and editing"
+    },
+    "summary": {
+      "zh": "Google 的对话式视频模型，支持通过 Interactions API 多轮生成和修改视频；它不属于 Veo 系列。",
+      "en": "Google's conversational video model for iterative generation and editing through the Interactions API; it is not part of the Veo family."
+    },
+    "input": {
+      "zh": "文本、图像、视频",
+      "en": "Text, images, video"
+    },
+    "output": {
+      "zh": "3–10 秒、720p、24fps 视频",
+      "en": "3–10 second, 720p, 24fps video"
+    },
+    "limits": {
+      "zh": "编辑输入视频最长 10 秒；Preview 接口可能变化。",
+      "en": "Input video for editing is limited to 10 seconds; preview APIs may change."
+    },
+    "availability": {
+      "zh": "Preview。",
+      "en": "Preview."
+    },
+    "tags": [
+      "Google",
+      "Gemini Omni",
+      "视频生成",
+      "视频编辑",
+      "Preview"
+    ],
+    "sources": [
+      "Google AI for Developers: https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash"
+    ],
+    "next": [
+      "查看官方模型页"
+    ],
+    "updated": "2026-08-06"
+  }
+]
