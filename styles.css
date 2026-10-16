@@ -5644,3 +5644,9 @@ body[data-view]:not([data-view="home"]) .knowledge-field {
   text-align: center;
   word-break: break-all;
 }
+
+/* The intro film owns the first screen. The loading overlay only covers the
+   workbench, so a slow index load never hides the intro. */
+body:not(.entry-complete) .loading-overlay {
+  display: none;
+}
