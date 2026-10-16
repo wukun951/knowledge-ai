@@ -18,7 +18,7 @@
   let frame = 0;
   let active = true;
   let ready = false;
-  let entryState = prefersReducedMotion ? "skipped" : "idle";
+  let entryState = "idle";
   let touchStartY = null;
   let hasCompleted = false;
   let handoffScheduled = false;
@@ -170,13 +170,10 @@
   }
 
   function init() {
-    if (prefersReducedMotion) {
-      entry.hidden = true;
-      document.body.classList.add("entry-complete");
-      appShell.removeAttribute("aria-hidden");
-      entryState = "skipped";
-      return;
-    }
+    // The film is scrubbed by the user's own scroll, never autoplayed, so it
+    // stays on even when the OS asks for reduced motion (macOS/Windows setting
+    // "reduce motion" previously skipped the intro entirely).
+    if (prefersReducedMotion) entry.classList.add("is-reduced-motion");
 
     // Bypass CSS smooth scrolling so the film starts at the top immediately.
     window.scrollTo({ top: 0, behavior: "instant" });
