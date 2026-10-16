@@ -25,6 +25,10 @@
   let handoffTimer = 0;
   let releaseTimer = 0;
 
+  const SEEN_KEY = "kc-entry-seen";
+  const markSeen = () => { try { window.sessionStorage.setItem(SEEN_KEY, "1"); } catch {} };
+  const hasSeen = () => { try { return window.sessionStorage.getItem(SEEN_KEY) === "1"; } catch { return false; } };
+
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
   function setProgress(value) {
@@ -60,6 +64,7 @@
     if (hasCompleted) return;
     hasCompleted = true;
     entryState = "completed";
+    markSeen();
     setProgress(1);
     entry.classList.add("is-complete");
     document.body.classList.add("entry-complete");
@@ -71,6 +76,10 @@
       handoffTimer = window.setTimeout(() => {
         window.scrollTo({ top: entry.offsetTop + entry.offsetHeight, behavior: "auto" });
         releaseTimer = window.setTimeout(() => {
+          // Played once: take the film out of the flow so scrolling back up
+          // lands on the workbench top instead of replaying the intro.
+          dismissEntry();
+          window.scrollTo({ top: 0, behavior: "auto" });
           if (curtain) curtain.classList.remove("is-visible");
           const mainContent = document.getElementById("mainContent");
           if (mainContent) mainContent.focus({ preventScroll: true });
@@ -174,6 +183,19 @@
     // stays on even when the OS asks for reduced motion (macOS/Windows setting
     // "reduce motion" previously skipped the intro entirely).
     if (prefersReducedMotion) entry.classList.add("is-reduced-motion");
+
+    // Intro plays once per visit (browser tab session); refreshes and
+    // in-site navigation go straight to the workbench.
+    if (hasSeen()) {
+      active = false;
+      hasCompleted = true;
+      entryState = "completed";
+      entry.hidden = true;
+      entry.classList.add("is-complete");
+      document.body.classList.add("entry-complete");
+      appShell.removeAttribute("aria-hidden");
+      return;
+    }
 
     // Bypass CSS smooth scrolling so the film starts at the top immediately.
     window.scrollTo({ top: 0, behavior: "instant" });
