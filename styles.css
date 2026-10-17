@@ -86,7 +86,7 @@ body::before {
 .entry-experience {
   position: relative;
   z-index: 3000;
-  min-height: 220vh;
+  min-height: 300vh;
   color: #f2f6f1;
   background: #0b1411;
   --entry-progress: 0;

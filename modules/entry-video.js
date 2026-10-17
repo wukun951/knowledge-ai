@@ -31,9 +31,41 @@
 
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
+  // Scrubber: scroll sets a target; a rAF loop eases toward it and only issues
+  // a new seek once the previous one has painted. Firing currentTime on every
+  // scroll event makes Chrome/Safari cancel each seek before it paints, which
+  // looks like a frozen film.
+  let targetTime = 0;
+  let shownTime = 0;
+  let scrubFrame = 0;
+  function scrubLoop() {
+    scrubFrame = 0;
+    if (!ready || !duration) return;
+    shownTime += (targetTime - shownTime) * 0.3;
+    if (Math.abs(targetTime - shownTime) < 0.004) shownTime = targetTime;
+    if (!video.seeking && Math.abs(video.currentTime - shownTime) > 0.012) {
+      try { video.currentTime = shownTime; } catch {}
+    }
+    if (shownTime !== targetTime || video.seeking) scrubFrame = window.requestAnimationFrame(scrubLoop);
+  }
+  function scrubTo(time) {
+    targetTime = clamp(time, 0, Math.max(0, duration - 0.04));
+    if (!scrubFrame) scrubFrame = window.requestAnimationFrame(scrubLoop);
+  }
+  function markReady() {
+    const value = Number.isFinite(video.duration) ? video.duration : 0;
+    if (!value) return;
+    duration = value;
+    if (ready) return;
+    ready = true;
+    if (!active) return;
+    setProgress(getScrollProgress());
+    status.textContent = "入场动效已就绪，向下滚动进入";
+  }
+
   function setProgress(value) {
     const progress = clamp(value, 0, 1);
-    if (duration && ready) video.currentTime = duration * progress;
+    if (duration && ready) scrubTo(duration * progress);
     progressBar.style.transform = `scaleX(${progress})`;
     entry.style.setProperty("--entry-progress", progress.toFixed(4));
     const fade = clamp((progress - 0.78) / 0.22, 0, 1);
@@ -84,7 +116,7 @@
           const mainContent = document.getElementById("mainContent");
           if (mainContent) mainContent.focus({ preventScroll: true });
         }, 360);
-      }, 140);
+      }, 420);
     }
   }
 
@@ -153,7 +185,8 @@
     hasCompleted = false;
     handoffScheduled = false;
     window.scrollTo({ top: 0, behavior: "auto" });
-    video.currentTime = 0;
+    targetTime = 0; shownTime = 0;
+    try { video.currentTime = 0; } catch {}
     setProgress(0);
     status.textContent = "入场动效播放中";
     return true;
@@ -201,13 +234,30 @@
     window.scrollTo({ top: 0, behavior: "instant" });
     appShell.setAttribute("aria-hidden", "true");
     video.pause();
-    video.addEventListener("loadedmetadata", () => {
-      duration = Number.isFinite(video.duration) ? video.duration : 0;
-      ready = duration > 0;
-      if (!active) return;
-      setProgress(getScrollProgress());
-      status.textContent = "入场动效已就绪，向下滚动进入";
-    }, { once: true });
+    // The metadata can already be there (cached file) before this deferred
+    // script runs, in which case loadedmetadata never fires again.
+    ["loadedmetadata", "durationchange", "loadeddata", "canplay"].forEach((name) => video.addEventListener(name, markReady));
+    video.addEventListener("seeked", () => { if (!scrubFrame && shownTime !== targetTime) scrubFrame = window.requestAnimationFrame(scrubLoop); });
+    if (video.readyState >= 1) markReady();
+    // Pull the whole film into memory so every frame is seekable at once,
+    // independent of how the host answers range requests.
+    try {
+      const sources = [...video.querySelectorAll("source")];
+      const pick = sources.find((source) => !source.media || window.matchMedia(source.media).matches);
+      if (pick && window.fetch && window.URL?.createObjectURL) {
+        fetch(pick.src).then((response) => (response.ok ? response.blob() : Promise.reject(response.status))).then((blob) => {
+          if (!active) return;
+          const resume = targetTime;
+          ready = false;
+          video.src = URL.createObjectURL(blob);
+          video.load();
+          video.addEventListener("loadeddata", () => { try { video.currentTime = resume; } catch {} shownTime = resume; markReady(); setProgress(getScrollProgress()); }, { once: true });
+        }).catch(() => {});
+      }
+    } catch {}
+    // iOS/Safari only paints seeked frames after the element has played once.
+    const unlock = video.play();
+    if (unlock && typeof unlock.then === "function") unlock.then(() => { video.pause(); markReady(); try { video.currentTime = targetTime; } catch {} }).catch(() => {});
     video.addEventListener("error", failEntry, { once: true });
     skipButton.addEventListener("click", skipEntry);
     window.addEventListener("scroll", requestSync, { passive: true });
