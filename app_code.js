@@ -1,6 +1,6 @@
 "use strict";
 
-const DATA_VERSION = "20261016-2";
+const DATA_VERSION = "20261017-1";
 const PAGE_SIZE = 24;
 const COMPACT_PAGE_SIZE = 12;
 const ARENA_SNAPSHOT_DATE = "2026-08-30";
@@ -607,7 +607,7 @@ const ANALYSIS_CREATOR_LOGOS = {
   mureka: "images/mureka.ico",
   elevenlabs: "images/elevenlabs.ico",
   "producer.ai": "images/producer.ico",
-  udio: "images/udio.ico",
+  udio: "images/udio.png",
   sonauto: "images/sonauto.ico",
   stability: "images/stable-diffusion.png",
   "stability.ai": "images/stable-diffusion.png",
@@ -4639,22 +4639,28 @@ async function loadData() {
   if (state.loadPromise) return state.loadPromise;
   state.loadPromise = (async () => {
     try {
-      const itemsResponse = await fetchWithTimeout(`./data.json?v=${DATA_VERSION}`, { cache: "default" }, 45000);
+      // Fire every request at once: total wait is the slowest file, not the sum.
+      const optionalJson = (name, timeout) => fetchWithTimeout(`./${name}?v=${DATA_VERSION}`, { cache: "default" }, timeout)
+        .then((response) => response.ok ? response.json() : null);
+      const itemsRequest = fetchWithTimeout(`./data.json?v=${DATA_VERSION}`, { cache: "default" }, 45000);
+      const optionalRequests = Promise.allSettled([
+        optionalJson("model-catalog.json"),
+        optionalJson("artificial-analysis-snapshot.json"),
+        optionalJson("media-model-leaderboards-snapshot.json"),
+        optionalJson("skill-leaderboard-snapshot.json"),
+        optionalJson("workflows.json"),
+        optionalJson("content-index.generated.json", 45000),
+      ]);
+      const itemsResponse = await itemsRequest;
       if (!itemsResponse.ok) throw new Error("Failed to load index data");
       const rawItems = await itemsResponse.json();
       let modelItems = rawItems.filter((item) => item?.view === "models" && !/\bterra\b/i.test(`${localizedText(item.title)} ${item.id || ""} ${item.modelId || ""}`));
-      const optionalResources = await Promise.allSettled([
-        fetchWithTimeout(`./model-catalog.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
-        fetchWithTimeout(`./artificial-analysis-snapshot.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
-        fetchWithTimeout(`./media-model-leaderboards-snapshot.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
-        fetchWithTimeout(`./skill-leaderboard-snapshot.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
-        fetchWithTimeout(`./research-content.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
-        fetchWithTimeout(`./lab-experiments.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
-        fetchWithTimeout(`./workflows.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
-        fetchWithTimeout(`./workflow-research-queue.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : null),
-        fetchWithTimeout(`./content-index.generated.json?v=${DATA_VERSION}`, { cache: "default" }, 45000).then((response) => response.ok ? response.json() : null),
-      ]);
-      const [modelCatalog, artificialAnalysis, mediaModelLeaderboards, skillLeaderboard, researchContent, labExperiments, workflowBundle, workflowQueue, generatedContent] = optionalResources.map((result) => (
+      const optionalResources = await optionalRequests;
+      // research-content / lab-experiments / workflow-research-queue are empty and no longer fetched.
+      const researchContent = null;
+      const labExperiments = null;
+      const workflowQueue = null;
+      const [modelCatalog, artificialAnalysis, mediaModelLeaderboards, skillLeaderboard, workflowBundle, generatedContent] = optionalResources.map((result) => (
         result.status === "fulfilled" ? result.value : null
       ));
       if (generatedContent?.schema_version !== "content.front.v1"
@@ -4737,7 +4743,7 @@ function loadContentMap() {
       .then((response) => response.ok ? response.json() : {})
       .catch(() => ({}));
   state.contentPromise = Promise.allSettled([
-    fetchWithTimeout(`./skillContentMap.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : {}),
+    fetchWithTimeout(`./skillcontentmap.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : {}),
     fetchWithTimeout(`./knowledge-content.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => response.ok ? response.json() : {}),
     fetchWithTimeout(`./content-details.generated.json?v=${DATA_VERSION}`, { cache: "default" }).then((response) => {
       if (!response.ok) throw new Error("Structured detail request failed");

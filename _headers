@@ -1,0 +1,82 @@
+# Versioned (?v=) files: browsers cache 1 day, revalidate in background for a week.
+
+/app_code.js
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/artificial-analysis-snapshot.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/brand-particles.js
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/content-details.generated.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/content-index.generated.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/data.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/knowledge-content.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/lab-experiments.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/media-model-leaderboards-snapshot.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/model-catalog.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/models_data.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/motion-cues.js
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/organic-bg.js
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/research-content.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/skill-leaderboard-snapshot.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/skillcontentmap.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/styles.css
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/workflow-research-queue.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/workflows.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/vendor/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/modules/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/styles/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/assets/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+
+/images/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+
+/icons/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
