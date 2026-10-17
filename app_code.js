@@ -1,6 +1,6 @@
 "use strict";
 
-const DATA_VERSION = "20261017-2";
+const DATA_VERSION = "20261017-3";
 const PAGE_SIZE = 24;
 const COMPACT_PAGE_SIZE = 12;
 const ARENA_SNAPSHOT_DATE = "2026-08-30";
@@ -12,7 +12,7 @@ const STORAGE_KEYS = {
 };
 
 const SURFACE_ORDER = ["knowledge", "models", "agents", "prompts", "workflows", "aitools", "lab"];
-const PERSONAL_VIEWS = ["my", "team"];
+const PERSONAL_VIEWS = ["my"];
 
 const SURFACES = {
   knowledge: {
@@ -250,7 +250,7 @@ const VIEWS = {
   lab: {
     eyebrow: { zh: "EXPERIMENT LAB", en: "EXPERIMENT LAB" },
     title: { zh: "实验室", en: "Lab" },
-    subtitle: { zh: "实验记录、协议实践与仍在验证的方法。", en: "Experiments, protocol practice, and methods still being tested." },
+    subtitle: { zh: "自己琢磨的实验、半成品和小工具。跑通的留下记录，跑不通的也写下踩过的坑。", en: "My own experiments, prototypes and small tools — what worked and what didn’t." },
   },
   my: {
     eyebrow: { zh: "", en: "" },
@@ -1271,7 +1271,11 @@ function applyTaskFilters(taskId) {
 }
 
 function workflowCategoryLabel(category) {
-  return window.KnowledgeCosmosWorkflowUI.categoryLabel(category, state.currentLang);
+  const key = typeof category === "object" && category ? (category.id || category.en || localizedText(category, "")) : category;
+  const label = window.KnowledgeCosmosWorkflowUI.categoryLabel(key, state.currentLang);
+  const text = typeof label === "string" ? label : localizedText(label, localizedText(category, ""));
+  if (!text || text === "workflow") return state.currentLang === "zh" ? "工作流" : "Workflow";
+  return text;
 }
 
 function workflowDifficultyLabel(difficulty) {
@@ -1382,7 +1386,7 @@ function modelCompanyForItem(item) {
 
 function surfacesForItem(item) {
   const primarySurface = surfaceForItem(item);
-  if (item.category === "MCP") return ["agents", "lab"];
+  if (item.category === "MCP") return ["agents"];
   return [primarySurface];
 }
 
@@ -2008,11 +2012,106 @@ function renderMediaLeaderboard(category) {
   applyLeaderboardLogoFallbacks();
 }
 
+const BRIEF_TABS = [
+  { id: "llm", label: "语言模型" },
+  { id: "image", label: "图像生成" },
+  { id: "video", label: "视频生成" },
+];
+
+function briefScore(value) {
+  return value === null || value === undefined || value === "" ? "—" : String(value);
+}
+
+function briefRowsMarkup(board, kind, sourceId, limit = 10) {
+  const rows = (board?.rows || []).slice(0, limit);
+  const scores = rows.map((row) => Number(row.score) || 0);
+  const max = Math.max(...scores, 1);
+  const min = Math.min(...scores, max);
+  const range = Math.max(1, max - min);
+  return rows.map((row, index) => {
+    const logo = analysisCreatorLogo({ creator: row.creator, name: row.name });
+    const width = Math.max(14, Math.round(((Number(row.score) - min) / range) * 86) + 14);
+    let side = "";
+    if (kind === "llm" && sourceId === "aa") {
+      side = `<small>${row.cost == null ? "—" : `$${row.cost}`}<em>/任务</em></small>`;
+    } else if (kind === "llm") {
+      side = `<small>${escapeHTML(row.ci || "")}${row.flag ? `<em>${escapeHTML(row.flag)}</em>` : ""}</small>`;
+    } else if (sourceId === "aa") {
+      side = `<small>${escapeHTML(row.extra || "—")}</small>`;
+    } else {
+      side = `<small>${row.extra ? `<em>${escapeHTML(row.extra)}</em>` : ""}</small>`;
+    }
+    return `<li class="brief-row${index < 3 ? " is-top" : ""}" style="--bar:${width}%">
+      <span class="brief-rank">${String(index + 1).padStart(2, "0")}</span>
+      <span class="brief-logo">${logo ? `<img src="${logo}" alt="" loading="lazy" data-logo-fallback>` : providerFallbackMarkup()}</span>
+      <span class="brief-name"><strong>${escapeHTML(row.name)}</strong><small>${escapeHTML(row.creator || "")}</small></span>
+      <span class="brief-score"><b>${escapeHTML(briefScore(row.score))}</b>${side}<i></i></span>
+    </li>`;
+  }).join("");
+}
+
+function briefBoardMarkup(board, kind, sourceId, limit = 10) {
+  if (!board) return "";
+  const sourceName = sourceId === "aa" ? "Artificial Analysis" : "Arena";
+  const scoreLabel = kind === "llm" && sourceId === "aa" ? "智能指数" : "Elo";
+  return `<article class="brief-board" data-source="${sourceId}">
+    <header><div><span class="brief-kicker">${sourceName}</span><h3>${escapeHTML(board.title)}</h3><p>${escapeHTML(board.meta || "")}</p></div><a class="brief-source" href="${escapeHTML(board.url)}" target="_blank" rel="noreferrer">原榜单 ↗</a></header>
+    <div class="brief-legend"><span>排名</span><span>模型</span><span>${scoreLabel}</span></div>
+    <ol class="brief-list">${briefRowsMarkup(board, kind, sourceId, limit)}</ol>
+    ${board.note && limit >= 10 ? `<p class="brief-note">${escapeHTML(board.note)}</p>` : ""}
+  </article>`;
+}
+
+function renderLeaderboardBrief() {
+  const brief = state.leaderboardBrief;
+  const tab = BRIEF_TABS.some((item) => item.id === state.leaderboardBriefTab) ? state.leaderboardBriefTab : "llm";
+  const group = brief[tab] || {};
+  dom.modelRankView.innerHTML = `<span class="brief-updated">数据更新 ${escapeHTML(brief.updated_at || "")}</span><a class="brief-guide-link" href="${escapeHTML(brief.guide_url)}" target="_blank" rel="noreferrer">AI 选型指南 ↗</a>`;
+  dom.modelRankTabs.innerHTML = BRIEF_TABS.map((item) => `<button type="button" class="leaderboard-tab${item.id === tab ? " is-active" : ""}" role="tab" aria-selected="${item.id === tab}" data-brief-tab="${item.id}"><strong>${item.label}</strong></button>`).join("");
+  dom.modelRankSubtabs.hidden = true;
+  dom.modelRankSubtabs.replaceChildren();
+  const picks = (brief.picks || []).map((pick) => `<article class="brief-pick"><header><span aria-hidden="true">${escapeHTML(pick.icon || "")}</span><h4>${escapeHTML(pick.label)}</h4></header><p>${escapeHTML(pick.text)}</p>${pick.models?.length ? `<div>${pick.models.map((model) => `<span>${escapeHTML(model)}</span>`).join("")}</div>` : ""}</article>`).join("");
+  dom.modelRankBoard.dataset.metric = `brief-${tab}`;
+  dom.modelRankBoard.innerHTML = `
+    <p class="brief-intro">两家榜单评委和题目不同：Artificial Analysis 是机构统一跑分，看硬实力和性价比；Arena 是真人匿名盲投，看用起来顺不顺手。比排名，别比分数。</p>
+    <div class="brief-grid">${briefBoardMarkup(group.aa, tab, "aa")}${briefBoardMarkup(group.arena, tab, "arena")}</div>
+    <section class="brief-picks" aria-labelledby="briefPicksTitle"><header><h3 id="briefPicksTitle">我该用哪个</h3><p>按用途直接给结论，细节去选型指南里对比。</p></header><div class="brief-pick-grid">${picks}</div></section>
+    <a class="brief-cta" href="${escapeHTML(brief.guide_url)}" target="_blank" rel="noreferrer"><span><small>深度对比</small><strong>22 个主流模型的价格、速度、上下文、多模态并排对比</strong></span><b>打开 AI 选型指南 ↗</b></a>`;
+  applyLeaderboardLogoFallbacks();
+}
+
+function renderLabBoard() {
+  const board = document.getElementById("labBoard");
+  const list = document.getElementById("labBoardList");
+  if (!board || !list) return;
+  board.hidden = state.currentView !== "lab";
+  if (board.hidden) return;
+  const entries = [...(state.labExperiments || [])].sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
+  if (!entries.length) {
+    list.innerHTML = `<div class="lab-empty"><strong>还没有实验</strong><p>在仓库根目录的 lab-experiments.json 里加一条就会出现在这里，或者直接把链接发给 Hark。</p><code>{ "title": "名字", "summary": "一句话说明", "url": "https://…", "date": "2026-10-17", "status": "进行中", "tags": ["vibe coding"] }</code></div>`;
+    return;
+  }
+  list.innerHTML = entries.map((entry) => {
+    const title = localizedText(entry.title, "");
+    const summary = localizedText(entry.summary, "");
+    const tags = (entry.tags || []).map((tag) => `<span>${escapeHTML(tag)}</span>`).join("");
+    const cover = entry.cover ? `<img src="${escapeHTML(entry.cover)}" alt="" loading="lazy">` : "";
+    const tag = entry.url ? "a" : "article";
+    const href = entry.url ? ` href="${escapeHTML(entry.url)}" target="_blank" rel="noreferrer"` : "";
+    return `<${tag} class="lab-card"${href}>${cover}<div><header><small>${escapeHTML(entry.date || "")}${entry.status ? ` · ${escapeHTML(entry.status)}` : ""}</small><h3>${escapeHTML(title)}</h3></header>${summary ? `<p>${escapeHTML(summary)}</p>` : ""}${tags ? `<footer>${tags}</footer>` : ""}</div>${entry.url ? "<b>↗</b>" : ""}</${tag}>`;
+  }).join("");
+}
+
 function renderLeaderboard() {
+  renderLabBoard();
   if (!dom.modelLeaderboard || !dom.modelRankView || !dom.modelRankTabs || !dom.modelRankSubtabs || !dom.modelRankBoard) return;
   const isModels = state.currentView === "models";
   dom.modelLeaderboard.hidden = !isModels;
   if (!isModels) return;
+  if (state.leaderboardBrief) {
+    renderLeaderboardBrief();
+    return;
+  }
 
   const activeCategory = modelLeaderboardCategoryForId(state.modelLeaderboardCategory);
   dom.modelRankView.replaceChildren();
@@ -2072,6 +2171,16 @@ function renderHomeLeaderboard() {
   const isHome = state.currentView === "home";
   dom.homeLeaderboard.hidden = !isHome;
   if (!isHome) return;
+  if (state.leaderboardBrief) {
+    const brief = state.leaderboardBrief;
+    const tab = BRIEF_TABS.some((item) => item.id === state.homeBriefTab) ? state.homeBriefTab : "llm";
+    const group = brief[tab] || {};
+    dom.homeLeaderboardTabs.innerHTML = BRIEF_TABS.map((item) => `<button type="button" class="leaderboard-tab${item.id === tab ? " is-active" : ""}" role="tab" aria-selected="${item.id === tab}" data-home-brief-tab="${item.id}"><strong>${item.label}</strong></button>`).join("");
+    dom.homeLeaderboardBoard.dataset.metric = `brief-${tab}`;
+    dom.homeLeaderboardBoard.innerHTML = `<div class="brief-grid is-compact">${briefBoardMarkup(group.aa, tab, "aa", 5)}${briefBoardMarkup(group.arena, tab, "arena", 5)}</div><p class="brief-home-foot"><span>数据更新 ${escapeHTML(brief.updated_at || "")} · 每周一自动刷新</span><button type="button" class="text-button" data-view-target="models">看前 10 和「我该用哪个」→</button></p>`;
+    applyLeaderboardLogoFallbacks(dom.homeLeaderboardBoard);
+    return;
+  }
 
   const categories = HOME_LEADERBOARD_CATEGORY_IDS
     .map(modelLeaderboardCategoryForId)
@@ -2839,8 +2948,8 @@ function createWorkflowCard(workflow, index) {
   button.dataset.action = "open-workflow";
   button.dataset.id = workflow.id;
   button.append(
-    createElement("strong", "workflow-card-title", workflow.title || workflow.id),
-    createElement("span", "workflow-card-summary", workflow.summary || workflow.goal || ""),
+    createElement("strong", "workflow-card-title", localizedText(workflow.title, workflow.id)),
+    createElement("span", "workflow-card-summary", localizedText(workflow.summary, "") || localizedText(workflow.goal, "")),
   );
   const footer = createElement("span", "workflow-card-footer");
   footer.append(createElement("span", "", workflowCategoryLabel(workflow.category)));
@@ -3209,6 +3318,7 @@ function updateHash(view, replace = false, taskId = null, channelId = null) {
 }
 
 function switchView(view, options = {}) {
+  if (view === "team") view = "my";
   if (!VIEWS[view] || view === state.currentView && !options.force) return;
   const shouldPush = options.push !== false;
   state.currentView = view;
@@ -3226,6 +3336,7 @@ function switchView(view, options = {}) {
   closePanel({ restoreFocus: false });
   updateHash(view, !shouldPush, state.activeTaskId, state.activeTaskChannel);
   renderAll();
+  playViewSwap();
   resetViewScroll({ userInitiated: options.userInitiated === true });
   if (options.focus !== false) window.requestAnimationFrame(() => dom.mainContent.focus({ preventScroll: true }));
 }
@@ -4650,6 +4761,8 @@ async function loadData() {
         optionalJson("skill-leaderboard-snapshot.json"),
         optionalJson("workflows.json"),
         optionalJson("content-index.generated.json", 45000),
+        optionalJson("leaderboards.json"),
+        optionalJson("lab-experiments.json"),
       ]);
       const itemsResponse = await itemsRequest;
       if (!itemsResponse.ok) throw new Error("Failed to load index data");
@@ -4658,9 +4771,9 @@ async function loadData() {
       const optionalResources = await optionalRequests;
       // research-content / lab-experiments / workflow-research-queue are empty and no longer fetched.
       const researchContent = null;
-      const labExperiments = null;
+      const labExperiments = null; // lab entries render in their own board, not as library cards
       const workflowQueue = null;
-      const [modelCatalog, artificialAnalysis, mediaModelLeaderboards, skillLeaderboard, workflowBundle, generatedContent] = optionalResources.map((result) => (
+      const [modelCatalog, artificialAnalysis, mediaModelLeaderboards, skillLeaderboard, workflowBundle, generatedContent, leaderboardBrief, labExperimentsFile] = optionalResources.map((result) => (
         result.status === "fulfilled" ? result.value : null
       ));
       if (generatedContent?.schema_version !== "content.front.v1"
@@ -4708,6 +4821,8 @@ async function loadData() {
       state.modelCatalog = Array.isArray(modelCatalog) ? modelCatalog : [];
       state.mediaModelLeaderboards = mediaModelLeaderboards;
       state.skillLeaderboard = skillLeaderboard;
+      state.labExperiments = Array.isArray(labExperimentsFile) ? labExperimentsFile : [];
+      state.leaderboardBrief = leaderboardBrief && leaderboardBrief.schema === "leaderboards.v1" ? leaderboardBrief : null;
       state.researchContent = researchContent;
       const publishedWorkflows = Array.isArray(workflowBundle?.workflows) ? workflowBundle.workflows : [];
       const researchWorkflows = Array.isArray(workflowQueue?.workflows) ? workflowQueue.workflows : [];
@@ -4903,6 +5018,18 @@ function bindEvents() {
     const modelLeaderboardViewTab = event.target.closest("[data-model-leaderboard-view]");
     if (modelLeaderboardViewTab) {
       state.modelLeaderboardView = modelLeaderboardViewTab.dataset.modelLeaderboardView || "models";
+      renderLeaderboard();
+      return;
+    }
+    const homeBriefTab = event.target.closest("[data-home-brief-tab]");
+    if (homeBriefTab) {
+      state.homeBriefTab = homeBriefTab.dataset.homeBriefTab;
+      renderHomeLeaderboard();
+      return;
+    }
+    const briefTab = event.target.closest("[data-brief-tab]");
+    if (briefTab) {
+      state.leaderboardBriefTab = briefTab.dataset.briefTab;
       renderLeaderboard();
       return;
     }
@@ -5182,3 +5309,38 @@ function init() {
 
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true });
 else init();
+
+
+/* polish: view swap animation + scroll reveal for big sections */
+function playViewSwap() {
+  const main = dom.mainContent;
+  if (!main || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  main.classList.remove("is-view-swapping");
+  void main.offsetWidth;
+  main.classList.add("is-view-swapping");
+  window.clearTimeout(playViewSwap.timer);
+  playViewSwap.timer = window.setTimeout(() => main.classList.remove("is-view-swapping"), 800);
+}
+
+(function setupSectionReveal() {
+  if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      entry.target.classList.add("is-revealed");
+      observer.unobserve(entry.target);
+    }
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
+  const arm = () => {
+    for (const el of document.querySelectorAll("#homeLeaderboard, #skillLeaderboard, #surfaceOverview, .brief-picks, .brief-cta")) {
+      if (el.dataset.revealArmed) continue;
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.9) continue;
+      el.dataset.revealArmed = "1";
+      el.classList.add("reveal-ready");
+      observer.observe(el);
+    }
+  };
+  window.addEventListener("load", () => window.setTimeout(arm, 400));
+  document.addEventListener("click", () => window.setTimeout(arm, 300));
+})();
