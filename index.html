@@ -16,13 +16,45 @@
       window.history.scrollRestoration = "manual";
     }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20261008-1">
+  <script>
+    // Load watchdog: surface the reason when the index never finishes loading.
+    (function () {
+      var firstError = "";
+      window.addEventListener("error", function (event) {
+        if (!firstError) firstError = (event.message || "script error") + (event.filename ? " @ " + event.filename.split("/").pop().split("?")[0] : "");
+      }, true);
+      window.addEventListener("unhandledrejection", function (event) {
+        if (!firstError) firstError = String(event.reason && event.reason.message || event.reason || "promise rejected");
+      });
+      setTimeout(function () {
+        if (!document.body || !document.body.classList.contains("is-loading")) return;
+        var overlay = document.getElementById("loadingOverlay");
+        var title = document.getElementById("loadingTitle");
+        if (!overlay || !title || overlay.classList.contains("is-error")) return;
+        var pending = window.__kcPending ? Array.from(window.__kcPending) : [];
+        var reason = firstError
+          || (pending.length ? "仍在等待：" + pending.join("、") : (typeof window.__kcPending === "undefined" ? "脚本未执行（app_code.js 未加载）" : "初始化未完成"));
+        title.textContent = "加载时间过长";
+        var note = document.createElement("small");
+        note.className = "loading-detail";
+        note.textContent = reason;
+        overlay.appendChild(note);
+        var retry = document.createElement("button");
+        retry.type = "button";
+        retry.className = "secondary-button";
+        retry.textContent = "刷新重试";
+        retry.onclick = function () { location.reload(); };
+        overlay.appendChild(retry);
+      }, 25000);
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css?v=20261017-1">
   <link rel="stylesheet" href="styles/workflows.css?v=20261008-2">
   <script src="modules/workflow-ui.js?v=20261008-2"></script>
-  <script defer src="modules/entry-video.js?v=20260915-3"></script>
-  <script defer src="app_code.js?v=20261008-3"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/animejs@4.5.0/dist/bundles/anime.umd.min.js"></script>
+  <script defer src="modules/entry-video.js?v=20261016-2"></script>
+  <script defer src="app_code.js?v=20261017-1"></script>
+  <script defer src="vendor/three-r128.min.js"></script>
+  <script defer src="vendor/anime-4.5.0.umd.min.js"></script>
   <script defer src="organic-bg.js?v=20260806-6"></script>
   <script defer src="brand-particles.js?v=20260807-7"></script>
   <script defer src="motion-cues.js?v=20260818-1"></script>
@@ -32,8 +64,9 @@
 
   <section id="entryExperience" class="entry-experience" aria-label="进入知识宇宙">
     <div class="entry-sticky-stage">
-      <video id="entryVideo" class="entry-video" muted playsinline preload="metadata" poster="assets/entry-poster.png">
-        <source src="assets/knowledge-cosmos-entry.mp4" type="video/mp4">
+      <video id="entryVideo" class="entry-video" muted playsinline preload="metadata" poster="assets/entry-poster.webp">
+        <source src="assets/knowledge-cosmos-entry-mobile.mp4?v=20261017-1" type="video/mp4" media="(max-width: 760px)">
+        <source src="assets/knowledge-cosmos-entry.mp4?v=20261017-1" type="video/mp4">
       </video>
       <div class="entry-shade" aria-hidden="true"></div>
       <div class="entry-blackout" aria-hidden="true"></div>

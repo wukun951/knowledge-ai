@@ -122,7 +122,7 @@ body::before {
   display: block;
   object-fit: cover;
   object-position: center;
-  background: #0b1411 url("assets/entry-poster.png") center / cover no-repeat;
+  background: #0b1411 url("assets/entry-poster.webp") center / cover no-repeat;
 }
 
 .entry-shade {
@@ -5633,4 +5633,91 @@ body[data-view]:not([data-view="home"]) .knowledge-field {
   .leaderboard-home-confidence {
     display: none;
   }
+}
+
+.loading-overlay .loading-detail {
+  margin-top: 10px;
+  max-width: min(520px, 86vw);
+  color: var(--ink-secondary);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* The intro film owns the first screen. The loading overlay only covers the
+   workbench, so a slow index load never hides the intro. */
+body:not(.entry-complete) .loading-overlay {
+  display: none;
+}
+
+/* Non-blocking load: the workbench stays visible, a small status pill sits at
+   the bottom and the card grid shows shimmering placeholders. Errors still
+   take over the screen so the retry button is obvious. */
+body.is-loading .app-shell {
+  opacity: 1;
+}
+
+body.is-loading .loading-overlay:not(.is-error) {
+  inset: auto auto 28px 50%;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px 16px;
+  transform: translateX(-50%);
+  background: color-mix(in srgb, var(--surface, #fff) 92%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 8px 28px rgba(20, 32, 26, 0.12);
+  backdrop-filter: blur(10px);
+}
+
+body.is-loading .loading-overlay:not(.is-error) .loading-mark {
+  height: 16px;
+  gap: 3px;
+}
+
+body.is-loading .loading-overlay:not(.is-error) .loading-mark span {
+  width: 4px;
+  height: 8px;
+}
+
+body.is-loading .loading-overlay:not(.is-error) .loading-mark span:nth-child(2) { height: 16px; }
+body.is-loading .loading-overlay:not(.is-error) .loading-mark span:nth-child(3) { height: 12px; }
+
+body.is-loading .loading-overlay:not(.is-error) p {
+  margin: 0;
+}
+
+body.is-loading .loading-overlay:not(.is-error) .loading-track {
+  display: none;
+}
+
+body.is-loading .loading-overlay:not(.is-error) .loading-detail {
+  margin: 0 0 0 4px;
+}
+
+body.is-loading .loading-overlay:not(.is-error) .secondary-button {
+  margin: 0 0 0 4px;
+  padding: 4px 10px;
+}
+
+body.is-loading #emptyState {
+  display: none !important;
+}
+
+body.is-loading #contentGrid:empty {
+  min-height: 560px;
+  border-radius: var(--radius-lg, 12px);
+  background:
+    linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%) 0 0 / 200% 100%,
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--line) 55%, transparent) 0 calc(25% - 10px), transparent calc(25% - 10px) 25%);
+  animation: grid-shimmer 1.4s linear infinite;
+}
+
+@keyframes grid-shimmer {
+  to { background-position: -200% 0, 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.is-loading #contentGrid:empty { animation: none; }
 }
