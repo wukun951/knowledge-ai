@@ -296,3 +296,43 @@ body {
 .card-grid { gap: 16px; }
 .card-grid[data-view="agents"],
 .card-grid[data-view="prompts"] { gap: 14px 16px; }
+
+/* ---------- Interaction layer (modules/interactions.js) ---------- */
+html.lenis, html.lenis body { height: auto; scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: clip; }
+.lenis [data-lenis-prevent] { overscroll-behavior: contain; }
+
+@media (hover: hover) and (pointer: fine) {
+  .has-interactions :is(.card, .workflow-card, .task-entry, .brief-pick, .lab-card, .surface-card) {
+    --rx: 0deg; --ry: 0deg;
+    backface-visibility: hidden;
+  }
+  .has-interactions :is(.card, .workflow-card, .task-entry, .brief-pick, .lab-card, .surface-card):hover {
+    transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(-4px) !important;
+    transition: transform 160ms ease-out, box-shadow 320ms var(--ease-out), border-color 200ms ease !important;
+  }
+  .has-interactions :is(.workflow-card, .task-entry, .brief-pick, .lab-card)::after {
+    position: absolute; inset: 0; content: ""; pointer-events: none; border-radius: inherit;
+    background: radial-gradient(420px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), color-mix(in srgb, var(--action) 9%, transparent), transparent 55%);
+    opacity: 0; transition: opacity 260ms ease;
+  }
+  .has-interactions :is(.workflow-card, .task-entry, .brief-pick, .lab-card) { position: relative; overflow: hidden; }
+  .has-interactions :is(.workflow-card, .task-entry, .brief-pick, .lab-card):hover::after { opacity: 1; }
+  .has-interactions .card:hover::after {
+    opacity: 1;
+    background: radial-gradient(380px circle at var(--pointer-x, 50%) var(--pointer-y, 50%), color-mix(in srgb, var(--surface-accent) 12%, transparent), transparent 55%);
+  }
+  .is-magnet { transform: translate(var(--mx, 0), var(--my, 0)) !important; transition: transform 180ms ease-out !important; }
+}
+
+.nav-items.has-nav-indicator { position: relative; }
+.nav-indicator {
+  position: absolute; top: 0; z-index: 0; pointer-events: none;
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: var(--elev-1), 0 0 0 1px var(--line), 0 6px 16px -8px rgba(18, 28, 23, 0.25);
+  transition: transform 460ms var(--ease-spring), height 300ms var(--ease-out), width 300ms var(--ease-out), opacity 200ms ease;
+}
+.has-nav-indicator .nav-item { position: relative; z-index: 1; }
+.has-nav-indicator .nav-item.active { background: transparent; box-shadow: none; }
+.has-nav-indicator .nav-item.active .nav-icon svg { animation: polish-pop 520ms var(--ease-spring); }

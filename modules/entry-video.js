@@ -30,6 +30,15 @@
   const hasSeen = () => { try { return window.sessionStorage.getItem(SEEN_KEY) === "1"; } catch { return false; } };
 
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+  const jump = (top) => {
+    const lenis = window.KnowledgeCosmosLenis;
+    if (lenis) {
+      lenis.stop();
+      lenis.scrollTo(top, { immediate: true, force: true });
+      window.setTimeout(() => { lenis.resize?.(); lenis.scrollTo(window.scrollY, { immediate: true, force: true }); lenis.start(); }, 520);
+    }
+    window.scrollTo({ top, behavior: "instant" });
+  };
 
   // Scrubber: scroll sets a target; a rAF loop eases toward it and only issues
   // a new seek once the previous one has painted. Firing currentTime on every
@@ -106,12 +115,12 @@
     if (!handoffScheduled) {
       handoffScheduled = true;
       handoffTimer = window.setTimeout(() => {
-        window.scrollTo({ top: entry.offsetTop + entry.offsetHeight, behavior: "auto" });
+        jump(entry.offsetTop + entry.offsetHeight);
         releaseTimer = window.setTimeout(() => {
           // Played once: take the film out of the flow so scrolling back up
           // lands on the workbench top instead of replaying the intro.
           dismissEntry();
-          window.scrollTo({ top: 0, behavior: "auto" });
+          jump(0);
           if (curtain) curtain.classList.remove("is-visible");
           const mainContent = document.getElementById("mainContent");
           if (mainContent) mainContent.focus({ preventScroll: true });
