@@ -1,0 +1,523 @@
+{
+ "schema": "leaderboards.v1",
+ "updated_at": "2026-10-17",
+ "guide_url": "https://ai-model-guide-2026.netlify.app/",
+ "llm": {
+  "aa": {
+   "title": "Artificial Analysis 智能指数",
+   "meta": "2026-10-17 读取 · 每个模型取最高档位 · 成本为跑完整套测试的美元/任务",
+   "url": "https://artificialanalysis.ai/leaderboards/models",
+   "note": "开源最高：小米 MiMo-V2.6-Pro（46，$0.13/任务）、GLM-5.3（45）。",
+   "rows": [
+    {
+     "name": "Claude Opus 5.5",
+     "creator": "Anthropic",
+     "score": 58,
+     "cost": 5.98,
+     "speed": 97
+    },
+    {
+     "name": "Claude Sonnet 5.5",
+     "creator": "Anthropic",
+     "score": 56,
+     "cost": 5.46,
+     "speed": 141
+    },
+    {
+     "name": "Muse Wonder Full",
+     "creator": "Meta",
+     "score": 56,
+     "cost": null,
+     "speed": null
+    },
+    {
+     "name": "Claude Fable 5.1",
+     "creator": "Anthropic",
+     "score": 53,
+     "cost": 7.63,
+     "speed": 71
+    },
+    {
+     "name": "GPT-6 Astra",
+     "creator": "OpenAI",
+     "score": 53,
+     "cost": 3.26,
+     "speed": 57
+    },
+    {
+     "name": "Gemini 4 Argon",
+     "creator": "Google",
+     "score": 53,
+     "cost": 1.99,
+     "speed": null
+    },
+    {
+     "name": "Muse Wonder",
+     "creator": "Meta",
+     "score": 52,
+     "cost": 4.52,
+     "speed": 181
+    },
+    {
+     "name": "GPT-6.1 Sol",
+     "creator": "OpenAI",
+     "score": 52,
+     "cost": 0.72,
+     "speed": 66
+    },
+    {
+     "name": "Muse Spark 1.3",
+     "creator": "Meta",
+     "score": 48,
+     "cost": 1.6,
+     "speed": 134
+    },
+    {
+     "name": "Grok 4.7",
+     "creator": "SpaceXAI",
+     "score": 46,
+     "cost": 3.74,
+     "speed": 93
+    }
+   ]
+  },
+  "arena": {
+   "title": "Arena 文字榜",
+   "meta": "2026-10-15 · 8,834,211 票 · 风格控制 · Elo",
+   "url": "https://arena.ai/leaderboard/text",
+   "note": "国内最高：通义千问 Qwen3.8-Max 第 24 名（1482）、小米 MiMo-V2.6-Pro 1479、GLM-5.3 1479。",
+   "rows": [
+    {
+     "name": "Gemini 4 Argon (High)",
+     "creator": "Google",
+     "score": 1524,
+     "ci": "±9",
+     "flag": "初步"
+    },
+    {
+     "name": "Muse Wonder (Max)",
+     "creator": "Meta",
+     "score": 1509,
+     "ci": "±11",
+     "flag": ""
+    },
+    {
+     "name": "Claude Opus 5.5 (High)",
+     "creator": "Anthropic",
+     "score": 1508,
+     "ci": "±7",
+     "flag": ""
+    },
+    {
+     "name": "Claude Fable 5 (High)",
+     "creator": "Anthropic",
+     "score": 1504,
+     "ci": "±4",
+     "flag": ""
+    },
+    {
+     "name": "Claude Opus 4.6 (High)",
+     "creator": "Anthropic",
+     "score": 1503,
+     "ci": "±3",
+     "flag": ""
+    },
+    {
+     "name": "Claude Fable 5.1 (Max)",
+     "creator": "Anthropic",
+     "score": 1502,
+     "ci": "±6",
+     "flag": ""
+    },
+    {
+     "name": "Claude Opus 4.7 (High)",
+     "creator": "Anthropic",
+     "score": 1501,
+     "ci": "±4",
+     "flag": ""
+    },
+    {
+     "name": "Gemini 3.8 Flash (High)",
+     "creator": "Google",
+     "score": 1496,
+     "ci": "±5",
+     "flag": "初步"
+    },
+    {
+     "name": "Muse Spark 1.3 (Max)",
+     "creator": "Meta",
+     "score": 1494,
+     "ci": "±6",
+     "flag": ""
+    },
+    {
+     "name": "Muse Spark 1.2 (xHigh)",
+     "creator": "Meta",
+     "score": 1493,
+     "ci": "±7",
+     "flag": ""
+    }
+   ]
+  }
+ },
+ "image": {
+  "arena": {
+   "title": "Arena Text-to-Image",
+   "meta": "2026-10-07 · 6,604,125 票 · Elo",
+   "url": "https://arena.ai/leaderboard/text-to-image",
+   "note": "国内可用：Seedream 5.0 Pro（字节）第 12 名 1255、Qwen-Image 3.0 Pro（阿里）第 13 名 1255。Midjourney 不参加排名，但仍是艺术风格热门选择。",
+   "rows": [
+    {
+     "name": "gpt-image-2.5-sunburst",
+     "creator": "OpenAI",
+     "score": 1425,
+     "extra": "初步"
+    },
+    {
+     "name": "gpt-image-2.5-flare",
+     "creator": "OpenAI",
+     "score": 1398,
+     "extra": "初步"
+    },
+    {
+     "name": "gpt-image-2 (medium)",
+     "creator": "OpenAI",
+     "score": 1383,
+     "extra": ""
+    },
+    {
+     "name": "grok-imagine-image-2.0 (canvas)",
+     "creator": "SpaceXAI",
+     "score": 1334,
+     "extra": "初步"
+    },
+    {
+     "name": "mai-image-2.6",
+     "creator": "Microsoft AI",
+     "score": 1332,
+     "extra": ""
+    },
+    {
+     "name": "gemini-nano-banana-2.1",
+     "creator": "Google",
+     "score": 1328,
+     "extra": "初步"
+    },
+    {
+     "name": "reve-2.1",
+     "creator": "Reve",
+     "score": 1302,
+     "extra": ""
+    },
+    {
+     "name": "grok-imagine-image-2.0",
+     "creator": "SpaceXAI",
+     "score": 1294,
+     "extra": ""
+    },
+    {
+     "name": "muse-image",
+     "creator": "Meta",
+     "score": 1274,
+     "extra": ""
+    },
+    {
+     "name": "reve-2.0",
+     "creator": "Reve",
+     "score": 1269,
+     "extra": ""
+    }
+   ]
+  },
+  "aa": {
+   "title": "AA-Image-T2I v2.0",
+   "meta": "Artificial Analysis · Elo · API 价 $/1000 张",
+   "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
+   "note": "AA 图像榜由招募评审盲选两两对比算 Elo，另含 2026-01-01 前的公开投票；价格为每 1000 张图。",
+   "rows": [
+    {
+     "name": "GPT Image 2.5 Sunburst (max)",
+     "creator": "OpenAI",
+     "score": 1198,
+     "extra": "$210.7"
+    },
+    {
+     "name": "GPT Image 2.5 Flare (max)",
+     "creator": "OpenAI",
+     "score": 1191,
+     "extra": "$210.7"
+    },
+    {
+     "name": "GPT Image 2 (high)",
+     "creator": "OpenAI",
+     "score": 1172,
+     "extra": "$211.0"
+    },
+    {
+     "name": "Nano Banana 2.1",
+     "creator": "Google",
+     "score": 1160,
+     "extra": "$33.6"
+    },
+    {
+     "name": "Grok Imagine Image 2.0",
+     "creator": "SpaceXAI",
+     "score": 1155,
+     "extra": "$60.0"
+    },
+    {
+     "name": "MAI-Image-2.6",
+     "creator": "Microsoft AI",
+     "score": 1151,
+     "extra": "$38.9"
+    },
+    {
+     "name": "Nano Banana 2",
+     "creator": "Google",
+     "score": 1125,
+     "extra": "$67.0"
+    },
+    {
+     "name": "FLUX 3 Image",
+     "creator": "Black Forest Labs",
+     "score": 1116,
+     "extra": "$48.0"
+    },
+    {
+     "name": "Muse Image",
+     "creator": "Meta",
+     "score": 1114,
+     "extra": "$10.0"
+    },
+    {
+     "name": "GPT Image 1.5 (high)",
+     "creator": "OpenAI",
+     "score": 1108,
+     "extra": "$133.0"
+    }
+   ]
+  }
+ },
+ "video": {
+  "arena": {
+   "title": "Arena Text-to-Video",
+   "meta": "2026-09-21 · 718,577 票 · Elo",
+   "url": "https://arena.ai/leaderboard/text-to-video",
+   "note": "其他常见：Sora 2 Pro（OpenAI）第 11 名 1368、Veo 3.1 带音频（Google）第 12 名 1364、可灵 Kling 2.6 Pro（快手）第 29 名 1216、海螺 Hailuo 2.3（MiniMax）第 32 名 1206。",
+   "rows": [
+    {
+     "name": "gemini-omni-1.1-flash",
+     "creator": "Google",
+     "score": 1516,
+     "extra": ""
+    },
+    {
+     "name": "gemini-omni-flash",
+     "creator": "Google",
+     "score": 1513,
+     "extra": ""
+    },
+    {
+     "name": "flux-3-video",
+     "creator": "Black Forest Labs",
+     "score": 1493,
+     "extra": "初步"
+    },
+    {
+     "name": "grok-imagine-video-1.5-agent",
+     "creator": "SpaceXAI",
+     "score": 1492,
+     "extra": "初步"
+    },
+    {
+     "name": "dreamina-seedance-2.0-720p",
+     "creator": "字节跳动",
+     "score": 1479,
+     "extra": ""
+    },
+    {
+     "name": "wan3.0",
+     "creator": "阿里巴巴",
+     "score": 1476,
+     "extra": ""
+    },
+    {
+     "name": "dreamina-seedance-2.5-720p",
+     "creator": "字节跳动",
+     "score": 1474,
+     "extra": ""
+    },
+    {
+     "name": "minimax-h3",
+     "creator": "MiniMax",
+     "score": 1460,
+     "extra": "开放权重"
+    },
+    {
+     "name": "muse-video",
+     "creator": "Meta",
+     "score": 1456,
+     "extra": ""
+    },
+    {
+     "name": "happyhorse-1.0",
+     "creator": "Alibaba-ATH",
+     "score": 1427,
+     "extra": ""
+    }
+   ]
+  },
+  "aa": {
+   "title": "AA-Video-T2V v2.0（带音频）",
+   "meta": "Artificial Analysis · Elo · API 价 $/分钟 1080p",
+   "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
+   "note": "音乐和语音（Suno、ACE Studio、ElevenLabs 等）暂无统一权威榜单，本页不打分。",
+   "rows": [
+    {
+     "name": "Wan 3.0",
+     "creator": "阿里巴巴",
+     "score": 1156,
+     "extra": "$12.00"
+    },
+    {
+     "name": "Utopai X",
+     "creator": "Utopai Studios",
+     "score": 1149,
+     "extra": "无 API"
+    },
+    {
+     "name": "Dreamina Seedance 2.5",
+     "creator": "字节跳动",
+     "score": 1143,
+     "extra": "$34.12"
+    },
+    {
+     "name": "MiniMax H3 (768p)",
+     "creator": "MiniMax",
+     "score": 1137,
+     "extra": "$4.80 · 开放权重"
+    },
+    {
+     "name": "MiniMax H3 Max",
+     "creator": "MiniMax",
+     "score": 1130,
+     "extra": "$4.80"
+    },
+    {
+     "name": "FLUX 3",
+     "creator": "Black Forest Labs",
+     "score": 1128,
+     "extra": "$17.40"
+    },
+    {
+     "name": "Dreamina Seedance 2.0",
+     "creator": "字节跳动",
+     "score": 1116,
+     "extra": "$22.45"
+    },
+    {
+     "name": "Gemini Omni Flash 1.1",
+     "creator": "Google",
+     "score": 1113,
+     "extra": "$9.12"
+    },
+    {
+     "name": "SkyReels V4",
+     "creator": "Skywork",
+     "score": 1074,
+     "extra": "$21.00"
+    },
+    {
+     "name": "Agnes-Video-2.5",
+     "creator": "Sapiens AI",
+     "score": 1057,
+     "extra": "$2.40"
+    }
+   ]
+  }
+ },
+ "picks": [
+  {
+   "label": "综合最强",
+   "icon": "⌘",
+   "text": "Claude Opus 5.5 智能指数第 1（57.6）；Gemini 4 Argon 是 Arena 文字榜第 1（1525）。",
+   "models": [
+    "Claude Opus 5.5",
+    "Gemini 4 Argon"
+   ]
+  },
+  {
+   "label": "写代码 / Agent",
+   "icon": "{}",
+   "text": "Claude Opus 5.5、Claude Sonnet 5.5、GPT-6.1 Sol，都擅长读大型代码库和长时间任务。",
+   "models": [
+    "Claude Opus 5.5",
+    "Claude Sonnet 5.5",
+    "GPT-6.1 Sol"
+   ]
+  },
+  {
+   "label": "日常写作问答",
+   "icon": "Aa",
+   "text": "强又不贵：Claude Sonnet 5.5（$2/$10，指数 56.0）；要快选 Gemini 3.8 Flash（$0.75/$3.75）。",
+   "models": [
+    "Claude Sonnet 5.5",
+    "Gemini 3.8 Flash"
+   ]
+  },
+  {
+   "label": "长文档·音视频",
+   "icon": "▶",
+   "text": "Gemini 系列：文字、图片、音频、视频、文件都能读，100 万上下文。",
+   "models": [
+    "Gemini 4 Argon",
+    "Gemini 3.8 Flash"
+   ]
+  },
+  {
+   "label": "极致省钱",
+   "icon": "$",
+   "text": "小米 MiMo-V2.6-Pro（$0.435/$0.87，46.3）、DeepSeek V4.1 Flash（$0.3/$1.2）、Claude Haiku 5.5 和 GPT-6 Luna（$0.1/$0.5）。",
+   "models": [
+    "MiMo-V2.6-Pro",
+    "DeepSeek V4.1 Flash",
+    "Claude Haiku 5.5",
+    "GPT-6 Luna"
+   ]
+  },
+  {
+   "label": "开源自部署",
+   "icon": "⇩",
+   "text": "GLM-5.3、Kimi K3、MiMo-V2.6-Pro、DeepSeek V4 系列，权重公开，可以自己部署。",
+   "models": [
+    "GLM-5.3",
+    "Kimi K3",
+    "MiMo-V2.6-Pro",
+    "DeepSeek V4 Pro"
+   ]
+  },
+  {
+   "label": "国内直接用",
+   "icon": "中",
+   "text": "通义千问 Qwen3.8 Max、DeepSeek、Kimi、豆包、智谱 GLM、文心 ERNIE，中文好、无需特殊网络。",
+   "models": [
+    "Qwen3.8 Max（通义千问）",
+    "DeepSeek V4.1 Flash",
+    "Kimi K3",
+    "GLM-5.3"
+   ]
+  },
+  {
+   "label": "做图",
+   "icon": "◐",
+   "text": "GPT Image 2.5 在 Arena 和 AA 图像榜都是第 1；国内选即梦 Seedream 5.0 Pro、Qwen-Image 3.0 Pro。",
+   "models": []
+  },
+  {
+   "label": "做视频",
+   "icon": "◼",
+   "text": "Arena 第 1 是 Gemini Omni 1.1 Flash，AA 第 1 是 Wan 3.0（通义万相）；国内还可选即梦 Seedance 2.0/2.5、MiniMax H3。",
+   "models": []
+  }
+ ]
+}
