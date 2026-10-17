@@ -250,7 +250,7 @@ const VIEWS = {
   lab: {
     eyebrow: { zh: "EXPERIMENT LAB", en: "EXPERIMENT LAB" },
     title: { zh: "实验室", en: "Lab" },
-    subtitle: { zh: "实验记录、协议实践与仍在验证的方法。", en: "Experiments, protocol practice, and methods still being tested." },
+    subtitle: { zh: "自己琢磨的实验、半成品和小工具。跑通的留下记录，跑不通的也写下踩过的坑。", en: "My own experiments, prototypes and small tools — what worked and what didn’t." },
   },
   my: {
     eyebrow: { zh: "", en: "" },
@@ -1271,7 +1271,11 @@ function applyTaskFilters(taskId) {
 }
 
 function workflowCategoryLabel(category) {
-  return window.KnowledgeCosmosWorkflowUI.categoryLabel(category, state.currentLang);
+  const key = typeof category === "object" && category ? (category.id || category.en || localizedText(category, "")) : category;
+  const label = window.KnowledgeCosmosWorkflowUI.categoryLabel(key, state.currentLang);
+  const text = typeof label === "string" ? label : localizedText(label, localizedText(category, ""));
+  if (!text || text === "workflow") return state.currentLang === "zh" ? "工作流" : "Workflow";
+  return text;
 }
 
 function workflowDifficultyLabel(difficulty) {
@@ -2018,8 +2022,8 @@ function briefScore(value) {
   return value === null || value === undefined || value === "" ? "—" : String(value);
 }
 
-function briefRowsMarkup(board, kind, sourceId) {
-  const rows = (board?.rows || []).slice(0, 10);
+function briefRowsMarkup(board, kind, sourceId, limit = 10) {
+  const rows = (board?.rows || []).slice(0, limit);
   const scores = rows.map((row) => Number(row.score) || 0);
   const max = Math.max(...scores, 1);
   const min = Math.min(...scores, max);
@@ -2046,15 +2050,15 @@ function briefRowsMarkup(board, kind, sourceId) {
   }).join("");
 }
 
-function briefBoardMarkup(board, kind, sourceId) {
+function briefBoardMarkup(board, kind, sourceId, limit = 10) {
   if (!board) return "";
   const sourceName = sourceId === "aa" ? "Artificial Analysis" : "Arena";
   const scoreLabel = kind === "llm" && sourceId === "aa" ? "智能指数" : "Elo";
   return `<article class="brief-board" data-source="${sourceId}">
     <header><div><span class="brief-kicker">${sourceName}</span><h3>${escapeHTML(board.title)}</h3><p>${escapeHTML(board.meta || "")}</p></div><a class="brief-source" href="${escapeHTML(board.url)}" target="_blank" rel="noreferrer">原榜单 ↗</a></header>
     <div class="brief-legend"><span>排名</span><span>模型</span><span>${scoreLabel}</span></div>
-    <ol class="brief-list">${briefRowsMarkup(board, kind, sourceId)}</ol>
-    ${board.note ? `<p class="brief-note">${escapeHTML(board.note)}</p>` : ""}
+    <ol class="brief-list">${briefRowsMarkup(board, kind, sourceId, limit)}</ol>
+    ${board.note && limit >= 10 ? `<p class="brief-note">${escapeHTML(board.note)}</p>` : ""}
   </article>`;
 }
 
@@ -2167,6 +2171,16 @@ function renderHomeLeaderboard() {
   const isHome = state.currentView === "home";
   dom.homeLeaderboard.hidden = !isHome;
   if (!isHome) return;
+  if (state.leaderboardBrief) {
+    const brief = state.leaderboardBrief;
+    const tab = BRIEF_TABS.some((item) => item.id === state.homeBriefTab) ? state.homeBriefTab : "llm";
+    const group = brief[tab] || {};
+    dom.homeLeaderboardTabs.innerHTML = BRIEF_TABS.map((item) => `<button type="button" class="leaderboard-tab${item.id === tab ? " is-active" : ""}" role="tab" aria-selected="${item.id === tab}" data-home-brief-tab="${item.id}"><strong>${item.label}</strong></button>`).join("");
+    dom.homeLeaderboardBoard.dataset.metric = `brief-${tab}`;
+    dom.homeLeaderboardBoard.innerHTML = `<div class="brief-grid is-compact">${briefBoardMarkup(group.aa, tab, "aa", 5)}${briefBoardMarkup(group.arena, tab, "arena", 5)}</div><p class="brief-home-foot"><span>数据更新 ${escapeHTML(brief.updated_at || "")} · 每周一自动刷新</span><button type="button" class="text-button" data-view-target="models">看前 10 和「我该用哪个」→</button></p>`;
+    applyLeaderboardLogoFallbacks(dom.homeLeaderboardBoard);
+    return;
+  }
 
   const categories = HOME_LEADERBOARD_CATEGORY_IDS
     .map(modelLeaderboardCategoryForId)
@@ -2934,8 +2948,8 @@ function createWorkflowCard(workflow, index) {
   button.dataset.action = "open-workflow";
   button.dataset.id = workflow.id;
   button.append(
-    createElement("strong", "workflow-card-title", workflow.title || workflow.id),
-    createElement("span", "workflow-card-summary", workflow.summary || workflow.goal || ""),
+    createElement("strong", "workflow-card-title", localizedText(workflow.title, workflow.id)),
+    createElement("span", "workflow-card-summary", localizedText(workflow.summary, "") || localizedText(workflow.goal, "")),
   );
   const footer = createElement("span", "workflow-card-footer");
   footer.append(createElement("span", "", workflowCategoryLabel(workflow.category)));
@@ -3322,6 +3336,7 @@ function switchView(view, options = {}) {
   closePanel({ restoreFocus: false });
   updateHash(view, !shouldPush, state.activeTaskId, state.activeTaskChannel);
   renderAll();
+  playViewSwap();
   resetViewScroll({ userInitiated: options.userInitiated === true });
   if (options.focus !== false) window.requestAnimationFrame(() => dom.mainContent.focus({ preventScroll: true }));
 }
@@ -5006,6 +5021,12 @@ function bindEvents() {
       renderLeaderboard();
       return;
     }
+    const homeBriefTab = event.target.closest("[data-home-brief-tab]");
+    if (homeBriefTab) {
+      state.homeBriefTab = homeBriefTab.dataset.homeBriefTab;
+      renderHomeLeaderboard();
+      return;
+    }
     const briefTab = event.target.closest("[data-brief-tab]");
     if (briefTab) {
       state.leaderboardBriefTab = briefTab.dataset.briefTab;
@@ -5288,3 +5309,38 @@ function init() {
 
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true });
 else init();
+
+
+/* polish: view swap animation + scroll reveal for big sections */
+function playViewSwap() {
+  const main = dom.mainContent;
+  if (!main || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  main.classList.remove("is-view-swapping");
+  void main.offsetWidth;
+  main.classList.add("is-view-swapping");
+  window.clearTimeout(playViewSwap.timer);
+  playViewSwap.timer = window.setTimeout(() => main.classList.remove("is-view-swapping"), 800);
+}
+
+(function setupSectionReveal() {
+  if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      entry.target.classList.add("is-revealed");
+      observer.unobserve(entry.target);
+    }
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.06 });
+  const arm = () => {
+    for (const el of document.querySelectorAll("#homeLeaderboard, #skillLeaderboard, #surfaceOverview, .brief-picks, .brief-cta")) {
+      if (el.dataset.revealArmed) continue;
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.9) continue;
+      el.dataset.revealArmed = "1";
+      el.classList.add("reveal-ready");
+      observer.observe(el);
+    }
+  };
+  window.addEventListener("load", () => window.setTimeout(arm, 400));
+  document.addEventListener("click", () => window.setTimeout(arm, 300));
+})();

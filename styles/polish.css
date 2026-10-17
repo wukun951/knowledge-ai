@@ -1,0 +1,298 @@
+/* 知识宇宙 · polish layer (2026-10-17)
+   One pass over type, surfaces, motion and controls. Loaded last; overrides only. */
+
+:root {
+  --canvas: #f4f5f1;
+  --surface: #ffffff;
+  --surface-subtle: #eef1ec;
+  --line: rgba(23, 33, 28, 0.09);
+  --line-strong: rgba(23, 33, 28, 0.18);
+  --ink: #121614;
+  --ink-secondary: #47524c;
+  --ink-muted: #6b766f;
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --font-body: "Inter", "Noto Sans SC", "PingFang SC", "Source Han Sans CN", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --elev-1: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 1px 2px rgba(18, 28, 23, 0.04), 0 2px 6px rgba(18, 28, 23, 0.03);
+  --elev-2: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 2px 4px rgba(18, 28, 23, 0.04), 0 12px 32px -8px rgba(18, 28, 23, 0.14);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+body {
+  font-feature-settings: "ss01", "cv11";
+  letter-spacing: 0.005em;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: color-mix(in srgb, var(--action) 22%, transparent); }
+
+/* ---------- Page header ---------- */
+.view-header { padding-top: 8px; padding-bottom: 6px; }
+.view-title {
+  font-size: clamp(34px, 3.4vw, 46px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+.view-subtitle {
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-muted);
+}
+.section-heading h2,
+.library-heading h2,
+.leaderboard-header h2 {
+  letter-spacing: -0.015em;
+}
+
+/* ---------- Sidebar ---------- */
+.sidenav {
+  background: linear-gradient(180deg, rgba(250, 251, 248, 0.92), rgba(244, 246, 242, 0.92));
+  border-right: 1px solid var(--line);
+  backdrop-filter: saturate(1.4) blur(18px);
+}
+.brand-mark { border-bottom-color: var(--line); }
+.nav-item {
+  min-height: 40px;
+  border-radius: 10px;
+  transition: color 160ms ease, background-color 200ms ease, box-shadow 200ms ease, transform 200ms var(--ease-out);
+}
+.nav-item::before { display: none; }
+.nav-item:hover { background: rgba(18, 28, 23, 0.045); transform: translateX(2px); }
+.nav-item.active {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: transparent;
+  box-shadow: var(--elev-1), 0 0 0 1px var(--line);
+  transform: none;
+}
+.nav-item.active .nav-icon { color: var(--action); }
+.nav-item.active .rail-label { font-weight: 700; }
+
+/* ---------- Cards (generic, agents, prompts, tools, workflows) ---------- */
+.card,
+.workflow-card,
+.task-entry,
+.surface-card,
+.brief-board,
+.brief-pick,
+.lab-card,
+.resource-card,
+.prompt-recipe-card {
+  border-color: var(--line) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--elev-1);
+  transition: transform 320ms var(--ease-out), box-shadow 320ms var(--ease-out), border-color 200ms ease, background-color 200ms ease !important;
+}
+.card::before { width: 0; }
+.card::after { opacity: 0; }
+.card {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-accent) 5%, #fff) 0, #fff 64px);
+}
+.card:hover,
+.workflow-card:hover,
+.task-entry:hover,
+.surface-card:hover,
+.lab-card:hover,
+.brief-pick:hover {
+  transform: translateY(-3px) !important;
+  border-color: color-mix(in srgb, var(--surface-accent, var(--action)) 26%, var(--line)) !important;
+  box-shadow: var(--elev-2);
+}
+.card:hover::after { opacity: 0.7; }
+.card.is-selected { box-shadow: 0 0 0 2px color-mix(in srgb, var(--surface-accent) 30%, transparent), var(--elev-2); }
+.card:active,
+.workflow-card:active,
+.task-entry:active { transform: translateY(-1px) scale(0.995) !important; transition-duration: 120ms !important; }
+
+.card-title { letter-spacing: -0.01em; }
+.card-summary { color: var(--ink-secondary); }
+.card-taxonomy-chip { border-radius: 999px; padding-inline: 8px; }
+.card-arrow,
+.task-entry-arrow { transition: transform 260ms var(--ease-out), color 200ms ease; }
+.card:hover .card-arrow,
+.task-entry:hover .task-entry-arrow { transform: translateX(4px); }
+
+/* task entry: keep the description clear of the arrow */
+.task-entry-primary { padding-right: 34px !important; position: relative; }
+.task-entry-arrow { position: absolute; right: 14px; bottom: 14px; }
+
+.favorite-button,
+.card-copy-button { border-radius: 999px !important; transition: transform 220ms var(--ease-spring), background-color 160ms ease, color 160ms ease; }
+.favorite-button:hover,
+.card-copy-button:hover { transform: scale(1.08); }
+.favorite-button[aria-pressed="true"] svg { animation: polish-pop 420ms var(--ease-spring); }
+
+/* ---------- Segmented controls & tabs ---------- */
+.mode-tabs {
+  padding: 4px;
+  background: rgba(18, 28, 23, 0.045);
+  border: 0;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.mode-tab { min-height: 32px; border-radius: 8px; padding: 0 13px; }
+.mode-tab:hover { background: rgba(255, 255, 255, 0.6); }
+.mode-tab.active {
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(18, 28, 23, 0.08), 0 0 0 1px var(--line);
+}
+.mode-tab-count { opacity: 0.6; }
+.tab-scroll-button { border-radius: 10px; border-color: var(--line); background: var(--surface); }
+.filter-axis-label { letter-spacing: 0.04em; }
+
+.leaderboard-tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  margin: 24px 0 20px;
+  background: rgba(18, 28, 23, 0.045);
+  border: 0;
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.leaderboard-tab {
+  min-width: 0;
+  padding: 8px 16px;
+  background: transparent;
+  border: 0;
+  border-radius: 9px;
+  transform: none !important;
+}
+.leaderboard-tab:hover { background: rgba(255, 255, 255, 0.6); }
+.leaderboard-tab.is-active {
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(18, 28, 23, 0.08), 0 0 0 1px var(--line);
+}
+.leaderboard-tab.is-active::after { display: none; }
+
+/* ---------- Leaderboard brief ---------- */
+.model-leaderboard {
+  border-radius: 22px !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: var(--elev-1);
+}
+.brief-board { padding: 22px 22px 16px; }
+.brief-board header h3 { letter-spacing: -0.01em; }
+.brief-row {
+  border-radius: 10px;
+  transition: background-color 180ms ease, transform 260ms var(--ease-out);
+}
+.brief-row:hover { background: rgba(18, 28, 23, 0.035); transform: translateX(2px); }
+.brief-row.is-top .brief-rank { color: var(--action); }
+.brief-score i { transform-origin: left center; animation: polish-bar 900ms var(--ease-out) both; }
+.brief-list .brief-row:nth-child(2) .brief-score i { animation-delay: 40ms; }
+.brief-list .brief-row:nth-child(3) .brief-score i { animation-delay: 80ms; }
+.brief-list .brief-row:nth-child(4) .brief-score i { animation-delay: 120ms; }
+.brief-list .brief-row:nth-child(5) .brief-score i { animation-delay: 160ms; }
+.brief-list .brief-row:nth-child(n+6) .brief-score i { animation-delay: 200ms; }
+.brief-cta { border-radius: 18px !important; transition: transform 320ms var(--ease-out), box-shadow 320ms var(--ease-out); }
+.brief-cta:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -12px rgba(10, 20, 15, 0.45); }
+.brief-grid.is-compact { margin-top: 4px; }
+.brief-home-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 16px 2px 0;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+.brief-home-foot .text-button { font-weight: 700; color: var(--action); }
+.home-leaderboard .leaderboard-board-head,
+.home-leaderboard .leaderboard-evidence { display: none; }
+
+/* ---------- Header actions ---------- */
+.topbar-actions .icon-button,
+.topbar-actions .icon-text-button,
+.header-search-toggle {
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.78) !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: var(--elev-1);
+  backdrop-filter: blur(12px);
+  transition: transform 220ms var(--ease-out), box-shadow 220ms ease;
+}
+.topbar-actions .icon-button:hover,
+.topbar-actions .icon-text-button:hover,
+.header-search-toggle:hover { transform: translateY(-1px); box-shadow: var(--elev-2); }
+
+/* ---------- Buttons ---------- */
+.secondary-button,
+.load-more-button,
+.leaderboard-view-tab {
+  border-radius: 999px !important;
+  transition: transform 220ms var(--ease-out), box-shadow 220ms ease, background-color 160ms ease !important;
+}
+.secondary-button:hover,
+.load-more-button:hover,
+.leaderboard-view-tab:hover { transform: translateY(-1px); box-shadow: var(--elev-2); }
+
+/* ---------- Focus ---------- */
+:where(button, a, [tabindex]):focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--action) 70%, transparent);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* ---------- Detail panel ---------- */
+.detail-panel,
+.side-panel {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+/* ---------- Motion: view swap + scroll reveal ---------- */
+.main-content.is-view-swapping > :is(section, header):not([hidden]) {
+  animation: polish-view-in 520ms var(--ease-out) both;
+}
+.main-content.is-view-swapping > :is(section, header):not([hidden]):nth-of-type(2) { animation-delay: 50ms; }
+.main-content.is-view-swapping > :is(section, header):not([hidden]):nth-of-type(3) { animation-delay: 100ms; }
+.main-content.is-view-swapping > :is(section, header):not([hidden]):nth-of-type(n+4) { animation-delay: 150ms; }
+
+.reveal-ready { opacity: 0; transform: translateY(18px); }
+.reveal-ready.is-revealed {
+  opacity: 1;
+  transform: none;
+  transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
+}
+
+@keyframes polish-view-in {
+  from { opacity: 0; transform: translateY(12px); filter: blur(4px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+@keyframes polish-bar {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes polish-pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.35) rotate(-8deg); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 840px) {
+  .view-title { font-size: 30px; }
+  .leaderboard-tabs { display: flex; }
+  .card:hover,
+  .workflow-card:hover,
+  .task-entry:hover { transform: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main-content.is-view-swapping > * { animation: none !important; }
+  .reveal-ready { opacity: 1; transform: none; }
+  .brief-score i { animation: none; }
+  .card, .workflow-card, .task-entry, .surface-card, .nav-item { transition: none !important; }
+}
+
+.brief-source { white-space: nowrap; flex: 0 0 auto; }
+.brief-board header { gap: 16px; }
+.card-grid { gap: 16px; }
+.card-grid[data-view="agents"],
+.card-grid[data-view="prompts"] { gap: 14px 16px; }
