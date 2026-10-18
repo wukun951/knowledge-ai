@@ -271,6 +271,23 @@
     skipButton.addEventListener("click", skipEntry);
     window.addEventListener("scroll", requestSync, { passive: true });
     window.addEventListener("resize", requestSync, { passive: true });
+    // Safety net: if a wheel gesture over the film does not move the page
+    // (scroll hijacked by an extension, smooth-scroll lib, or a focus trap),
+    // advance it ourselves so the intro can never get stuck.
+    entry.addEventListener("wheel", (event) => {
+      if (!active || hasCompleted) return;
+      const before = window.scrollY;
+      const delta = clamp(event.deltaMode === 1 ? event.deltaY * 32 : event.deltaY, -240, 240);
+      window.setTimeout(() => {
+        if (active && Math.abs(window.scrollY - before) < 1 && delta > 0) {
+          window.scrollTo({ top: before + delta, behavior: "instant" });
+          requestSync();
+        }
+      }, 90);
+    }, { passive: true });
+    window.addEventListener("keydown", (event) => {
+      if (active && !hasCompleted && (event.key === "Enter" || event.key === "Escape")) skipEntry();
+    });
     entry.addEventListener("touchstart", handleTouchStart, { passive: true });
     entry.addEventListener("touchmove", handleTouchMove, { passive: true });
   }

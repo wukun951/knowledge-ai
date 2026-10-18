@@ -4781,7 +4781,9 @@ async function loadData() {
         || generatedContent.count !== generatedContent.items.length
         || !Array.isArray(generatedContent.blocked_legacy)
         || generatedContent.blocked_legacy.some((value) => typeof value !== "string" || !value.trim())) {
-        throw new Error("Public content boundary is unavailable or invalid");
+        // Never blank the site because the generated index failed to load on a
+        // slow network: fall back to the directory index in data.json.
+        console.warn("content-index unavailable; falling back to data.json only");
       }
       if (Array.isArray(modelCatalog) && modelCatalog.length) {
         modelItems = modelCatalog.filter((item) => !isExcludedModelRecord(item));
