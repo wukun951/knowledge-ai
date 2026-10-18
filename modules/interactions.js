@@ -16,7 +16,7 @@
         wheelMultiplier: 0.9,
         smoothWheel: true,
         prevent: (node) => Boolean(node.closest && node.closest(
-          "[data-lenis-prevent], .detail-panel, .side-panel, .panel, [role='dialog'], .mode-tabs, .leaderboard-tabs, textarea, pre, .markdown-body",
+          "#entryExperience, [data-lenis-prevent], .detail-panel, .side-panel, .panel, [role='dialog'], .mode-tabs, .leaderboard-tabs, textarea, pre, .markdown-body",
         )),
       });
       const raf = (time) => { lenis.raf(time); window.requestAnimationFrame(raf); };
