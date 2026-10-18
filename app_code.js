@@ -2489,10 +2489,9 @@ function applyTranslations() {
   dom.clearSearch.setAttribute("aria-label", translate("clearSearch"));
   dom.panelClose.setAttribute("aria-label", translate("close"));
   dom.panelSave.setAttribute("aria-label", state.favorites.has(state.selectedWorkflowId || state.selectedId) ? translate("unfavorite") : translate("favorite"));
-  dom.sidebarToggle.setAttribute(
-    "aria-label",
-    document.body.classList.contains("sidebar-collapsed") ? translate("expandSidebar") : translate("collapseSidebar"),
-  );
+  const sidebarLabel = document.body.classList.contains("sidebar-collapsed") ? translate("expandSidebar") : translate("collapseSidebar");
+  dom.sidebarToggle.setAttribute("aria-label", sidebarLabel);
+  dom.sidebarToggle.title = sidebarLabel;
   dom.langToggle.textContent = state.currentLang === "zh" ? "EN" : "中文";
   dom.langToggle.setAttribute("aria-label", state.currentLang === "zh" ? translate("switchToEnglish") : translate("switchToChinese"));
   document.documentElement.lang = state.currentLang === "zh" ? "zh-CN" : "en";
