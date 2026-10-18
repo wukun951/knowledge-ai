@@ -63,17 +63,77 @@
   // because the scroll position reached the end of the runway.
   let wantsComplete = false;
   function filmAtEnd() {
+    if (seqMode) return seqShown >= SEQ_COUNT - 1.05 && Boolean(seqFrames[SEQ_COUNT - 1]);
     return !ready || !duration || (!video.seeking && video.currentTime >= duration - 0.12 && shownTime >= duration - 0.12);
   }
   function maybeComplete() {
     if (!wantsComplete || hasCompleted) return;
     if (filmAtEnd()) window.setTimeout(() => { if (wantsComplete && filmAtEnd()) completeEntry(); }, 380);
+    else if (seqMode) { if (!seqLoop) seqLoop = window.requestAnimationFrame(seqTick); }
     else if (!scrubFrame) scrubFrame = window.requestAnimationFrame(scrubLoop);
   }
   function scrubTo(time) {
     targetTime = clamp(time, 0, Math.max(0, duration - 0.04));
     if (!scrubFrame) scrubFrame = window.requestAnimationFrame(scrubLoop);
   }
+  // ---- Frame sequence (Apple-style): the film is a stack of WebP stills
+  // painted on a canvas. No codec, no seeking, so it moves in every browser.
+  const SEQ_COUNT = 124;
+  const seqMobile = window.matchMedia("(max-width: 760px)").matches;
+  const seqBase = `assets/entry-frames/${seqMobile ? "m" : "d"}/`;
+  const seqFrames = new Array(SEQ_COUNT).fill(null);
+  let seqMode = false;
+  let seqCanvas = null;
+  let seqCtx = null;
+  let seqTarget = 0;
+  let seqShown = 0;
+  let seqLoop = 0;
+  let seqDrawn = -1;
+  function seqSize() {
+    if (!seqCanvas) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const w = Math.round(seqCanvas.clientWidth * dpr);
+    const h = Math.round(seqCanvas.clientHeight * dpr);
+    if (seqCanvas.width !== w || seqCanvas.height !== h) { seqCanvas.width = w; seqCanvas.height = h; seqDrawn = -1; }
+  }
+  function seqNearest(index, dir) {
+    for (let i = index; i >= 0 && i < SEQ_COUNT; i += dir) if (seqFrames[i]) return i;
+    return -1;
+  }
+  function seqPaint(img, alpha) {
+    const cw = seqCanvas.width, ch = seqCanvas.height;
+    const scale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+    const w = img.naturalWidth * scale, h = img.naturalHeight * scale;
+    seqCtx.globalAlpha = alpha;
+    seqCtx.drawImage(img, (cw - w) / 2, (ch - h) / 2, w, h);
+  }
+  function seqDraw(force) {
+    if (!seqCtx) return;
+    const key = Math.round(seqShown * 100);
+    if (!force && key === seqDrawn) return;
+    const base = Math.floor(seqShown);
+    const frac = seqShown - base;
+    const a = seqNearest(base, -1) >= 0 ? seqNearest(base, -1) : seqNearest(base, 1);
+    if (a < 0) return;
+    seqDrawn = key;
+    seqPaint(seqFrames[a], 1);
+    const b = seqNearest(base + 1, 1);
+    if (frac > 0.02 && b > a && seqFrames[b]) seqPaint(seqFrames[b], Math.min(1, (seqShown - a) / (b - a)));
+    seqCtx.globalAlpha = 1;
+  }
+  function seqTick() {
+    seqLoop = 0;
+    seqShown += (seqTarget - seqShown) * 0.18;
+    if (Math.abs(seqTarget - seqShown) < 0.01) seqShown = seqTarget;
+    seqDraw(false);
+    if (seqShown !== seqTarget) seqLoop = window.requestAnimationFrame(seqTick);
+    else if (wantsComplete) maybeComplete();
+  }
+  function seqTo(progress) {
+    seqTarget = clamp(progress, 0, 1) * (SEQ_COUNT - 1);
+    if (!seqLoop) seqLoop = window.requestAnimationFrame(seqTick);
+  }
+
   function markReady() {
     const value = Number.isFinite(video.duration) ? video.duration : 0;
     if (!value) return;
@@ -87,7 +147,8 @@
 
   function setProgress(value) {
     const progress = clamp(value, 0, 1);
-    if (duration && ready) scrubTo(duration * progress);
+    if (seqMode) seqTo(progress);
+    else if (duration && ready) scrubTo(duration * progress);
     progressBar.style.transform = `scaleX(${progress})`;
     entry.style.setProperty("--entry-progress", progress.toFixed(4));
     const fade = clamp((progress - 0.9) / 0.1, 0, 1) * 0.85;
@@ -296,6 +357,71 @@
     };
     // Never trap anyone: after 15s fall back to streaming playback.
     const loadGuard = window.setTimeout(releaseFilm, 15000);
+    const startSequence = () => {
+      const probe = document.createElement("canvas");
+      if (!probe.getContext || !probe.getContext("2d")) return false;
+      seqCanvas = probe;
+      seqCanvas.className = "entry-canvas";
+      seqCanvas.setAttribute("aria-hidden", "true");
+      seqCtx = seqCanvas.getContext("2d", { alpha: false });
+      video.after(seqCanvas);
+      seqMode = true;
+      entry.classList.add("is-sequence");
+      // Stop the <video> from downloading anything: the stills replace it.
+      video.removeAttribute("src");
+      video.querySelectorAll("source").forEach((node) => node.remove());
+      try { video.load(); } catch {}
+      seqSize();
+      window.addEventListener("resize", () => { seqSize(); seqDraw(true); }, { passive: true });
+      // Load coarse-to-fine (every 8th, 4th, 2nd, then the rest) so the film
+      // can start once a quarter of the stills is in; the rest fill in live.
+      const order = [];
+      const seen = new Set();
+      [8, 4, 2, 1].forEach((step) => {
+        for (let k = 0; k < SEQ_COUNT; k += step) if (!seen.has(k)) { seen.add(k); order.push(k); }
+        if (!seen.has(SEQ_COUNT - 1)) { seen.add(SEQ_COUNT - 1); order.push(SEQ_COUNT - 1); }
+      });
+      const gate = new Set(order.filter((k) => k % 4 === 0 || k === SEQ_COUNT - 1));
+      let gateLoaded = 0, failed = 0, cursor = 0, inflight = 0;
+      const name = (k) => `${seqBase}${String(k + 1).padStart(3, "0")}.webp?v=20261018`;
+      const pump = () => {
+        while (inflight < 8 && cursor < order.length) {
+          const k = order[cursor++];
+          inflight += 1;
+          const img = new Image();
+          img.decoding = "async";
+          img.onload = () => {
+            inflight -= 1;
+            const done = () => {
+              seqFrames[k] = img;
+              if (gate.has(k)) {
+                gateLoaded += 1;
+                setLoad(gateLoaded / gate.size);
+                if (gateLoaded === gate.size) {
+                  ready = true;
+                  window.clearTimeout(loadGuard);
+                  releaseFilm();
+                  status.textContent = "入场动效已就绪，向下滚动进入";
+                }
+              }
+              if (k === 0 || Math.abs(k - seqShown) < 8) seqDraw(true);
+              pump();
+            };
+            (img.decode ? img.decode().catch(() => {}) : Promise.resolve()).then(done);
+          };
+          img.onerror = () => {
+            inflight -= 1; failed += 1;
+            if (gate.has(k)) { gateLoaded += 1; setLoad(gateLoaded / gate.size); if (gateLoaded === gate.size) { window.clearTimeout(loadGuard); releaseFilm(); } }
+            if (failed > 20) { entry.classList.add("is-fallback"); }
+            pump();
+          };
+          img.src = name(k);
+        }
+      };
+      pump();
+      return true;
+    };
+    if (!startSequence()) {
     try {
       const sources = [...video.querySelectorAll("source")];
       const pick = sources.find((source) => !source.media || window.matchMedia(source.media).matches);
@@ -329,10 +455,11 @@
         }).catch(() => { window.clearTimeout(loadGuard); releaseFilm(); });
       } else { window.clearTimeout(loadGuard); releaseFilm(); }
     } catch { window.clearTimeout(loadGuard); releaseFilm(); }
+    }
     // iOS/Safari only paints seeked frames after the element has played once.
-    const unlock = video.play();
+    const unlock = seqMode ? null : video.play();
     if (unlock && typeof unlock.then === "function") unlock.then(() => { video.pause(); markReady(); try { video.currentTime = targetTime; } catch {} }).catch(() => {});
-    video.addEventListener("error", () => { failEntry(); window.clearTimeout(loadGuard); releaseFilm(); }, { once: true });
+    if (!seqMode) video.addEventListener("error", () => { failEntry(); window.clearTimeout(loadGuard); releaseFilm(); }, { once: true });
     skipButton.addEventListener("click", skipEntry);
     window.addEventListener("scroll", requestSync, { passive: true });
     window.addEventListener("resize", requestSync, { passive: true });
