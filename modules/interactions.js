@@ -33,54 +33,165 @@
     }
   }
 
-  if (reduce) return;
+  if (reduce) {
+    const lite = () => setupSidebarHandle();
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", lite); else lite();
+    return;
+  }
 
-  /* 2. Card tilt + spotlight */
+  /* 2. Spring engine: every hover / press / magnet motion runs through one
+     critically-damped spring loop instead of CSS transitions, so motion keeps
+     its velocity when the pointer changes direction (no snapping, no stiffness). */
+  const springs = new Map();
+  let springFrame = 0;
+  const STIFF = 170, DAMP = 22; // tuned to settle in ~380ms without overshoot wobble
+  function spring(el) {
+    let st = springs.get(el);
+    if (!st) {
+      st = { v: { rx: 0, ry: 0, lift: 0, s: 1, tx: 0, ty: 0 }, vel: { rx: 0, ry: 0, lift: 0, s: 0, tx: 0, ty: 0 }, t: { rx: 0, ry: 0, lift: 0, s: 1, tx: 0, ty: 0 }, kind: "card" };
+      springs.set(el, st);
+    }
+    return st;
+  }
+  let lastTime = 0;
+  function stepSprings(now) {
+    springFrame = 0;
+    const dt = Math.min(0.032, Math.max(0.001, ((now - (lastTime || now)) / 1000) || 0.016));
+    lastTime = now;
+    let moving = false;
+    springs.forEach((st, el) => {
+      let rest = true;
+      for (const key in st.v) {
+        const force = (st.t[key] - st.v[key]) * STIFF - st.vel[key] * DAMP;
+        st.vel[key] += force * dt;
+        st.v[key] += st.vel[key] * dt;
+        if (Math.abs(st.t[key] - st.v[key]) > 0.002 || Math.abs(st.vel[key]) > 0.002) rest = false;
+        else { st.v[key] = st.t[key]; st.vel[key] = 0; }
+      }
+      const { rx, ry, lift, s, tx, ty } = st.v;
+      el.classList.add("is-springing");
+      const value = st.kind === "magnet"
+        ? `translate3d(${tx.toFixed(2)}px, ${ty.toFixed(2)}px, 0) scale(${s.toFixed(4)})`
+        : `perspective(1000px) translate3d(0, ${(-lift).toFixed(2)}px, 0) rotateX(${rx.toFixed(3)}deg) rotateY(${ry.toFixed(3)}deg) scale(${s.toFixed(4)})`;
+      el.style.setProperty("transform", value, "important");
+      if (rest && !st.hover) { springs.delete(el); el.classList.remove("is-springing"); el.style.removeProperty("transform"); }
+      else moving = true;
+    });
+    if (moving) springFrame = window.requestAnimationFrame(stepSprings);
+    else lastTime = 0;
+  }
+  const kick = () => { if (!springFrame) springFrame = window.requestAnimationFrame(stepSprings); };
+
   const TILT = ".card, .workflow-card, .task-entry, .brief-pick, .lab-card, .surface-card";
+  const MAGNET = ".brief-cta b, .load-more-button, .secondary-button, .leaderboard-view-tab, .brief-guide-link, .topbar-actions .icon-button, .topbar-actions .icon-text-button, .header-search-toggle, .sidebar-edge-toggle, .entry-skip";
   let tiltTarget = null;
-  let tiltFrame = 0;
-  let lastEvent = null;
-  function applyTilt() {
-    tiltFrame = 0;
-    if (!tiltTarget || !lastEvent) return;
-    const rect = tiltTarget.getBoundingClientRect();
-    const x = (lastEvent.clientX - rect.left) / rect.width;
-    const y = (lastEvent.clientY - rect.top) / rect.height;
-    tiltTarget.style.setProperty("--rx", `${((0.5 - y) * 5).toFixed(2)}deg`);
-    tiltTarget.style.setProperty("--ry", `${((x - 0.5) * 6).toFixed(2)}deg`);
-    tiltTarget.style.setProperty("--pointer-x", `${(x * 100).toFixed(1)}%`);
-    tiltTarget.style.setProperty("--pointer-y", `${(y * 100).toFixed(1)}%`);
-  }
-  function resetTilt(element) {
-    if (!element) return;
-    element.style.setProperty("--rx", "0deg");
-    element.style.setProperty("--ry", "0deg");
+  let magnetTarget = null;
+  function release(el) {
+    const st = springs.get(el);
+    if (!st) return;
+    st.hover = false;
+    Object.assign(st.t, { rx: 0, ry: 0, lift: 0, s: 1, tx: 0, ty: 0 });
+    kick();
   }
   if (finePointer) {
     document.addEventListener("pointermove", (event) => {
-      const target = event.target.closest?.(TILT) || null;
-      if (target !== tiltTarget) { resetTilt(tiltTarget); tiltTarget = target; }
-      if (!tiltTarget) return;
-      lastEvent = event;
-      if (!tiltFrame) tiltFrame = window.requestAnimationFrame(applyTilt);
+      const card = event.target.closest?.(TILT) || null;
+      if (card !== tiltTarget) { release(tiltTarget); tiltTarget = card; }
+      if (card) {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+        const st = spring(card);
+        st.kind = "card"; st.hover = true;
+        card.classList.add("is-springing");
+        // Bigger cards tilt less: keeps large panels calm, small chips lively.
+        const k = Math.min(1, 320 / Math.max(rect.width, 1));
+        st.t.rx = (0.5 - y) * 4.2 * k;
+        st.t.ry = (x - 0.5) * 5.2 * k;
+        st.t.lift = 5;
+        card.style.setProperty("--pointer-x", `${(x * 100).toFixed(1)}%`);
+        card.style.setProperty("--pointer-y", `${(y * 100).toFixed(1)}%`);
+        kick();
+      }
+      const mag = event.target.closest?.(MAGNET) || null;
+      if (mag !== magnetTarget) { release(magnetTarget); magnetTarget = mag; }
+      if (mag) {
+        const rect = mag.getBoundingClientRect();
+        const st = spring(mag);
+        st.kind = "magnet"; st.hover = true;
+        st.t.tx = (event.clientX - rect.left - rect.width / 2) * 0.2;
+        st.t.ty = (event.clientY - rect.top - rect.height / 2) * 0.28;
+        kick();
+      }
     }, { passive: true });
-    document.addEventListener("pointerleave", () => { resetTilt(tiltTarget); tiltTarget = null; });
+    document.addEventListener("pointerdown", (event) => {
+      const el = event.target.closest?.(`${TILT}, ${MAGNET}`);
+      if (!el) return;
+      const st = spring(el);
+      st.t.s = 0.975; st.t.lift = Math.min(st.t.lift, 2);
+      kick();
+    }, { passive: true });
+    const up = () => {
+      springs.forEach((st) => { if (st.t.s !== 1) { st.t.s = 1; if (st.hover && st.kind === "card") st.t.lift = 5; } });
+      kick();
+    };
+    document.addEventListener("pointerup", up, { passive: true });
+    document.addEventListener("pointercancel", up, { passive: true });
+    document.documentElement.addEventListener("pointerleave", () => { release(tiltTarget); release(magnetTarget); tiltTarget = magnetTarget = null; });
   }
 
-  /* 3. Magnetic buttons */
-  const MAGNET = ".brief-cta b, .load-more-button, .secondary-button, .leaderboard-view-tab, .brief-guide-link, .topbar-actions .icon-button, .topbar-actions .icon-text-button, .header-search-toggle";
-  if (finePointer) {
-    document.addEventListener("pointermove", (event) => {
-      const el = event.target.closest?.(MAGNET);
-      document.querySelectorAll(".is-magnet").forEach((node) => {
-        if (node !== el) { node.classList.remove("is-magnet"); node.style.removeProperty("--mx"); node.style.removeProperty("--my"); }
-      });
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      el.classList.add("is-magnet");
-      el.style.setProperty("--mx", `${((event.clientX - rect.left - rect.width / 2) * 0.22).toFixed(1)}px`);
-      el.style.setProperty("--my", `${((event.clientY - rect.top - rect.height / 2) * 0.3).toFixed(1)}px`);
-    }, { passive: true });
+  /* 3. Staggered entrance for freshly rendered cards (filters, tabs, load more). */
+  const ENTER = ".card, .workflow-card, .lab-card, .brief-pick, .surface-card";
+  function enter(nodes) {
+    let i = 0;
+    nodes.forEach((node) => {
+      if (!(node instanceof HTMLElement) || !node.matches(ENTER) || node.dataset.entered) return;
+      node.dataset.entered = "1";
+      const rect = node.getBoundingClientRect();
+      if (rect.top > window.innerHeight * 1.2) return; // off-screen: no animation cost
+      node.style.setProperty("--enter-delay", `${Math.min(i, 14) * 32}ms`);
+      node.classList.add("kc-enter");
+      node.addEventListener("animationend", () => node.classList.remove("kc-enter"), { once: true });
+      i += 1;
+    });
+  }
+  function watchGrids() {
+    const mo = new MutationObserver((records) => {
+      const added = [];
+      records.forEach((r) => r.addedNodes.forEach((n) => {
+        if (n.nodeType !== 1) return;
+        if (n.matches?.(ENTER)) added.push(n);
+        else n.querySelectorAll?.(ENTER).forEach((c) => added.push(c));
+      }));
+      if (added.length) window.requestAnimationFrame(() => enter(added));
+    });
+    const main = document.getElementById("mainContent");
+    if (main) mo.observe(main, { childList: true, subtree: true });
+  }
+
+  /* 3b. Sidebar: always-visible edge handle + Ctrl/⌘ + \ shortcut. */
+  function setupSidebarHandle() {
+    const nav = document.querySelector(".sidenav");
+    const original = document.getElementById("sidebarToggle");
+    if (!nav || !original) return;
+    const handle = document.createElement("button");
+    handle.type = "button";
+    handle.className = "sidebar-edge-toggle";
+    handle.innerHTML = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3.5L5.5 8l4.5 4.5"></path></svg>';
+    const sync = () => {
+      const collapsed = document.body.classList.contains("sidebar-collapsed");
+      const label = collapsed ? "展开侧边栏（Ctrl/⌘ + \\）" : "收起侧边栏（Ctrl/⌘ + \\）";
+      handle.setAttribute("aria-label", label);
+      handle.title = label;
+      handle.setAttribute("aria-expanded", String(!collapsed));
+    };
+    handle.addEventListener("click", (event) => { event.preventDefault(); original.click(); });
+    (document.querySelector(".app-shell") || document.body).append(handle);
+    new MutationObserver(sync).observe(document.body, { attributes: true, attributeFilter: ["class"] });
+    sync();
+    window.addEventListener("keydown", (event) => {
+      if ((event.metaKey || event.ctrlKey) && event.key === "\\") { event.preventDefault(); original.click(); }
+    });
   }
 
   /* 4. Sliding nav indicator */
@@ -139,7 +250,7 @@
     });
   }
 
-  const start = () => { setupNavIndicator(); watchBoards(); };
+  const start = () => { setupNavIndicator(); watchBoards(); watchGrids(); setupSidebarHandle(); };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
   else start();
   root.classList.add("has-interactions");

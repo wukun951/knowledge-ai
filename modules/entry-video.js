@@ -24,6 +24,7 @@
   let handoffScheduled = false;
   let handoffTimer = 0;
   let releaseTimer = 0;
+  let filmLoaded = false;
 
   const SEEN_KEY = "kc-entry-seen";
   const markSeen = () => { try { window.sessionStorage.setItem(SEEN_KEY, "1"); } catch {} };
@@ -50,12 +51,24 @@
   function scrubLoop() {
     scrubFrame = 0;
     if (!ready || !duration) return;
-    shownTime += (targetTime - shownTime) * 0.3;
+    shownTime += (targetTime - shownTime) * 0.16;
     if (Math.abs(targetTime - shownTime) < 0.004) shownTime = targetTime;
     if (!video.seeking && Math.abs(video.currentTime - shownTime) > 0.012) {
       try { video.currentTime = shownTime; } catch {}
     }
     if (shownTime !== targetTime || video.seeking) scrubFrame = window.requestAnimationFrame(scrubLoop);
+    else if (wantsComplete) maybeComplete();
+  }
+  // Enter only after the film has actually painted its last frame, never just
+  // because the scroll position reached the end of the runway.
+  let wantsComplete = false;
+  function filmAtEnd() {
+    return !ready || !duration || (!video.seeking && video.currentTime >= duration - 0.12 && shownTime >= duration - 0.12);
+  }
+  function maybeComplete() {
+    if (!wantsComplete || hasCompleted) return;
+    if (filmAtEnd()) window.setTimeout(() => { if (wantsComplete && filmAtEnd()) completeEntry(); }, 380);
+    else if (!scrubFrame) scrubFrame = window.requestAnimationFrame(scrubLoop);
   }
   function scrubTo(time) {
     targetTime = clamp(time, 0, Math.max(0, duration - 0.04));
@@ -77,7 +90,7 @@
     if (duration && ready) scrubTo(duration * progress);
     progressBar.style.transform = `scaleX(${progress})`;
     entry.style.setProperty("--entry-progress", progress.toFixed(4));
-    const fade = clamp((progress - 0.78) / 0.22, 0, 1);
+    const fade = clamp((progress - 0.9) / 0.1, 0, 1) * 0.85;
     entry.style.setProperty("--entry-fade", fade.toFixed(4));
     if (blackout) blackout.style.opacity = String(fade);
     if (progress > 0.02) scrollHint.classList.add("is-hidden");
@@ -93,8 +106,8 @@
     if (!active) return;
     const progress = getScrollProgress();
     setProgress(progress);
-    if (progress >= 0.995) completeEntry();
-    else if (hasCompleted) restoreEntry();
+    if (progress >= 0.995) { wantsComplete = true; maybeComplete(); }
+    else { wantsComplete = false; if (hasCompleted) restoreEntry(); }
   }
 
   function requestSync() {
@@ -212,7 +225,7 @@
   }
 
   function handleTouchMove(event) {
-    if (!active || touchStartY === null) return;
+    if (!active || touchStartY === null || !filmLoaded) return;
     const currentY = event.touches[0]?.clientY ?? touchStartY;
     const delta = touchStartY - currentY;
     const range = Math.max(1, entry.offsetHeight - window.innerHeight);
@@ -249,25 +262,77 @@
     video.addEventListener("seeked", () => { if (!scrubFrame && shownTime !== targetTime) scrubFrame = window.requestAnimationFrame(scrubLoop); });
     if (video.readyState >= 1) markReady();
     // Pull the whole film into memory so every frame is seekable at once,
-    // independent of how the host answers range requests.
+    // independent of how the host answers range requests. Until it is in,
+    // the page is held at the top with a loading meter: the intro only
+    // starts once the film can actually follow the scroll.
+    const loader = document.createElement("div");
+    loader.className = "entry-loader";
+    loader.innerHTML = '<span class="entry-loader-ring"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="17"></circle><circle class="entry-loader-arc" cx="20" cy="20" r="17"></circle></svg></span><span class="entry-loader-text">载入影片 <b>0%</b></span>';
+    entry.querySelector(".entry-sticky-stage")?.append(loader);
+    const loaderText = loader.querySelector("b");
+    const loaderArc = loader.querySelector(".entry-loader-arc");
+    const setLoad = (ratio) => {
+      const r = clamp(ratio, 0, 1);
+      loaderText.textContent = `${Math.round(r * 100)}%`;
+      loaderArc.style.strokeDashoffset = String(106.8 * (1 - r));
+    };
+    const lockScroll = (event) => { if (!filmLoaded && active) { event.preventDefault(); } };
+    const lockKeys = (event) => { if (!filmLoaded && active && [" ", "PageDown", "ArrowDown", "End"].includes(event.key)) event.preventDefault(); };
+    window.addEventListener("wheel", lockScroll, { passive: false });
+    window.addEventListener("touchmove", lockScroll, { passive: false });
+    window.addEventListener("keydown", lockKeys);
+    entry.classList.add("is-film-loading");
+    const releaseFilm = () => {
+      if (filmLoaded) return;
+      filmLoaded = true;
+      setLoad(1);
+      entry.classList.remove("is-film-loading");
+      entry.classList.add("is-film-ready");
+      window.setTimeout(() => loader.remove(), 900);
+      window.removeEventListener("wheel", lockScroll);
+      window.removeEventListener("touchmove", lockScroll);
+      window.removeEventListener("keydown", lockKeys);
+      window.scrollTo({ top: 0, behavior: "instant" });
+    };
+    // Never trap anyone: after 15s fall back to streaming playback.
+    const loadGuard = window.setTimeout(releaseFilm, 15000);
     try {
       const sources = [...video.querySelectorAll("source")];
       const pick = sources.find((source) => !source.media || window.matchMedia(source.media).matches);
       if (pick && window.fetch && window.URL?.createObjectURL) {
-        fetch(pick.src).then((response) => (response.ok ? response.blob() : Promise.reject(response.status))).then((blob) => {
+        fetch(pick.src).then(async (response) => {
+          if (!response.ok) throw response.status;
+          const total = Number(response.headers.get("content-length")) || 0;
+          if (!response.body || !total) return response.blob();
+          const reader = response.body.getReader();
+          const chunks = [];
+          let received = 0;
+          for (;;) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            chunks.push(value);
+            received += value.length;
+            setLoad(received / total * 0.96);
+          }
+          return new Blob(chunks, { type: "video/mp4" });
+        }).then((blob) => {
           if (!active) return;
           const resume = targetTime;
           ready = false;
           video.src = URL.createObjectURL(blob);
           video.load();
-          video.addEventListener("loadeddata", () => { try { video.currentTime = resume; } catch {} shownTime = resume; markReady(); setProgress(getScrollProgress()); }, { once: true });
-        }).catch(() => {});
-      }
-    } catch {}
+          video.addEventListener("loadeddata", () => {
+            try { video.currentTime = resume; } catch {}
+            shownTime = resume; markReady(); setProgress(getScrollProgress());
+            window.clearTimeout(loadGuard); releaseFilm();
+          }, { once: true });
+        }).catch(() => { window.clearTimeout(loadGuard); releaseFilm(); });
+      } else { window.clearTimeout(loadGuard); releaseFilm(); }
+    } catch { window.clearTimeout(loadGuard); releaseFilm(); }
     // iOS/Safari only paints seeked frames after the element has played once.
     const unlock = video.play();
     if (unlock && typeof unlock.then === "function") unlock.then(() => { video.pause(); markReady(); try { video.currentTime = targetTime; } catch {} }).catch(() => {});
-    video.addEventListener("error", failEntry, { once: true });
+    video.addEventListener("error", () => { failEntry(); window.clearTimeout(loadGuard); releaseFilm(); }, { once: true });
     skipButton.addEventListener("click", skipEntry);
     window.addEventListener("scroll", requestSync, { passive: true });
     window.addEventListener("resize", requestSync, { passive: true });
@@ -275,7 +340,7 @@
     // (scroll hijacked by an extension, smooth-scroll lib, or a focus trap),
     // advance it ourselves so the intro can never get stuck.
     entry.addEventListener("wheel", (event) => {
-      if (!active || hasCompleted) return;
+      if (!active || hasCompleted || !filmLoaded) return;
       const before = window.scrollY;
       const delta = clamp(event.deltaMode === 1 ? event.deltaY * 32 : event.deltaY, -240, 240);
       window.setTimeout(() => {
