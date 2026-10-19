@@ -1,11 +1,11 @@
 {
  "schema": "leaderboards.v1",
- "updated_at": "2026-10-17",
+ "updated_at": "2026-10-19",
  "guide_url": "https://ai-model-guide-2026.netlify.app/",
  "llm": {
   "aa": {
    "title": "Artificial Analysis 智能指数",
-   "meta": "2026-10-17 读取 · 每个模型取最高档位 · 成本为跑完整套测试的美元/任务",
+   "meta": "2026-10-19 读取 · 每个模型取最高档位 · 成本为跑完整套测试的美元/任务",
    "url": "https://artificialanalysis.ai/leaderboards/models",
    "note": "开源最高：小米 MiMo-V2.6-Pro（46，$0.13/任务）、GLM-5.3（45）。",
    "rows": [
@@ -14,14 +14,14 @@
      "creator": "Anthropic",
      "score": 58,
      "cost": 5.98,
-     "speed": 97
+     "speed": 98
     },
     {
      "name": "Claude Sonnet 5.5",
      "creator": "Anthropic",
      "score": 56,
      "cost": 5.46,
-     "speed": 141
+     "speed": 137
     },
     {
      "name": "Muse Wonder Full",
@@ -35,14 +35,14 @@
      "creator": "Anthropic",
      "score": 53,
      "cost": 7.63,
-     "speed": 71
+     "speed": 69
     },
     {
      "name": "GPT-6 Astra",
      "creator": "OpenAI",
      "score": 53,
      "cost": 3.26,
-     "speed": 57
+     "speed": 70
     },
     {
      "name": "Gemini 4 Argon",
@@ -56,28 +56,28 @@
      "creator": "Meta",
      "score": 52,
      "cost": 4.52,
-     "speed": 181
+     "speed": 188
     },
     {
      "name": "GPT-6.1 Sol",
      "creator": "OpenAI",
      "score": 52,
      "cost": 0.72,
-     "speed": 66
+     "speed": 60
     },
     {
      "name": "Muse Spark 1.3",
      "creator": "Meta",
      "score": 48,
      "cost": 1.6,
-     "speed": 134
+     "speed": 146
     },
     {
      "name": "Grok 4.7",
      "creator": "SpaceXAI",
      "score": 46,
      "cost": 3.74,
-     "speed": 93
+     "speed": 96
     }
    ]
   },
@@ -230,70 +230,70 @@
    ]
   },
   "aa": {
-   "title": "AA-Image-T2I v2.0",
-   "meta": "Artificial Analysis · Elo · API 价 $/1000 张",
+   "title": "AA-Image-T2I v2.1",
+   "meta": "Artificial Analysis · 2026-10-19 读取 · Elo · API 价 $/1000 张",
    "url": "https://artificialanalysis.ai/image/leaderboard/text-to-image",
-   "note": "AA 图像榜由招募评审盲选两两对比算 Elo，另含 2026-01-01 前的公开投票；价格为每 1000 张图。",
+   "note": "国内最高：Seedream 5.0 Pro（字节）第 16 名 1100、Qwen-Image-3.0-Pro（阿里）1094；开源最高 Qwen-Image-2.1 1042。价格为每 1000 张图。",
    "rows": [
     {
      "name": "GPT Image 2.5 Sunburst (max)",
      "creator": "OpenAI",
-     "score": 1198,
+     "score": 1220,
      "extra": "$210.7"
     },
     {
      "name": "GPT Image 2.5 Flare (max)",
      "creator": "OpenAI",
-     "score": 1191,
+     "score": 1207,
      "extra": "$210.7"
     },
     {
      "name": "GPT Image 2 (high)",
      "creator": "OpenAI",
-     "score": 1172,
+     "score": 1186,
      "extra": "$211.0"
     },
     {
      "name": "Nano Banana 2.1",
      "creator": "Google",
-     "score": 1160,
+     "score": 1174,
      "extra": "$33.6"
     },
     {
      "name": "Grok Imagine Image 2.0",
      "creator": "SpaceXAI",
-     "score": 1155,
+     "score": 1167,
      "extra": "$60.0"
     },
     {
      "name": "MAI-Image-2.6",
      "creator": "Microsoft AI",
-     "score": 1151,
+     "score": 1166,
      "extra": "$38.9"
     },
     {
      "name": "Nano Banana 2",
      "creator": "Google",
-     "score": 1125,
+     "score": 1140,
      "extra": "$67.0"
-    },
-    {
-     "name": "FLUX 3 Image",
-     "creator": "Black Forest Labs",
-     "score": 1116,
-     "extra": "$48.0"
     },
     {
      "name": "Muse Image",
      "creator": "Meta",
-     "score": 1114,
+     "score": 1127,
      "extra": "$10.0"
     },
     {
      "name": "GPT Image 1.5 (high)",
      "creator": "OpenAI",
-     "score": 1108,
+     "score": 1123,
      "extra": "$133.0"
+    },
+    {
+     "name": "MAI-Image-2.6-Flash",
+     "creator": "Microsoft AI",
+     "score": 1119,
+     "extra": "$19.5"
     }
    ]
   }
@@ -368,70 +368,70 @@
    ]
   },
   "aa": {
-   "title": "AA-Video-T2V v2.0（带音频）",
-   "meta": "Artificial Analysis · Elo · API 价 $/分钟 1080p",
+   "title": "AA-Video-T2V v2.1（带音频）",
+   "meta": "Artificial Analysis · 2026-10-19 读取 · 带音频 · Elo · API 价 $/分钟 1080p",
    "url": "https://artificialanalysis.ai/video/leaderboard/text-to-video",
-   "note": "音乐和语音（Suno、ACE Studio、ElevenLabs 等）暂无统一权威榜单，本页不打分。",
+   "note": "国内最高：Wan 3.0（阿里）第 1 名 1174；开源最高 MiniMax H3（768p）1159。音乐和语音（Suno、ACE Studio、ElevenLabs 等）暂无统一权威榜单，本页不打分。",
    "rows": [
     {
      "name": "Wan 3.0",
      "creator": "阿里巴巴",
-     "score": 1156,
+     "score": 1174,
      "extra": "$12.00"
     },
     {
      "name": "Utopai X",
      "creator": "Utopai Studios",
-     "score": 1149,
+     "score": 1169,
      "extra": "无 API"
     },
     {
      "name": "Dreamina Seedance 2.5",
      "creator": "字节跳动",
-     "score": 1143,
+     "score": 1160,
      "extra": "$34.12"
     },
     {
      "name": "MiniMax H3 (768p)",
      "creator": "MiniMax",
-     "score": 1137,
+     "score": 1159,
      "extra": "$4.80 · 开放权重"
     },
     {
      "name": "MiniMax H3 Max",
      "creator": "MiniMax",
-     "score": 1130,
+     "score": 1155,
      "extra": "$4.80"
     },
     {
      "name": "FLUX 3",
      "creator": "Black Forest Labs",
-     "score": 1128,
+     "score": 1146,
      "extra": "$17.40"
     },
     {
      "name": "Dreamina Seedance 2.0",
      "creator": "字节跳动",
-     "score": 1116,
+     "score": 1136,
      "extra": "$22.45"
     },
     {
      "name": "Gemini Omni Flash 1.1",
      "creator": "Google",
-     "score": 1113,
+     "score": 1132,
      "extra": "$9.12"
-    },
-    {
-     "name": "SkyReels V4",
-     "creator": "Skywork",
-     "score": 1074,
-     "extra": "$21.00"
     },
     {
      "name": "Agnes-Video-2.5",
      "creator": "Sapiens AI",
-     "score": 1057,
+     "score": 1068,
      "extra": "$2.40"
+    },
+    {
+     "name": "Grok Imagine Video 1.5",
+     "creator": "SpaceXAI",
+     "score": 1060,
+     "extra": "$15.00"
     }
    ]
   }
